@@ -6,13 +6,11 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/my_tickets/components/my_tickets_card2_options/my_tickets_card2_options_widget.dart';
 import '/my_tickets/components/my_tickets_card_options/my_tickets_card_options_widget.dart';
 import '/walkthroughs/ticket.dart';
-import 'dart:ui';
 import '/index.dart';
 import 'dart:math' as math;
 import 'package:styled_divider/styled_divider.dart';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'
     show TutorialCoachMark;
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -138,7 +136,7 @@ class _MyTicketsSingleWidgetState extends State<MyTicketsSingleWidget> {
                   size: 24.0,
                 ),
                 onPressed: () async {
-                  if (widget!.isCompleted) {
+                  if (widget.isCompleted) {
                     await showModalBottomSheet(
                       isScrollControlled: true,
                       backgroundColor: FlutterFlowTheme.of(context).accent4,
@@ -240,7 +238,7 @@ class _MyTicketsSingleWidgetState extends State<MyTicketsSingleWidget> {
                                           alignment:
                                               AlignmentDirectional(0.0, 1.0),
                                           image: Image.network(
-                                            widget!.data!.img,
+                                            widget.data!.img,
                                           ).image,
                                         ),
                                         borderRadius:
@@ -252,7 +250,7 @@ class _MyTicketsSingleWidgetState extends State<MyTicketsSingleWidget> {
                                           0.0, 15.0, 0.0, 0.0),
                                       child: Text(
                                         valueOrDefault<String>(
-                                          widget!.data?.title,
+                                          widget.data?.title,
                                           'David Guetta Ultra Miami 2025 Music Festival',
                                         ),
                                         textAlign: TextAlign.center,

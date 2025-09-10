@@ -1,4 +1,3 @@
-import '/backend/schema/structs/index.dart';
 import '/explore/components/filter_by_category/filter_by_category_widget.dart';
 import '/explore/components/filter_by_date/filter_by_date_widget.dart';
 import '/explore/components/filter_sort/filter_sort_widget.dart';
@@ -7,8 +6,6 @@ import '/explore/components/widget_event_card_trending/widget_event_card_trendin
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -420,8 +417,7 @@ class _ExploreSearchWidgetState extends State<ExploreSearchWidget> {
                                 height: 40.0,
                                 decoration: BoxDecoration(
                                   color: valueOrDefault<Color>(
-                                    FFAppState().SelectedCategory != null &&
-                                            FFAppState().SelectedCategory != ''
+                                    FFAppState().SelectedCategory != ''
                                         ? FlutterFlowTheme.of(context)
                                             .primaryText
                                         : FlutterFlowTheme.of(context).accent1,
@@ -441,9 +437,7 @@ class _ExploreSearchWidgetState extends State<ExploreSearchWidget> {
                                         child: Icon(
                                           FFIcons.klayoutGrid,
                                           color: valueOrDefault<Color>(
-                                            FFAppState().SelectedCategory !=
-                                                        null &&
-                                                    FFAppState()
+                                            FFAppState()
                                                             .SelectedCategory !=
                                                         ''
                                                 ? FlutterFlowTheme.of(context)
@@ -461,9 +455,7 @@ class _ExploreSearchWidgetState extends State<ExploreSearchWidget> {
                                             10.0, 7.0, 5.0, 7.0),
                                         child: Text(
                                           valueOrDefault<String>(
-                                            FFAppState().SelectedCategory !=
-                                                        null &&
-                                                    FFAppState()
+                                            FFAppState()
                                                             .SelectedCategory !=
                                                         ''
                                                 ? FFAppState().SelectedCategory
@@ -486,9 +478,7 @@ class _ExploreSearchWidgetState extends State<ExploreSearchWidget> {
                                                           .fontStyle,
                                                 ),
                                                 color: valueOrDefault<Color>(
-                                                  FFAppState().SelectedCategory !=
-                                                              null &&
-                                                          FFAppState()
+                                                  FFAppState()
                                                                   .SelectedCategory !=
                                                               ''
                                                       ? FlutterFlowTheme.of(
@@ -512,9 +502,7 @@ class _ExploreSearchWidgetState extends State<ExploreSearchWidget> {
                                               ),
                                         ),
                                       ),
-                                      if (FFAppState().SelectedCategory !=
-                                              null &&
-                                          FFAppState().SelectedCategory != '')
+                                      if (FFAppState().SelectedCategory != '')
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -532,9 +520,7 @@ class _ExploreSearchWidgetState extends State<ExploreSearchWidget> {
                                             child: Icon(
                                               FFIcons.kxClose,
                                               color: valueOrDefault<Color>(
-                                                FFAppState().SelectedCategory !=
-                                                            null &&
-                                                        FFAppState()
+                                                FFAppState()
                                                                 .SelectedCategory !=
                                                             ''
                                                     ? FlutterFlowTheme.of(

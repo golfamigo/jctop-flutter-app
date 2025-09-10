@@ -4,12 +4,10 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/my_tickets/components/my_tickets_card_options/my_tickets_card_options_widget.dart';
 import '/my_tickets/components/show_q_r/show_q_r_widget.dart';
-import 'dart:ui';
 import '/index.dart';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'my_tickets_card_model.dart';
 export 'my_tickets_card_model.dart';
 
@@ -65,7 +63,7 @@ class _MyTicketsCardWidgetState extends State<MyTicketsCardWidget> {
               ParamType.bool,
             ),
             'data': serializeParam(
-              widget!.data,
+              widget.data,
               ParamType.DataStruct,
             ),
           }.withoutNulls,
@@ -101,7 +99,7 @@ class _MyTicketsCardWidgetState extends State<MyTicketsCardWidget> {
                               image: DecorationImage(
                                 fit: BoxFit.cover,
                                 image: Image.network(
-                                  widget!.data!.img,
+                                  widget.data!.img,
                                 ).image,
                               ),
                               borderRadius: BorderRadius.circular(10.0),
@@ -136,7 +134,7 @@ class _MyTicketsCardWidgetState extends State<MyTicketsCardWidget> {
                                                     6.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               valueOrDefault<String>(
-                                                widget!.data?.location,
+                                                widget.data?.location,
                                                 'Miami, FL',
                                               ).maybeHandleOverflow(
                                                 maxChars: 20,
@@ -233,7 +231,7 @@ class _MyTicketsCardWidgetState extends State<MyTicketsCardWidget> {
                                         0.0, 8.0, 0.0, 0.0),
                                     child: Text(
                                       valueOrDefault<String>(
-                                        widget!.data?.title,
+                                        widget.data?.title,
                                         'Sunrise Trek and Cultural Tour',
                                       ),
                                       textAlign: TextAlign.start,
@@ -267,7 +265,7 @@ class _MyTicketsCardWidgetState extends State<MyTicketsCardWidget> {
                                         0.0, 5.0, 0.0, 0.0),
                                     child: Text(
                                       valueOrDefault<String>(
-                                        widget!.data?.date,
+                                        widget.data?.date,
                                         'Nov 25, 2025, 02:00 PM',
                                       ),
                                       style: FlutterFlowTheme.of(context)

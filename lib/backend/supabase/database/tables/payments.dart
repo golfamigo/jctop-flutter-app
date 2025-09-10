@@ -36,8 +36,8 @@ class PaymentsRow extends SupabaseDataRow {
   String? get transactionId => getField<String>('transaction_id');
   set transactionId(String? value) => setField<String>('transaction_id', value);
 
-  dynamic? get providerResponse => getField<dynamic>('provider_response');
-  set providerResponse(dynamic? value) =>
+  dynamic get providerResponse => getField<dynamic>('provider_response');
+  set providerResponse(dynamic value) =>
       setField<dynamic>('provider_response', value);
 
   DateTime? get createdAt => getField<DateTime>('created_at');

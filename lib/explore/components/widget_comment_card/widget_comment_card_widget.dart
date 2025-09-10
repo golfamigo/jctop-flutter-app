@@ -1,11 +1,8 @@
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'widget_comment_card_model.dart';
 export 'widget_comment_card_model.dart';
 
@@ -72,7 +69,7 @@ class _WidgetCommentCardWidgetState extends State<WidgetCommentCardWidget> {
                   children: [
                     Text(
                       valueOrDefault<String>(
-                        widget!.data?.name,
+                        widget.data?.name,
                         'Javier C.',
                       ),
                       style: FlutterFlowTheme.of(context).titleMedium.override(
@@ -99,7 +96,7 @@ class _WidgetCommentCardWidgetState extends State<WidgetCommentCardWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                       child: Text(
                         valueOrDefault<String>(
-                          widget!.data?.date,
+                          widget.data?.date,
                           'November 2024',
                         ),
                         style: FlutterFlowTheme.of(context).labelSmall.override(
@@ -160,7 +157,7 @@ class _WidgetCommentCardWidgetState extends State<WidgetCommentCardWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
               child: Text(
                 valueOrDefault<String>(
-                  widget!.data?.comment,
+                  widget.data?.comment,
                   'I’m so glad I decided to attend this event. The atmosphere was warm and welcoming, with something for everyone. The kids loved the ...',
                 ),
                 style: FlutterFlowTheme.of(context).labelSmall.override(

@@ -1,15 +1,11 @@
-import '/backend/schema/structs/index.dart';
 import '/custom_calendar/components/day_text/day_text_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'calendar_comp_model.dart';
 export 'calendar_comp_model.dart';
 
@@ -45,10 +41,10 @@ class _CalendarCompWidgetState extends State<CalendarCompWidget> {
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.inputDate = widget!.inputDate;
+      _model.inputDate = widget.inputDate;
       safeSetState(() {});
-      if (widget!.initialSelectedDate != null) {
-        _model.selectedDate = widget!.initialSelectedDate;
+      if (widget.initialSelectedDate != null) {
+        _model.selectedDate = widget.initialSelectedDate;
         safeSetState(() {});
       }
     });

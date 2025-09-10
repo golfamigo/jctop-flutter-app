@@ -3,12 +3,10 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/my_tickets/components/my_tickets_card2_options/my_tickets_card2_options_widget.dart';
-import 'dart:ui';
 import '/index.dart';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'my_tickets_card2_model.dart';
 export 'my_tickets_card2_model.dart';
 
@@ -64,7 +62,7 @@ class _MyTicketsCard2WidgetState extends State<MyTicketsCard2Widget> {
               ParamType.bool,
             ),
             'data': serializeParam(
-              widget!.data,
+              widget.data,
               ParamType.DataStruct,
             ),
           }.withoutNulls,
@@ -100,7 +98,7 @@ class _MyTicketsCard2WidgetState extends State<MyTicketsCard2Widget> {
                               image: DecorationImage(
                                 fit: BoxFit.cover,
                                 image: Image.network(
-                                  widget!.data!.img,
+                                  widget.data!.img,
                                 ).image,
                               ),
                               borderRadius: BorderRadius.circular(10.0),
@@ -135,7 +133,7 @@ class _MyTicketsCard2WidgetState extends State<MyTicketsCard2Widget> {
                                                     6.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               valueOrDefault<String>(
-                                                widget!.data?.location,
+                                                widget.data?.location,
                                                 'Miami, FL',
                                               ).maybeHandleOverflow(
                                                 maxChars: 10,
@@ -230,7 +228,7 @@ class _MyTicketsCard2WidgetState extends State<MyTicketsCard2Widget> {
                                         0.0, 8.0, 0.0, 0.0),
                                     child: Text(
                                       valueOrDefault<String>(
-                                        widget!.data?.title,
+                                        widget.data?.title,
                                         'Sunrise Trek and Cultural Tour',
                                       ),
                                       textAlign: TextAlign.start,
@@ -264,7 +262,7 @@ class _MyTicketsCard2WidgetState extends State<MyTicketsCard2Widget> {
                                         0.0, 5.0, 0.0, 0.0),
                                     child: Text(
                                       valueOrDefault<String>(
-                                        widget!.data?.date,
+                                        widget.data?.date,
                                         'Nov 25, 2025, 02:00 PM',
                                       ),
                                       style: FlutterFlowTheme.of(context)
@@ -366,7 +364,7 @@ class _MyTicketsCard2WidgetState extends State<MyTicketsCard2Widget> {
                                   LeaveReviewWidget.routeName,
                                   queryParameters: {
                                     'title': serializeParam(
-                                      widget!.data?.title,
+                                      widget.data?.title,
                                       ParamType.String,
                                     ),
                                   }.withoutNulls,

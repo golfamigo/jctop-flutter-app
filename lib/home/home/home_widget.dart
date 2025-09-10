@@ -1,4 +1,3 @@
-import '/backend/schema/structs/index.dart';
 import '/explore/components/widget_categories_card2/widget_categories_card2_widget.dart';
 import '/explore/components/widget_event_card/widget_event_card_widget.dart';
 import '/explore/components/widget_event_card2/widget_event_card2_widget.dart';
@@ -11,8 +10,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/home/components/home_filter_all/home_filter_all_widget.dart';
 import '/home/components/widget_navbar/widget_navbar_widget.dart';
 import '/walkthroughs/home.dart';
-import 'dart:math';
-import 'dart:ui';
 import '/index.dart';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'
     show TutorialCoachMark;
@@ -53,7 +50,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      if (widget!.fromRegister) {
+      if (widget.fromRegister) {
         await Future.delayed(
           Duration(
             milliseconds: 1000,

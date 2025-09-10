@@ -10,12 +10,9 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_toggle_icon.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import '/index.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'single_event2_model.dart';
 export 'single_event2_model.dart';
@@ -91,7 +88,7 @@ class _SingleEvent2WidgetState extends State<SingleEvent2Widget> {
                               image: DecorationImage(
                                 fit: BoxFit.cover,
                                 image: Image.network(
-                                  widget!.data!.img,
+                                  widget.data!.img,
                                 ).image,
                               ),
                             ),
@@ -170,19 +167,19 @@ class _SingleEvent2WidgetState extends State<SingleEvent2Widget> {
                                                       () => FFAppState()
                                                               .TrandingEventsFavorites
                                                               .contains(
-                                                                  widget!.data)
+                                                                  widget.data)
                                                           ? FFAppState()
                                                               .removeFromTrandingEventsFavorites(
-                                                                  widget!.data!)
+                                                                  widget.data!)
                                                           : FFAppState()
                                                               .addToTrandingEventsFavorites(
-                                                                  widget!
+                                                                  widget
                                                                       .data!),
                                                     );
                                                   },
                                                   value: FFAppState()
                                                       .TrandingEventsFavorites
-                                                      .contains(widget!.data),
+                                                      .contains(widget.data),
                                                   onIcon: Icon(
                                                     Icons.favorite_rounded,
                                                     color: FlutterFlowTheme.of(
@@ -260,7 +257,7 @@ class _SingleEvent2WidgetState extends State<SingleEvent2Widget> {
                                     children: [
                                       Text(
                                         valueOrDefault<String>(
-                                          widget!.data?.title,
+                                          widget.data?.title,
                                           'Berlin International Film Festival',
                                         ),
                                         style: FlutterFlowTheme.of(context)
@@ -1717,7 +1714,7 @@ class _SingleEvent2WidgetState extends State<SingleEvent2Widget> {
                         Expanded(
                           child: Text(
                             valueOrDefault<String>(
-                              widget!.data?.price,
+                              widget.data?.price,
                               'From \$50',
                             ),
                             style: FlutterFlowTheme.of(context)

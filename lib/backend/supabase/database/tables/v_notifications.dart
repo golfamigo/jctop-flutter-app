@@ -42,8 +42,8 @@ class VNotificationsRow extends SupabaseDataRow {
   String? get actionUrl => getField<String>('action_url');
   set actionUrl(String? value) => setField<String>('action_url', value);
 
-  dynamic? get metadata => getField<dynamic>('metadata');
-  set metadata(dynamic? value) => setField<dynamic>('metadata', value);
+  dynamic get metadata => getField<dynamic>('metadata');
+  set metadata(dynamic value) => setField<dynamic>('metadata', value);
 
   String? get eventId => getField<String>('event_id');
   set eventId(String? value) => setField<String>('event_id', value);

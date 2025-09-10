@@ -1,11 +1,8 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'widget_navbar_model.dart';
 export 'widget_navbar_model.dart';
 
@@ -108,7 +105,7 @@ class _WidgetNavbarWidgetState extends State<WidgetNavbarWidget> {
                             children: [
                               Icon(
                                 Icons.home_rounded,
-                                color: widget!.page == 0
+                                color: widget.page == 0
                                     ? FlutterFlowTheme.of(context).primary
                                     : FlutterFlowTheme.of(context).navbarColor,
                                 size: 27.0,
@@ -131,7 +128,7 @@ class _WidgetNavbarWidgetState extends State<WidgetNavbarWidget> {
                                                   .fontStyle,
                                         ),
                                         color: valueOrDefault<Color>(
-                                          widget!.page == 0
+                                          widget.page == 0
                                               ? FlutterFlowTheme.of(context)
                                                   .primary
                                               : FlutterFlowTheme.of(context)
@@ -181,7 +178,7 @@ class _WidgetNavbarWidgetState extends State<WidgetNavbarWidget> {
                               Icon(
                                 Icons.search_rounded,
                                 color: valueOrDefault<Color>(
-                                  widget!.page == 1
+                                  widget.page == 1
                                       ? FlutterFlowTheme.of(context).primary
                                       : FlutterFlowTheme.of(context)
                                           .navbarColor,
@@ -207,7 +204,7 @@ class _WidgetNavbarWidgetState extends State<WidgetNavbarWidget> {
                                                   .fontStyle,
                                         ),
                                         color: valueOrDefault<Color>(
-                                          widget!.page == 1
+                                          widget.page == 1
                                               ? FlutterFlowTheme.of(context)
                                                   .primary
                                               : FlutterFlowTheme.of(context)
@@ -258,7 +255,7 @@ class _WidgetNavbarWidgetState extends State<WidgetNavbarWidget> {
                               Icon(
                                 Icons.favorite_rounded,
                                 color: valueOrDefault<Color>(
-                                  widget!.page == 3
+                                  widget.page == 3
                                       ? FlutterFlowTheme.of(context).primary
                                       : FlutterFlowTheme.of(context)
                                           .navbarColor,
@@ -284,7 +281,7 @@ class _WidgetNavbarWidgetState extends State<WidgetNavbarWidget> {
                                                   .fontStyle,
                                         ),
                                         color: valueOrDefault<Color>(
-                                          widget!.page == 3
+                                          widget.page == 3
                                               ? FlutterFlowTheme.of(context)
                                                   .primary
                                               : FlutterFlowTheme.of(context)
@@ -338,7 +335,7 @@ class _WidgetNavbarWidgetState extends State<WidgetNavbarWidget> {
                                 child: Icon(
                                   FFIcons.kcewfw342r,
                                   color: valueOrDefault<Color>(
-                                    widget!.page == 2
+                                    widget.page == 2
                                         ? FlutterFlowTheme.of(context).primary
                                         : FlutterFlowTheme.of(context)
                                             .navbarColor,
@@ -365,7 +362,7 @@ class _WidgetNavbarWidgetState extends State<WidgetNavbarWidget> {
                                                   .fontStyle,
                                         ),
                                         color: valueOrDefault<Color>(
-                                          widget!.page == 2
+                                          widget.page == 2
                                               ? FlutterFlowTheme.of(context)
                                                   .primary
                                               : FlutterFlowTheme.of(context)
@@ -419,7 +416,7 @@ class _WidgetNavbarWidgetState extends State<WidgetNavbarWidget> {
                                   Icon(
                                     Icons.person_rounded,
                                     color: valueOrDefault<Color>(
-                                      widget!.page == 4
+                                      widget.page == 4
                                           ? FlutterFlowTheme.of(context).primary
                                           : FlutterFlowTheme.of(context)
                                               .navbarColor,
@@ -472,7 +469,7 @@ class _WidgetNavbarWidgetState extends State<WidgetNavbarWidget> {
                                                   .fontStyle,
                                         ),
                                         color: valueOrDefault<Color>(
-                                          widget!.page == 4
+                                          widget.page == 4
                                               ? FlutterFlowTheme.of(context)
                                                   .primary
                                               : FlutterFlowTheme.of(context)

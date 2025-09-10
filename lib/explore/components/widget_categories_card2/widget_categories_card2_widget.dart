@@ -1,11 +1,8 @@
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'widget_categories_card2_model.dart';
 export 'widget_categories_card2_model.dart';
 
@@ -68,7 +65,7 @@ class _WidgetCategoriesCard2WidgetState
                 image: DecorationImage(
                   fit: BoxFit.cover,
                   image: Image.network(
-                    widget!.data!.img,
+                    widget.data!.img,
                   ).image,
                 ),
                 borderRadius: BorderRadius.circular(6.0),
@@ -79,7 +76,7 @@ class _WidgetCategoriesCard2WidgetState
                 padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                 child: Text(
                   valueOrDefault<String>(
-                    widget!.data?.title,
+                    widget.data?.title,
                     'title',
                   ),
                   style: FlutterFlowTheme.of(context).labelMedium.override(

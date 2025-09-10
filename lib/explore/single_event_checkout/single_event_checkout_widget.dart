@@ -7,11 +7,9 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import '/index.dart';
 import 'dart:math' as math;
 import 'package:styled_divider/styled_divider.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -197,7 +195,7 @@ class _SingleEventCheckoutWidgetState extends State<SingleEventCheckoutWidget> {
                                     fit: BoxFit.cover,
                                     image: Image.network(
                                       valueOrDefault<String>(
-                                        widget!.eventData?.img,
+                                        widget.eventData?.img,
                                         'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/eventy-118kat/assets/xscqz5skrjsj/3egrtevbbbb_(1).png',
                                       ),
                                     ).image,
@@ -220,7 +218,7 @@ class _SingleEventCheckoutWidgetState extends State<SingleEventCheckoutWidget> {
                                             0.0, 6.0, 0.0, 0.0),
                                         child: Text(
                                           valueOrDefault<String>(
-                                            widget!.eventData?.title,
+                                            widget.eventData?.title,
                                             'David Guetta Ultra Miami 2025 Music Festival',
                                           ),
                                           textAlign: TextAlign.start,
@@ -3565,7 +3563,7 @@ Bayfront Park */
                                         ?.unfocus();
                                   },
                                   child: WidgetCheckoutLoadingWidget(
-                                    data: widget!.eventData,
+                                    data: widget.eventData,
                                   ),
                                 ),
                               );

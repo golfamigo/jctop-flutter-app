@@ -2,11 +2,9 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'security_model.dart';
 export 'security_model.dart';
 
@@ -150,7 +148,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                     child: Switch.adaptive(
                       value: _model.switchValue1!,
                       onChanged: (newValue) async {
-                        safeSetState(() => _model.switchValue1 = newValue!);
+                        safeSetState(() => _model.switchValue1 = newValue);
                       },
                       activeColor: FlutterFlowTheme.of(context).info,
                       activeTrackColor: FlutterFlowTheme.of(context).primary,
@@ -205,7 +203,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                     child: Switch.adaptive(
                       value: _model.switchValue2!,
                       onChanged: (newValue) async {
-                        safeSetState(() => _model.switchValue2 = newValue!);
+                        safeSetState(() => _model.switchValue2 = newValue);
                       },
                       activeColor: FlutterFlowTheme.of(context).info,
                       activeTrackColor: FlutterFlowTheme.of(context).primary,
@@ -260,7 +258,7 @@ class _SecurityWidgetState extends State<SecurityWidget> {
                     child: Switch.adaptive(
                       value: _model.switchValue3!,
                       onChanged: (newValue) async {
-                        safeSetState(() => _model.switchValue3 = newValue!);
+                        safeSetState(() => _model.switchValue3 = newValue);
                       },
                       activeColor: FlutterFlowTheme.of(context).info,
                       activeTrackColor: FlutterFlowTheme.of(context).primary,

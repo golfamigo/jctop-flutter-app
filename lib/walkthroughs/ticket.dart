@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart';
 
 import '/walkthrough/ticket1/ticket1_widget.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_util.dart';
 
 // Focus widget keys for this walkthrough
 final iconButtonTgk2jddb = GlobalKey();

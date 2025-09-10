@@ -1,11 +1,8 @@
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'dart:math' as math;
 import 'package:styled_divider/styled_divider.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -43,7 +40,7 @@ class _TicketCardWidgetState extends State<TicketCardWidget> {
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      if (widget!.index == 0) {
+      if (widget.index == 0) {
         _model.quantity = _model.quantity + 1;
         _model.updatePage(() {});
       }
@@ -101,7 +98,7 @@ class _TicketCardWidgetState extends State<TicketCardWidget> {
                       children: [
                         Text(
                           valueOrDefault<String>(
-                            widget!.data?.title,
+                            widget.data?.title,
                             'Ultra Premium Package (+16)',
                           ),
                           style:
@@ -134,7 +131,7 @@ class _TicketCardWidgetState extends State<TicketCardWidget> {
                               children: [
                                 TextSpan(
                                   text: valueOrDefault<String>(
-                                    widget!.data?.price,
+                                    widget.data?.price,
                                     '\$1,200',
                                   ),
                                   style: FlutterFlowTheme.of(context)
@@ -250,9 +247,9 @@ class _TicketCardWidgetState extends State<TicketCardWidget> {
                                   if (_model.quantity < 1) {
                                     if (FFAppState()
                                         .SelectedTickets
-                                        .contains(widget!.data)) {
+                                        .contains(widget.data)) {
                                       FFAppState().removeFromSelectedTickets(
-                                          widget!.data!);
+                                          widget.data!);
                                       safeSetState(() {});
                                     }
                                   } else {
@@ -260,9 +257,9 @@ class _TicketCardWidgetState extends State<TicketCardWidget> {
                                     safeSetState(() {});
                                     if (FFAppState()
                                         .SelectedTickets
-                                        .contains(widget!.data)) {
+                                        .contains(widget.data)) {
                                       FFAppState().updateSelectedTicketsAtIndex(
-                                        widget!.index!,
+                                        widget.index!,
                                         (e) => e..incrementQuantity(-1),
                                       );
                                       safeSetState(() {});
@@ -327,15 +324,15 @@ class _TicketCardWidgetState extends State<TicketCardWidget> {
                                   safeSetState(() {});
                                   if (FFAppState()
                                       .SelectedTickets
-                                      .contains(widget!.data)) {
+                                      .contains(widget.data)) {
                                     FFAppState().updateSelectedTicketsAtIndex(
-                                      widget!.index!,
+                                      widget.index!,
                                       (e) => e..incrementQuantity(1),
                                     );
                                     safeSetState(() {});
                                   } else {
                                     FFAppState()
-                                        .addToSelectedTickets(widget!.data!);
+                                        .addToSelectedTickets(widget.data!);
                                     safeSetState(() {});
                                   }
                                 },

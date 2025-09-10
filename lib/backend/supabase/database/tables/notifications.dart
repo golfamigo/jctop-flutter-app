@@ -41,8 +41,8 @@ class NotificationsRow extends SupabaseDataRow {
   String? get actionUrl => getField<String>('action_url');
   set actionUrl(String? value) => setField<String>('action_url', value);
 
-  dynamic? get metadata => getField<dynamic>('metadata');
-  set metadata(dynamic? value) => setField<dynamic>('metadata', value);
+  dynamic get metadata => getField<dynamic>('metadata');
+  set metadata(dynamic value) => setField<dynamic>('metadata', value);
 
   bool? get isRead => getField<bool>('is_read');
   set isRead(bool? value) => setField<bool>('is_read', value);

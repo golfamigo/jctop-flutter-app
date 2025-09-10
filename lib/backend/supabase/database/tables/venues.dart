@@ -35,8 +35,8 @@ class VenuesRow extends SupabaseDataRow {
   double? get longitude => getField<double>('longitude');
   set longitude(double? value) => setField<double>('longitude', value);
 
-  dynamic? get amenities => getField<dynamic>('amenities');
-  set amenities(dynamic? value) => setField<dynamic>('amenities', value);
+  dynamic get amenities => getField<dynamic>('amenities');
+  set amenities(dynamic value) => setField<dynamic>('amenities', value);
 
   DateTime? get createdAt => getField<DateTime>('created_at');
   set createdAt(DateTime? value) => setField<DateTime>('created_at', value);

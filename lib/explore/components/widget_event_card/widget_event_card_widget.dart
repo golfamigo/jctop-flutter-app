@@ -2,8 +2,6 @@ import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_toggle_icon.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -61,7 +59,7 @@ class _WidgetEventCardWidgetState extends State<WidgetEventCardWidget> {
           SingleEventWidget.routeName,
           queryParameters: {
             'data': serializeParam(
-              widget!.data,
+              widget.data,
               ParamType.DataStruct,
             ),
           }.withoutNulls,
@@ -78,7 +76,7 @@ class _WidgetEventCardWidgetState extends State<WidgetEventCardWidget> {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: Image.network(
-                  widget!.data!.img,
+                  widget.data!.img,
                 ).image,
               ),
               borderRadius: BorderRadius.circular(10.0),
@@ -110,16 +108,16 @@ class _WidgetEventCardWidgetState extends State<WidgetEventCardWidget> {
                             safeSetState(
                               () => FFAppState()
                                       .EVENTSFAVORITES
-                                      .contains(widget!.data)
+                                      .contains(widget.data)
                                   ? FFAppState()
-                                      .removeFromEVENTSFAVORITES(widget!.data!)
+                                      .removeFromEVENTSFAVORITES(widget.data!)
                                   : FFAppState()
-                                      .addToEVENTSFAVORITES(widget!.data!),
+                                      .addToEVENTSFAVORITES(widget.data!),
                             );
                           },
                           value: FFAppState()
                               .EVENTSFAVORITES
-                              .contains(widget!.data),
+                              .contains(widget.data),
                           onIcon: Icon(
                             Icons.favorite_rounded,
                             color: FlutterFlowTheme.of(context).error,
@@ -158,7 +156,7 @@ class _WidgetEventCardWidgetState extends State<WidgetEventCardWidget> {
                             EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 0.0, 0.0),
                         child: Text(
                           valueOrDefault<String>(
-                            widget!.data?.location,
+                            widget.data?.location,
                             'location',
                           ).maybeHandleOverflow(
                             maxChars: 20,
@@ -194,7 +192,7 @@ class _WidgetEventCardWidgetState extends State<WidgetEventCardWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
                     child: Text(
                       valueOrDefault<String>(
-                        widget!.data?.title,
+                        widget.data?.title,
                         'Sunrise Trek and Cultural Tour',
                       ),
                       textAlign: TextAlign.start,
@@ -221,7 +219,7 @@ class _WidgetEventCardWidgetState extends State<WidgetEventCardWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                     child: Text(
                       valueOrDefault<String>(
-                        widget!.data?.date,
+                        widget.data?.date,
                         'Jan 10, 2025, 05:00 AM',
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -254,7 +252,7 @@ class _WidgetEventCardWidgetState extends State<WidgetEventCardWidget> {
                       children: [
                         Text(
                           valueOrDefault<String>(
-                            widget!.data?.price,
+                            widget.data?.price,
                             'From \$75',
                           ),
                           style:
@@ -291,7 +289,7 @@ class _WidgetEventCardWidgetState extends State<WidgetEventCardWidget> {
                                   1.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 valueOrDefault<String>(
-                                  widget!.data?.rating,
+                                  widget.data?.rating,
                                   '4.9',
                                 ),
                                 style: FlutterFlowTheme.of(context)

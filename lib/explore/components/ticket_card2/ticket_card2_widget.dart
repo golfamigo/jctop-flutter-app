@@ -3,15 +3,10 @@ import '/explore/components/widget_checkout_options2/widget_checkout_options2_wi
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'dart:math' as math;
 import 'package:styled_divider/styled_divider.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'ticket_card2_model.dart';
 export 'ticket_card2_model.dart';
 
@@ -79,7 +74,7 @@ class _TicketCard2WidgetState extends State<TicketCard2Widget> {
                       children: [
                         Text(
                           valueOrDefault<String>(
-                            widget!.data?.title,
+                            widget.data?.title,
                             'Ultra Premium Package (+16)',
                           ),
                           style:
@@ -112,7 +107,7 @@ class _TicketCard2WidgetState extends State<TicketCard2Widget> {
                               children: [
                                 TextSpan(
                                   text: valueOrDefault<String>(
-                                    widget!.data?.price,
+                                    widget.data?.price,
                                     '\$1,200',
                                   ),
                                   style: FlutterFlowTheme.of(context)
@@ -324,7 +319,7 @@ class _TicketCard2WidgetState extends State<TicketCard2Widget> {
                                         0.0, 7.0, 0.0, 0.0),
                                     child: Text(
                                       valueOrDefault<String>(
-                                        '0${((widget!.index!) + 3).toString()}',
+                                        '0${((widget.index!) + 3).toString()}',
                                         '03',
                                       ),
                                       style: FlutterFlowTheme.of(context)

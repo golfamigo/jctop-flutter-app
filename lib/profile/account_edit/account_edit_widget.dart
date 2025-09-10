@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/profile/components/gender_dropdown/gender_dropdown_widget.dart';
 import '/profile/components/upload_image/upload_image_widget.dart';
-import 'dart:ui';
 import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';

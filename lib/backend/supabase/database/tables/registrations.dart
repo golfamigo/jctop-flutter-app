@@ -43,12 +43,12 @@ class RegistrationsRow extends SupabaseDataRow {
   String? get qrCode => getField<String>('qr_code');
   set qrCode(String? value) => setField<String>('qr_code', value);
 
-  dynamic? get ticketSelections => getField<dynamic>('ticket_selections');
-  set ticketSelections(dynamic? value) =>
+  dynamic get ticketSelections => getField<dynamic>('ticket_selections');
+  set ticketSelections(dynamic value) =>
       setField<dynamic>('ticket_selections', value);
 
-  dynamic? get customFieldValues => getField<dynamic>('custom_field_values');
-  set customFieldValues(dynamic? value) =>
+  dynamic get customFieldValues => getField<dynamic>('custom_field_values');
+  set customFieldValues(dynamic value) =>
       setField<dynamic>('custom_field_values', value);
 
   DateTime? get checkedInAt => getField<DateTime>('checked_in_at');

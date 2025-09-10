@@ -3,11 +3,9 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/my_tickets/components/leave_review_success/leave_review_success_widget.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'leave_review_model.dart';
 export 'leave_review_model.dart';
 
@@ -140,7 +138,7 @@ class _LeaveReviewWidgetState extends State<LeaveReviewWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 25.0, 0.0, 0.0),
                                 child: Text(
-                                  'How was your experience with ${widget!.title}?',
+                                  'How was your experience with ${widget.title}?',
                                   textAlign: TextAlign.center,
                                   style: FlutterFlowTheme.of(context)
                                       .headlineMedium

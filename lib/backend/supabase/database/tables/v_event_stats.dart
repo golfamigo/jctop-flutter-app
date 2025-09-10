@@ -45,8 +45,8 @@ class VEventStatsRow extends SupabaseDataRow {
   set averageTicketPrice(double? value) =>
       setField<double>('average_ticket_price', value);
 
-  dynamic? get ticketBreakdown => getField<dynamic>('ticket_breakdown');
-  set ticketBreakdown(dynamic? value) =>
+  dynamic get ticketBreakdown => getField<dynamic>('ticket_breakdown');
+  set ticketBreakdown(dynamic value) =>
       setField<dynamic>('ticket_breakdown', value);
 
   int? get maxAttendees => getField<int>('max_attendees');

@@ -1,11 +1,8 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'notifications_model.dart';
 export 'notifications_model.dart';
 
@@ -142,7 +139,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                   child: Switch.adaptive(
                     value: _model.switchValue1!,
                     onChanged: (newValue) async {
-                      safeSetState(() => _model.switchValue1 = newValue!);
+                      safeSetState(() => _model.switchValue1 = newValue);
                     },
                     activeColor: FlutterFlowTheme.of(context).info,
                     activeTrackColor: FlutterFlowTheme.of(context).primary,
@@ -186,7 +183,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                   child: Switch.adaptive(
                     value: _model.switchValue2!,
                     onChanged: (newValue) async {
-                      safeSetState(() => _model.switchValue2 = newValue!);
+                      safeSetState(() => _model.switchValue2 = newValue);
                     },
                     activeColor: FlutterFlowTheme.of(context).info,
                     activeTrackColor: FlutterFlowTheme.of(context).primary,
@@ -230,7 +227,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                   child: Switch.adaptive(
                     value: _model.switchValue3!,
                     onChanged: (newValue) async {
-                      safeSetState(() => _model.switchValue3 = newValue!);
+                      safeSetState(() => _model.switchValue3 = newValue);
                     },
                     activeColor: FlutterFlowTheme.of(context).info,
                     activeTrackColor: FlutterFlowTheme.of(context).primary,
@@ -274,7 +271,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                   child: Switch.adaptive(
                     value: _model.switchValue4!,
                     onChanged: (newValue) async {
-                      safeSetState(() => _model.switchValue4 = newValue!);
+                      safeSetState(() => _model.switchValue4 = newValue);
                     },
                     activeColor: FlutterFlowTheme.of(context).info,
                     activeTrackColor: FlutterFlowTheme.of(context).primary,
@@ -318,7 +315,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                   child: Switch.adaptive(
                     value: _model.switchValue5!,
                     onChanged: (newValue) async {
-                      safeSetState(() => _model.switchValue5 = newValue!);
+                      safeSetState(() => _model.switchValue5 = newValue);
                     },
                     activeColor: FlutterFlowTheme.of(context).info,
                     activeTrackColor: FlutterFlowTheme.of(context).primary,
@@ -362,7 +359,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                   child: Switch.adaptive(
                     value: _model.switchValue6!,
                     onChanged: (newValue) async {
-                      safeSetState(() => _model.switchValue6 = newValue!);
+                      safeSetState(() => _model.switchValue6 = newValue);
                     },
                     activeColor: FlutterFlowTheme.of(context).info,
                     activeTrackColor: FlutterFlowTheme.of(context).primary,
@@ -406,7 +403,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                   child: Switch.adaptive(
                     value: _model.switchValue7!,
                     onChanged: (newValue) async {
-                      safeSetState(() => _model.switchValue7 = newValue!);
+                      safeSetState(() => _model.switchValue7 = newValue);
                     },
                     activeColor: FlutterFlowTheme.of(context).info,
                     activeTrackColor: FlutterFlowTheme.of(context).primary,
@@ -450,7 +447,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                   child: Switch.adaptive(
                     value: _model.switchValue8!,
                     onChanged: (newValue) async {
-                      safeSetState(() => _model.switchValue8 = newValue!);
+                      safeSetState(() => _model.switchValue8 = newValue);
                     },
                     activeColor: FlutterFlowTheme.of(context).info,
                     activeTrackColor: FlutterFlowTheme.of(context).primary,

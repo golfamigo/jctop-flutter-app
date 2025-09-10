@@ -10,12 +10,9 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_toggle_icon.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import '/index.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'single_event_model.dart';
 export 'single_event_model.dart';
@@ -91,7 +88,7 @@ class _SingleEventWidgetState extends State<SingleEventWidget> {
                               image: DecorationImage(
                                 fit: BoxFit.cover,
                                 image: Image.network(
-                                  widget!.data!.img,
+                                  widget.data!.img,
                                 ).image,
                               ),
                             ),
@@ -170,19 +167,19 @@ class _SingleEventWidgetState extends State<SingleEventWidget> {
                                                       () => FFAppState()
                                                               .EVENTSFAVORITES
                                                               .contains(
-                                                                  widget!.data)
+                                                                  widget.data)
                                                           ? FFAppState()
                                                               .removeFromEVENTSFAVORITES(
-                                                                  widget!.data!)
+                                                                  widget.data!)
                                                           : FFAppState()
                                                               .addToEVENTSFAVORITES(
-                                                                  widget!
+                                                                  widget
                                                                       .data!),
                                                     );
                                                   },
                                                   value: FFAppState()
                                                       .EVENTSFAVORITES
-                                                      .contains(widget!.data),
+                                                      .contains(widget.data),
                                                   onIcon: Icon(
                                                     Icons.favorite_rounded,
                                                     color: FlutterFlowTheme.of(
@@ -260,7 +257,7 @@ class _SingleEventWidgetState extends State<SingleEventWidget> {
                                     children: [
                                       Text(
                                         valueOrDefault<String>(
-                                          widget!.data?.title,
+                                          widget.data?.title,
                                           'Berlin International Film Festival',
                                         ),
                                         style: FlutterFlowTheme.of(context)
@@ -610,7 +607,7 @@ class _SingleEventWidgetState extends State<SingleEventWidget> {
                             child: Text(
                               valueOrDefault<String>(
                                 '${valueOrDefault<String>(
-                                  widget!.data?.descr,
+                                  widget.data?.descr,
                                   'Ultra Music Festival is a globally renowned electronic dance music event that takes place annually in the vibrant city of Miami, Florida. This iconic festival has become a bucket-list destination for music enthusiasts from around the world, drawing tens of thousands of attendees to experience its electrifying atmosphere. Known for its star-studded ..',
                                 )}${_model.fullDescription == true ? ' ' : ' ...'}',
                                 'Ultra Music Festival is a globally renowned electronic dance music event that takes place annually in the vibrant city of Miami, Florida. This iconic festival has become a bucket-list destination for music enthusiasts from around the world, drawing tens of thousands of attendees to experience its electrifying atmosphere. Known for its star-studded ..',
@@ -1720,7 +1717,7 @@ class _SingleEventWidgetState extends State<SingleEventWidget> {
                         Expanded(
                           child: Text(
                             valueOrDefault<String>(
-                              widget!.data?.price,
+                              widget.data?.price,
                               'From \$50',
                             ),
                             style: FlutterFlowTheme.of(context)
@@ -1751,7 +1748,7 @@ class _SingleEventWidgetState extends State<SingleEventWidget> {
                                 SingleEventCheckoutWidget.routeName,
                                 queryParameters: {
                                   'eventData': serializeParam(
-                                    widget!.data,
+                                    widget.data,
                                     ParamType.DataStruct,
                                   ),
                                 }.withoutNulls,

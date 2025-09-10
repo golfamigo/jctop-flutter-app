@@ -29,8 +29,8 @@ class SeatingZonesRow extends SupabaseDataRow {
   double? get priceModifier => getField<double>('price_modifier');
   set priceModifier(double? value) => setField<double>('price_modifier', value);
 
-  dynamic? get layoutData => getField<dynamic>('layout_data');
-  set layoutData(dynamic? value) => setField<dynamic>('layout_data', value);
+  dynamic get layoutData => getField<dynamic>('layout_data');
+  set layoutData(dynamic value) => setField<dynamic>('layout_data', value);
 
   DateTime? get createdAt => getField<DateTime>('created_at');
   set createdAt(DateTime? value) => setField<DateTime>('created_at', value);

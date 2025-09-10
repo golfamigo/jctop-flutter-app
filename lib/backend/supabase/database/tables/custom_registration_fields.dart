@@ -34,8 +34,8 @@ class CustomRegistrationFieldsRow extends SupabaseDataRow {
   bool? get isRequired => getField<bool>('is_required');
   set isRequired(bool? value) => setField<bool>('is_required', value);
 
-  dynamic? get fieldOptions => getField<dynamic>('field_options');
-  set fieldOptions(dynamic? value) => setField<dynamic>('field_options', value);
+  dynamic get fieldOptions => getField<dynamic>('field_options');
+  set fieldOptions(dynamic value) => setField<dynamic>('field_options', value);
 
   int? get displayOrder => getField<int>('display_order');
   set displayOrder(int? value) => setField<int>('display_order', value);

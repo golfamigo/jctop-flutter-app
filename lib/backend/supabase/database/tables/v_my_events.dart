@@ -82,8 +82,8 @@ class VMyEventsRow extends SupabaseDataRow {
   String? get paymentStatus => getField<String>('payment_status');
   set paymentStatus(String? value) => setField<String>('payment_status', value);
 
-  dynamic? get tickets => getField<dynamic>('tickets');
-  set tickets(dynamic? value) => setField<dynamic>('tickets', value);
+  dynamic get tickets => getField<dynamic>('tickets');
+  set tickets(dynamic value) => setField<dynamic>('tickets', value);
 
   String? get eventTiming => getField<String>('event_timing');
   set eventTiming(String? value) => setField<String>('event_timing', value);
