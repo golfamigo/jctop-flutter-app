@@ -1,0 +1,9 @@
+NSBluetoothAlwaysUsageDescription = "此應用程式需要藍牙存取才能連接您的配件（例如耳機、智慧手錶）進行資料同步和控制。";
+NSFaceIDUsageDescription = "啟用 Face ID / Touch ID 以便更快、更安全地登入和驗證您的身分。";
+NSCalendarsUsageDescription = "要將重要事件、約會或提醒直接添加到您的日曆中，此應用程式需要存取它的權限。";
+NSCameraUsageDescription = "我們需要存取您的相機，以便您可以拍照、錄製影片、掃描二維碼或使用視訊通話功能。";
+NSContactsUsageDescription = "為了方便您輕鬆尋找和邀請好友，或與他們分享內容，請允許存取您的通訊錄。未經您的許可，我們絕不會聯絡任何人。";
+NSLocationWhenInUseUsageDescription = "我們使用您的位置來提供個人化服務，例如顯示附近的地點、提供地圖導航或標記您的貼文。";
+NSMicrophoneUsageDescription = "此應用程式需要存取麥克風才能啟用錄製語音訊息、進行語音/視訊通話或使用語音命令等功能。";
+PermissionGroupNotification = "允許通知，這樣您就不會錯過重要的警報、新訊息和個人化更新。";
+NSPhotoLibraryUsageDescription = "為了允許您上傳照片和影片（例如設定您的個人資料圖片或分享貼文），此應用程式需要存取您的照片庫。";

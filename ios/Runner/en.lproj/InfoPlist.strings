@@ -1,0 +1,9 @@
+NSBluetoothAlwaysUsageDescription = "This app needs Bluetooth access to connect with your accessories (e.g., headphones, smartwatches) for data syncing and control.";
+NSFaceIDUsageDescription = "Enable Face ID / Touch ID for a faster and more secure way to log in and verify your identity.";
+NSCalendarsUsageDescription = "To add important events, appointments, or reminders directly to your calendar, this app needs permission to access it.";
+NSCameraUsageDescription = "We need access to your camera so you can take photos, record videos, scan QR codes, or use video call features.";
+NSContactsUsageDescription = "To help you easily find and invite friends, or share content with them, please allow access to your contacts. We'll never contact anyone without your permission.";
+NSLocationWhenInUseUsageDescription = "We use your location to provide personalized services, such as showing nearby places, offering map navigation, or tagging your posts.";
+NSMicrophoneUsageDescription = "This app requires microphone access to enable features like recording voice messages, making voice/video calls, or using voice commands.";
+PermissionGroupNotification = "Allow notifications so you don't miss out on important alerts, new messages, and personalized updates.";
+NSPhotoLibraryUsageDescription = "To allow you to upload photos and videos—like setting your profile picture or sharing a post—this app needs access to your photo library.";
