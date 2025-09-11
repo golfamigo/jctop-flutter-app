@@ -222,12 +222,16 @@ dynamic deserializeParam<T>(
             return PaymentsRow(data);
           case DiscountCodesRow:
             return DiscountCodesRow(data);
+          case UserActivitiesRow:
+            return UserActivitiesRow(data);
           case TicketTypesRow:
             return TicketTypesRow(data);
           case VUserRolesRow:
             return VUserRolesRow(data);
           case VMyEventsRow:
             return VMyEventsRow(data);
+          case VUserStatisticsRow:
+            return VUserStatisticsRow(data);
           case SeatingZonesRow:
             return SeatingZonesRow(data);
           case VEventsListRow:
@@ -242,6 +246,8 @@ dynamic deserializeParam<T>(
             return EventsRow(data);
           case UsersRow:
             return UsersRow(data);
+          case UserFavoritesRow:
+            return UserFavoritesRow(data);
           case RegistrationsRow:
             return RegistrationsRow(data);
           case CategoriesRow:

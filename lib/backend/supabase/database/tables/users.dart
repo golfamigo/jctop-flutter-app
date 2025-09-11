@@ -37,4 +37,28 @@ class UsersRow extends SupabaseDataRow {
 
   DateTime? get updatedAt => getField<DateTime>('updated_at');
   set updatedAt(DateTime? value) => setField<DateTime>('updated_at', value);
+
+  String? get avatarUrl => getField<String>('avatar_url');
+  set avatarUrl(String? value) => setField<String>('avatar_url', value);
+
+  String? get displayName => getField<String>('display_name');
+  set displayName(String? value) => setField<String>('display_name', value);
+
+  DateTime? get birthday => getField<DateTime>('birthday');
+  set birthday(DateTime? value) => setField<DateTime>('birthday', value);
+
+  String? get gender => getField<String>('gender');
+  set gender(String? value) => setField<String>('gender', value);
+
+  String? get location => getField<String>('location');
+  set location(String? value) => setField<String>('location', value);
+
+  String? get bio => getField<String>('bio');
+  set bio(String? value) => setField<String>('bio', value);
+
+  dynamic? get preferences => getField<dynamic>('preferences');
+  set preferences(dynamic? value) => setField<dynamic>('preferences', value);
+
+  String? get language => getField<String>('language');
+  set language(String? value) => setField<String>('language', value);
 }
