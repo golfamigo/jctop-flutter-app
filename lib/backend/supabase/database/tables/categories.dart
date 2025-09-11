@@ -37,4 +37,13 @@ class CategoriesRow extends SupabaseDataRow {
 
   DateTime? get updatedAt => getField<DateTime>('updated_at');
   set updatedAt(DateTime? value) => setField<DateTime>('updated_at', value);
+
+  int? get eventCount => getField<int>('event_count');
+  set eventCount(int? value) => setField<int>('event_count', value);
+
+  bool? get isActive => getField<bool>('is_active');
+  set isActive(bool? value) => setField<bool>('is_active', value);
+
+  int? get sortOrder => getField<int>('sort_order');
+  set sortOrder(int? value) => setField<int>('sort_order', value);
 }

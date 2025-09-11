@@ -156,7 +156,7 @@ class _WidgetAllowClearTicketWidgetState
                           Navigator.pop(context);
                         },
                         text: FFLocalizations.of(context).getText(
-                          't3bcx5s2' /* Confirm */,
+                          'x783k4do' /* Confirm */,
                         ),
                         options: FFButtonOptions(
                           height: 45.0,

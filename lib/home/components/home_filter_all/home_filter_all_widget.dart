@@ -88,7 +88,7 @@ class _HomeFilterAllWidgetState extends State<HomeFilterAllWidget> {
                           EdgeInsetsDirectional.fromSTEB(15.0, 10.0, 0.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
-                          'gj73j6pj' /* Date */,
+                          'nv2nkjgs' /* Date */,
                         ),
                         style:
                             FlutterFlowTheme.of(context).headlineSmall.override(

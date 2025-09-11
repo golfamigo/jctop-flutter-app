@@ -378,7 +378,7 @@ class _LeaveReviewWidgetState extends State<LeaveReviewWidget> {
                     );
                   },
                   text: FFLocalizations.of(context).getText(
-                    'rswa7nc8' /* Submit */,
+                    '43y2jg0r' /* Submit */,
                   ),
                   options: FFButtonOptions(
                     width: double.infinity,

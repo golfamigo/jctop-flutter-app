@@ -148,7 +148,7 @@ class _ShowQRWidgetState extends State<ShowQRWidget> {
                               0.0, 7.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'j8f6xzrm' /* 02 */,
+                              'qjn5no6q' /* 02 */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .displayMedium
@@ -210,7 +210,7 @@ class _ShowQRWidgetState extends State<ShowQRWidget> {
                               0.0, 7.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'aemr1iri' /* 01 */,
+                              'v87cbjbr' /* 01 */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .displayMedium
@@ -272,7 +272,7 @@ class _ShowQRWidgetState extends State<ShowQRWidget> {
                               0.0, 7.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              't0m2thnl' /* 15 */,
+                              'sbrcb9bo' /* 15 */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .displayMedium

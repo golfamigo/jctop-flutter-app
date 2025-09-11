@@ -112,7 +112,7 @@ class _LostItemsSuccessWidgetState extends State<LostItemsSuccessWidget> {
                   context.safePop();
                 },
                 text: FFLocalizations.of(context).getText(
-                  'le9xfzb4' /* Close */,
+                  '7eylqt7d' /* Close */,
                 ),
                 options: FFButtonOptions(
                   width: double.infinity,

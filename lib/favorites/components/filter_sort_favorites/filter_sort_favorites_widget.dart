@@ -74,7 +74,7 @@ class _FilterSortFavoritesWidgetState extends State<FilterSortFavoritesWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
               child: Text(
                 FFLocalizations.of(context).getText(
-                  'qi9123y1' /* Sort */,
+                  'xwrrf0qn' /* Sort */,
                 ),
                 style: FlutterFlowTheme.of(context).headlineSmall.override(
                       font: GoogleFonts.rubik(
@@ -174,7 +174,7 @@ class _FilterSortFavoritesWidgetState extends State<FilterSortFavoritesWidget> {
                   Navigator.pop(context);
                 },
                 text: FFLocalizations.of(context).getText(
-                  'mhuoz6b6' /* Apply */,
+                  'ai24cdrf' /* Apply */,
                 ),
                 options: FFButtonOptions(
                   width: double.infinity,

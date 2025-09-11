@@ -216,7 +216,7 @@ class _LoginEmail2WidgetState extends State<LoginEmail2Widget> {
                               decoration: InputDecoration(
                                 isDense: true,
                                 hintText: FFLocalizations.of(context).getText(
-                                  '9iphfedy' /* Emter your password */,
+                                  '8a7e3vxk' /* Emter your password */,
                                 ),
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .titleSmall

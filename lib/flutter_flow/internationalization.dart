@@ -284,7 +284,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Favorites',
       'zh_Hant': '收藏夾',
     },
-    '53i6sru8': {
+    'slotspae': {
       'en': 'Home',
       'zh_Hant': '家',
     },
@@ -971,11 +971,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Email',
       'zh_Hant': '電子郵件',
     },
-    'bmyypwc3': {
+    'k0iqw9ie': {
       'en': 'Emter your email',
       'zh_Hant': '輸入您的電子郵件',
     },
-    '1x3tx32q': {
+    '4em5zk1y': {
       'en': 'example@domain.com',
       'zh_Hant': 'example@domain.com',
     },
@@ -1436,7 +1436,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Enter your review here ...',
       'zh_Hant': '在此輸入您的評論...',
     },
-    'rswa7nc8': {
+    '43y2jg0r': {
       'en': 'Submit',
       'zh_Hant': '提交',
     },
@@ -2270,7 +2270,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Phone number',
       'zh_Hant': '電話號碼',
     },
-    '9iphfedy': {
+    '8a7e3vxk': {
       'en': 'Emter your password',
       'zh_Hant': '輸入您的密碼',
     },
@@ -2325,15 +2325,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Ultra music Festival',
       'zh_Hant': '超音樂節',
     },
-    'w7pcahe5': {
+    '4orhc1fw': {
       'en': '220K Followers',
       'zh_Hant': '22萬粉絲',
     },
-    'ndhzr51v': {
+    'cn7w053m': {
       'en': 'Follow',
       'zh_Hant': '跟隨',
     },
-    'zljpplgi': {
+    'fe4k4jg0': {
       'en': 'About',
       'zh_Hant': '關於',
     },
@@ -2355,7 +2355,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Based on 245 reviews',
       'zh_Hant': '根據 245 條點評',
     },
-    'nmghcbca': {
+    '72s1c97b': {
       'en': 'Select your date and session',
       'zh_Hant': '選擇日期和場次',
     },
@@ -2371,7 +2371,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Gallery',
       'zh_Hant': '畫廊',
     },
-    '0kss7x1v': {
+    'xbjk9loj': {
       'en': 'Location',
       'zh_Hant': '地點',
     },
@@ -2536,7 +2536,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Help Center',
       'zh_Hant': '幫助中心',
     },
-    'orc0mqia': {
+    'vkxtjn5a': {
       'en': 'Cancel',
       'zh_Hant': '取消',
     },
@@ -2638,7 +2638,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // WidgetCreditCard
   {
-    'yn3u4vcg': {
+    'ptzsi8vl': {
       'en': '**** 3456',
       'zh_Hant': '**** 3456',
     },
@@ -2676,7 +2676,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'https://share.com/vt8t2',
       'zh_Hant': 'https://share.com/vt8t2',
     },
-    '3e1q39x5': {
+    'faer38bx': {
       'en': 'Cancel',
       'zh_Hant': '取消',
     },
@@ -2796,11 +2796,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // FilterSortFavorites
   {
-    'qi9123y1': {
+    'xwrrf0qn': {
       'en': 'Sort',
       'zh_Hant': '種類',
     },
-    'mhuoz6b6': {
+    'ai24cdrf': {
       'en': 'Apply',
       'zh_Hant': '申請',
     },
@@ -2845,7 +2845,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Share',
       'zh_Hant': '分享',
     },
-    'br81gjr1': {
+    'ki0uejyb': {
       'en': 'Report Event',
       'zh_Hant': '報告事件',
     },
@@ -2875,7 +2875,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // TicketCard2
   {
-    'pubr4wyn': {
+    'xktobvtd': {
       'en': '  incl. \$1.99 Fee',
       'zh_Hant': '含 1.99 美元費用',
     },
@@ -2909,7 +2909,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // WidgetCheckoutOptions2
   {
-    'l478wjix': {
+    'fltk3mfk': {
       'en': 'Share',
       'zh_Hant': '分享',
     },
@@ -2936,7 +2936,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Cancel',
       'zh_Hant': '取消',
     },
-    't3bcx5s2': {
+    'x783k4do': {
       'en': 'Confirm',
       'zh_Hant': '確認',
     },
@@ -3016,7 +3016,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Gate',
       'zh_Hant': '門',
     },
-    'j8f6xzrm': {
+    'qjn5no6q': {
       'en': '02',
       'zh_Hant': '02',
     },
@@ -3024,7 +3024,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Row',
       'zh_Hant': '排',
     },
-    'aemr1iri': {
+    'v87cbjbr': {
       'en': '01',
       'zh_Hant': '01',
     },
@@ -3032,7 +3032,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Seat',
       'zh_Hant': '座位',
     },
-    't0m2thnl': {
+    'sbrcb9bo': {
       'en': '15',
       'zh_Hant': '15',
     },
@@ -3071,7 +3071,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           'We’ve received your report and our team will contact you as soon as possible to assist with your lost item. Stay tuned!',
       'zh_Hant': '我們已收到您的報告，我們的團隊將盡快與您聯繫，協助您處理遺失的物品。敬請期待！',
     },
-    'le9xfzb4': {
+    '7eylqt7d': {
       'en': 'Close',
       'zh_Hant': '關閉',
     },
@@ -3108,7 +3108,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // HomeFilterAll
   {
-    'gj73j6pj': {
+    'nv2nkjgs': {
       'en': 'Date',
       'zh_Hant': '日期',
     },
