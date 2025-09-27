@@ -46,4 +46,7 @@ class CategoriesRow extends SupabaseDataRow {
 
   int? get sortOrder => getField<int>('sort_order');
   set sortOrder(int? value) => setField<int>('sort_order', value);
+
+  String? get img => getField<String>('img');
+  set img(String? value) => setField<String>('img', value);
 }

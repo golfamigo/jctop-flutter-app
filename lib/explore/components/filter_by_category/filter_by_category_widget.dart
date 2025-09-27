@@ -127,7 +127,7 @@ class _FilterByCategoryWidgetState extends State<FilterByCategoryWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    FFAppState().SelectedCategory =
+                                    FFAppState().selectedCategory =
                                         categoriesListItem.title;
                                     safeSetState(() {});
                                     Navigator.pop(context);

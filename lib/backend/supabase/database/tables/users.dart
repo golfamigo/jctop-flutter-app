@@ -61,4 +61,14 @@ class UsersRow extends SupabaseDataRow {
 
   String? get language => getField<String>('language');
   set language(String? value) => setField<String>('language', value);
+
+  int? get followerCount => getField<int>('follower_count');
+  set followerCount(int? value) => setField<int>('follower_count', value);
+
+  bool? get isOrganizer => getField<bool>('is_organizer');
+  set isOrganizer(bool? value) => setField<bool>('is_organizer', value);
+
+  String? get organizerDescription => getField<String>('organizer_description');
+  set organizerDescription(String? value) =>
+      setField<String>('organizer_description', value);
 }

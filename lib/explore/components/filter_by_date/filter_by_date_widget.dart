@@ -101,7 +101,7 @@ class _FilterByDateWidgetState extends State<FilterByDateWidget> {
                   inputDate: getCurrentTimestamp,
                   initialSelectedDate: getCurrentTimestamp,
                   onSelectDateAction: (selectedDate) async {
-                    FFAppState().SelectedDate = selectedDate;
+                    FFAppState().selectedDate = selectedDate;
                     safeSetState(() {});
                   },
                 ),

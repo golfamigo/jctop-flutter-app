@@ -265,7 +265,7 @@ class _WidgetCheckoutOptionsWidgetState
                                     15.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    'br81gjr1' /* Report Event */,
+                                    'ki0uejyb' /* Report Event */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .titleSmall

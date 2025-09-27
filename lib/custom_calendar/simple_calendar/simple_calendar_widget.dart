@@ -64,7 +64,7 @@ class _SimpleCalendarWidgetState extends State<SimpleCalendarWidget> {
                     inputDate: getCurrentTimestamp,
                     initialSelectedDate: getCurrentTimestamp,
                     onSelectDateAction: (selectedDate) async {
-                      FFAppState().SelectedDate = selectedDate;
+                      FFAppState().selectedDate = selectedDate;
                       safeSetState(() {});
                     },
                   ),

@@ -2,8 +2,10 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/profile/components/allow_location/allow_location_widget.dart';
+import '/register/components/allow_location/allow_location_widget.dart';
 import 'dart:ui';
+import '/index.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -70,6 +72,8 @@ class _LocationWidgetState extends State<LocationWidget> {
               ),
               onPressed: () async {
                 context.safePop();
+                FFAppState().refreshHomeRequest = true;
+                FFAppState().update(() {});
               },
             ),
           ),
@@ -116,6 +120,24 @@ class _LocationWidgetState extends State<LocationWidget> {
                   child: TextFormField(
                     controller: _model.textController,
                     focusNode: _model.textFieldFocusNode,
+                    onChanged: (_) => EasyDebounce.debounce(
+                      '_model.textController',
+                      Duration(milliseconds: 2000),
+                      () async {
+                        FFAppState().selectedCity = _model.textController.text;
+                        FFAppState().update(() {});
+
+                        context.pushNamed(
+                          HomeWidget.routeName,
+                          queryParameters: {
+                            'fromRegister': serializeParam(
+                              false,
+                              ParamType.bool,
+                            ),
+                          }.withoutNulls,
+                        );
+                      },
+                    ),
                     autofocus: false,
                     obscureText: false,
                     decoration: InputDecoration(

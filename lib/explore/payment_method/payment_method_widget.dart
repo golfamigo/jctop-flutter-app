@@ -200,7 +200,7 @@ class _PaymentMethodWidgetState extends State<PaymentMethodWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              FFAppState().SelectedCard = 0;
+                              FFAppState().selectedCard = 0;
                               safeSetState(() {});
                             },
                             child: Container(
@@ -269,14 +269,14 @@ class _PaymentMethodWidgetState extends State<PaymentMethodWidget> {
                                         ),
                                       ],
                                     ),
-                                    if (FFAppState().SelectedCard != 0)
+                                    if (FFAppState().selectedCard != 0)
                                       Icon(
                                         FFIcons.kcircleFilled,
                                         color: FlutterFlowTheme.of(context)
                                             .accent2,
                                         size: 28.0,
                                       ),
-                                    if (FFAppState().SelectedCard == 0)
+                                    if (FFAppState().selectedCard == 0)
                                       Icon(
                                         FFIcons.kcircleCheckFilled,
                                         color: FlutterFlowTheme.of(context)
@@ -298,7 +298,7 @@ class _PaymentMethodWidgetState extends State<PaymentMethodWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              FFAppState().SelectedCard = 1;
+                              FFAppState().selectedCard = 1;
                               safeSetState(() {});
                             },
                             child: Container(
@@ -367,14 +367,14 @@ class _PaymentMethodWidgetState extends State<PaymentMethodWidget> {
                                         ),
                                       ],
                                     ),
-                                    if (FFAppState().SelectedCard != 1)
+                                    if (FFAppState().selectedCard != 1)
                                       Icon(
                                         FFIcons.kcircleFilled,
                                         color: FlutterFlowTheme.of(context)
                                             .accent2,
                                         size: 28.0,
                                       ),
-                                    if (FFAppState().SelectedCard == 1)
+                                    if (FFAppState().selectedCard == 1)
                                       Icon(
                                         FFIcons.kcircleCheckFilled,
                                         color: FlutterFlowTheme.of(context)
@@ -396,7 +396,7 @@ class _PaymentMethodWidgetState extends State<PaymentMethodWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              FFAppState().SelectedCard = 2;
+                              FFAppState().selectedCard = 2;
                               safeSetState(() {});
                             },
                             child: Container(
@@ -465,14 +465,14 @@ class _PaymentMethodWidgetState extends State<PaymentMethodWidget> {
                                         ),
                                       ],
                                     ),
-                                    if (FFAppState().SelectedCard != 2)
+                                    if (FFAppState().selectedCard != 2)
                                       Icon(
                                         FFIcons.kcircleFilled,
                                         color: FlutterFlowTheme.of(context)
                                             .accent2,
                                         size: 28.0,
                                       ),
-                                    if (FFAppState().SelectedCard == 2)
+                                    if (FFAppState().selectedCard == 2)
                                       Icon(
                                         FFIcons.kcircleCheckFilled,
                                         color: FlutterFlowTheme.of(context)
@@ -494,7 +494,7 @@ class _PaymentMethodWidgetState extends State<PaymentMethodWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              FFAppState().SelectedCard = 3;
+                              FFAppState().selectedCard = 3;
                               safeSetState(() {});
                             },
                             child: Container(
@@ -563,14 +563,14 @@ class _PaymentMethodWidgetState extends State<PaymentMethodWidget> {
                                         ),
                                       ],
                                     ),
-                                    if (FFAppState().SelectedCard != 3)
+                                    if (FFAppState().selectedCard != 3)
                                       Icon(
                                         FFIcons.kcircleFilled,
                                         color: FlutterFlowTheme.of(context)
                                             .accent2,
                                         size: 28.0,
                                       ),
-                                    if (FFAppState().SelectedCard == 3)
+                                    if (FFAppState().selectedCard == 3)
                                       Icon(
                                         FFIcons.kcircleCheckFilled,
                                         color: FlutterFlowTheme.of(context)

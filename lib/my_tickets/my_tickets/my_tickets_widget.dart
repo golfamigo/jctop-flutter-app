@@ -239,7 +239,7 @@ class _MyTicketsWidgetState extends State<MyTicketsWidget>
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    FFAppState().MyTicketsTAB = 0;
+                                    FFAppState().myTicketsTAB = 0;
                                     safeSetState(() {});
                                   },
                                   child: Container(
@@ -247,7 +247,7 @@ class _MyTicketsWidgetState extends State<MyTicketsWidget>
                                     height: 100.0,
                                     decoration: BoxDecoration(
                                       color: valueOrDefault<Color>(
-                                        FFAppState().MyTicketsTAB == 0
+                                        FFAppState().myTicketsTAB == 0
                                             ? FlutterFlowTheme.of(context)
                                                 .accent1
                                             : FlutterFlowTheme.of(context)
@@ -276,7 +276,7 @@ class _MyTicketsWidgetState extends State<MyTicketsWidget>
                                                         .fontStyle,
                                               ),
                                               color: FFAppState()
-                                                          .MyTicketsTAB ==
+                                                          .myTicketsTAB ==
                                                       0
                                                   ? FlutterFlowTheme.of(context)
                                                       .primaryText
@@ -304,14 +304,14 @@ class _MyTicketsWidgetState extends State<MyTicketsWidget>
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    FFAppState().MyTicketsTAB = 1;
+                                    FFAppState().myTicketsTAB = 1;
                                     safeSetState(() {});
                                   },
                                   child: Container(
                                     width: 100.0,
                                     height: 100.0,
                                     decoration: BoxDecoration(
-                                      color: FFAppState().MyTicketsTAB == 1
+                                      color: FFAppState().myTicketsTAB == 1
                                           ? FlutterFlowTheme.of(context).accent1
                                           : FlutterFlowTheme.of(context)
                                               .accent4,
@@ -337,7 +337,7 @@ class _MyTicketsWidgetState extends State<MyTicketsWidget>
                                                         .fontStyle,
                                               ),
                                               color: FFAppState()
-                                                          .MyTicketsTAB ==
+                                                          .myTicketsTAB ==
                                                       1
                                                   ? FlutterFlowTheme.of(context)
                                                       .primaryText
@@ -368,14 +368,14 @@ class _MyTicketsWidgetState extends State<MyTicketsWidget>
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            if (FFAppState().MyTicketsTAB == 0)
+                            if (FFAppState().myTicketsTAB == 0)
                               Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Builder(
                                     builder: (context) {
                                       final upcomingEvents = FFAppState()
-                                          .EVENTS
+                                          .events
                                           .toList()
                                           .take(2)
                                           .toList();
@@ -409,7 +409,7 @@ class _MyTicketsWidgetState extends State<MyTicketsWidget>
                                                 key: Key(
                                                   'Keynk2_${upcomingEventsIndex.toString()}',
                                                 ),
-                                                data: upcomingEventsItem,
+                                                dataDate: upcomingEventsItem,
                                               ),
                                             ),
                                           );
@@ -420,7 +420,7 @@ class _MyTicketsWidgetState extends State<MyTicketsWidget>
                                 ].addToEnd(SizedBox(height: 15.0)),
                               ).animateOnPageLoad(
                                   animationsMap['columnOnPageLoadAnimation1']!),
-                            if (FFAppState().MyTicketsTAB == 1)
+                            if (FFAppState().myTicketsTAB == 1)
                               Expanded(
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -687,9 +687,9 @@ class _MyTicketsWidgetState extends State<MyTicketsWidget>
                                       child: Builder(
                                         builder: (context) {
                                           final upcomingEvents = FFAppState()
-                                              .EVENTS
+                                              .events
                                               .sortedList(
-                                                  keyOf: (e) => e.date,
+                                                  keyOf: (e) => e.date!,
                                                   desc: true)
                                               .toList()
                                               .take(7)

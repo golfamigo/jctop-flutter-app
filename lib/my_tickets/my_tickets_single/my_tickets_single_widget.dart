@@ -50,13 +50,13 @@ class _MyTicketsSingleWidgetState extends State<MyTicketsSingleWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      if (FFAppState().FromRegister) {
+      if (FFAppState().fromRegister) {
         await Future.delayed(
           Duration(
             milliseconds: 1000,
           ),
         );
-        FFAppState().FromRegister = false;
+        FFAppState().fromRegister = false;
         safeSetState(() {});
         safeSetState(
             () => _model.ticketController = createPageWalkthrough(context));

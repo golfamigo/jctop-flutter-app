@@ -184,7 +184,7 @@ class _LostItemsWidgetState extends State<LostItemsWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                FFAppState().SelectedLeftitems = listItem;
+                                FFAppState().selectedLeftitems = listItem;
                                 safeSetState(() {});
                               },
                               child: Row(
@@ -222,7 +222,7 @@ class _LostItemsWidgetState extends State<LostItemsWidget> {
                                           ),
                                     ),
                                   ),
-                                  if (FFAppState().SelectedLeftitems !=
+                                  if (FFAppState().selectedLeftitems !=
                                       listItem)
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
@@ -234,7 +234,7 @@ class _LostItemsWidgetState extends State<LostItemsWidget> {
                                         size: 28.0,
                                       ),
                                     ),
-                                  if (FFAppState().SelectedLeftitems ==
+                                  if (FFAppState().selectedLeftitems ==
                                       listItem)
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(

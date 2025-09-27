@@ -90,7 +90,7 @@ class _HomeFilterAllWidgetState extends State<HomeFilterAllWidget> {
                           EdgeInsetsDirectional.fromSTEB(15.0, 10.0, 0.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
-                          'gj73j6pj' /* Date */,
+                          'nv2nkjgs' /* Date */,
                         ),
                         style:
                             FlutterFlowTheme.of(context).headlineSmall.override(
@@ -122,7 +122,7 @@ class _HomeFilterAllWidgetState extends State<HomeFilterAllWidget> {
                           inputDate: getCurrentTimestamp,
                           initialSelectedDate: getCurrentTimestamp,
                           onSelectDateAction: (selectedDate) async {
-                            FFAppState().SelectedDate = selectedDate;
+                            FFAppState().selectedDate = selectedDate;
                             safeSetState(() {});
                           },
                         ),
@@ -179,7 +179,7 @@ class _HomeFilterAllWidgetState extends State<HomeFilterAllWidget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  FFAppState().SelectedCategory =
+                                  FFAppState().selectedCategory =
                                       categoriesListItem.title;
                                   safeSetState(() {});
                                 },

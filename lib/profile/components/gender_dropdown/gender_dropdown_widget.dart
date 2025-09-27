@@ -83,7 +83,7 @@ class _GenderDropdownWidgetState extends State<GenderDropdownWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
-                          FFAppState().SelectedGender = listGendersItem;
+                          FFAppState().selectedGender = listGendersItem;
                           FFAppState().update(() {});
                           if (FFAppState().updater) {
                             FFAppState().updater = false;
@@ -125,7 +125,7 @@ class _GenderDropdownWidgetState extends State<GenderDropdownWidget> {
                                     ),
                               ),
                             ),
-                            if (listGendersItem == FFAppState().SelectedGender)
+                            if (listGendersItem == FFAppState().selectedGender)
                               Icon(
                                 FFIcons.kcheck,
                                 color: FlutterFlowTheme.of(context).primary,

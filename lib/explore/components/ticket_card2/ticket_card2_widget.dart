@@ -112,7 +112,7 @@ class _TicketCard2WidgetState extends State<TicketCard2Widget> {
                               children: [
                                 TextSpan(
                                   text: valueOrDefault<String>(
-                                    widget!.data?.price,
+                                    widget!.data?.price?.toString(),
                                     '\$1,200',
                                   ),
                                   style: FlutterFlowTheme.of(context)
@@ -139,7 +139,7 @@ class _TicketCard2WidgetState extends State<TicketCard2Widget> {
                                 ),
                                 TextSpan(
                                   text: FFLocalizations.of(context).getText(
-                                    'pubr4wyn' /*   incl. $1.99 Fee */,
+                                    'xktobvtd' /*   incl. $1.99 Fee */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyLarge

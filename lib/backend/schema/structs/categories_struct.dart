@@ -10,9 +10,11 @@ class CategoriesStruct extends BaseStruct {
     String? title,
     String? img,
     String? descr,
+    String? icon,
   })  : _title = title,
         _img = img,
-        _descr = descr;
+        _descr = descr,
+        _icon = icon;
 
   // "title" field.
   String? _title;
@@ -35,11 +37,19 @@ class CategoriesStruct extends BaseStruct {
 
   bool hasDescr() => _descr != null;
 
+  // "icon" field.
+  String? _icon;
+  String get icon => _icon ?? '';
+  set icon(String? val) => _icon = val;
+
+  bool hasIcon() => _icon != null;
+
   static CategoriesStruct fromMap(Map<String, dynamic> data) =>
       CategoriesStruct(
         title: data['title'] as String?,
         img: data['img'] as String?,
         descr: data['descr'] as String?,
+        icon: data['icon'] as String?,
       );
 
   static CategoriesStruct? maybeFromMap(dynamic data) => data is Map
@@ -50,6 +60,7 @@ class CategoriesStruct extends BaseStruct {
         'title': _title,
         'img': _img,
         'descr': _descr,
+        'icon': _icon,
       }.withoutNulls;
 
   @override
@@ -64,6 +75,10 @@ class CategoriesStruct extends BaseStruct {
         ),
         'descr': serializeParam(
           _descr,
+          ParamType.String,
+        ),
+        'icon': serializeParam(
+          _icon,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -85,6 +100,11 @@ class CategoriesStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
+        icon: deserializeParam(
+          data['icon'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -95,20 +115,23 @@ class CategoriesStruct extends BaseStruct {
     return other is CategoriesStruct &&
         title == other.title &&
         img == other.img &&
-        descr == other.descr;
+        descr == other.descr &&
+        icon == other.icon;
   }
 
   @override
-  int get hashCode => const ListEquality().hash([title, img, descr]);
+  int get hashCode => const ListEquality().hash([title, img, descr, icon]);
 }
 
 CategoriesStruct createCategoriesStruct({
   String? title,
   String? img,
   String? descr,
+  String? icon,
 }) =>
     CategoriesStruct(
       title: title,
       img: img,
       descr: descr,
+      icon: icon,
     );

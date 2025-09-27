@@ -1,0 +1,70 @@
+{
+  "apiName": "GoogleGeocodingAPI",
+  "apiDescription": "Google Geocoding API to convert coordinates to address",
+  "apiEndpoint": "https://maps.googleapis.com/maps/api/geocode/json",
+  "httpMethod": "GET",
+  "headers": {},
+  "queryParameters": [
+    {
+      "name": "latlng",
+      "type": "String",
+      "required": true,
+      "description": "Latitude and longitude coordinates in format: lat,lng",
+      "testValue": "25.0330,121.5654"
+    },
+    {
+      "name": "key",
+      "type": "String", 
+      "required": true,
+      "description": "Your Google API Key",
+      "testValue": "YOUR_GOOGLE_API_KEY"
+    },
+    {
+      "name": "language",
+      "type": "String",
+      "required": false,
+      "description": "Language for results (zh-TW for Traditional Chinese)",
+      "testValue": "zh-TW"
+    }
+  ],
+  "bodyParameters": [],
+  "responseFormat": "JSON",
+  "sampleResponse": {
+    "results": [
+      {
+        "address_components": [
+          {
+            "long_name": "信義區",
+            "short_name": "信義區",
+            "types": ["locality", "political"]
+          },
+          {
+            "long_name": "台北市",
+            "short_name": "台北市",
+            "types": ["administrative_area_level_1", "political"]
+          },
+          {
+            "long_name": "台灣",
+            "short_name": "TW",
+            "types": ["country", "political"]
+          }
+        ],
+        "formatted_address": "台灣台北市信義區",
+        "geometry": {
+          "location": {
+            "lat": 25.0330,
+            "lng": 121.5654
+          }
+        }
+      }
+    ],
+    "status": "OK"
+  },
+  "jsonPaths": {
+    "city": "$.results[0].address_components[?(@.types[0]=='locality')].long_name",
+    "state": "$.results[0].address_components[?(@.types[0]=='administrative_area_level_1')].long_name",
+    "country": "$.results[0].address_components[?(@.types[0]=='country')].long_name",
+    "formatted_address": "$.results[0].formatted_address",
+    "status": "$.status"
+  }
+}

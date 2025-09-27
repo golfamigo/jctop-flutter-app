@@ -159,7 +159,7 @@ class _Reschedule1WidgetState extends State<Reschedule1Widget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                FFAppState().SelectedReschedule =
+                                FFAppState().selectedReschedule =
                                     listReasonsItem;
                                 safeSetState(() {});
                               },
@@ -198,7 +198,7 @@ class _Reschedule1WidgetState extends State<Reschedule1Widget> {
                                           ),
                                     ),
                                   ),
-                                  if (FFAppState().SelectedReschedule !=
+                                  if (FFAppState().selectedReschedule !=
                                       listReasonsItem)
                                     Icon(
                                       FFIcons.kcircleFilled,
@@ -206,7 +206,7 @@ class _Reschedule1WidgetState extends State<Reschedule1Widget> {
                                           FlutterFlowTheme.of(context).accent2,
                                       size: 28.0,
                                     ),
-                                  if (FFAppState().SelectedReschedule ==
+                                  if (FFAppState().selectedReschedule ==
                                       listReasonsItem)
                                     Icon(
                                       FFIcons.kcircleCheckFilled,

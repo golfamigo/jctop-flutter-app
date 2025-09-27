@@ -150,10 +150,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Location',
       'zh_Hant': '地點',
     },
-    '6md1hhw7': {
-      'en': 'New York',
-      'zh_Hant': '紐約',
-    },
     '3iajxtcw': {
       'en': 'Discover live shows ...',
       'zh_Hant': '發現現場表演...',
@@ -162,33 +158,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'This Week',
       'zh_Hant': '本星期',
     },
-    'laty58ob': {
-      'en': '28 events',
-      'zh_Hant': '28場活動',
-    },
     'zre8l2f9': {
       'en': 'New shows',
       'zh_Hant': '新節目',
-    },
-    's8zbufw9': {
-      'en': '8 events',
-      'zh_Hant': '8個活動',
     },
     'hhq28i8f': {
       'en': 'Late night',
       'zh_Hant': '深夜',
     },
-    'f72jqz8x': {
-      'en': '15 events',
-      'zh_Hant': '15 場活動',
-    },
     'a58awuuc': {
       'en': 'Popular',
       'zh_Hant': '受歡迎的',
-    },
-    'hogjeg0j': {
-      'en': '36 events',
-      'zh_Hant': '36場活動',
     },
     'xzqf83d5': {
       'en': 'Categories',
@@ -199,7 +179,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '看全部',
     },
     'uenxs928': {
-      'en': 'Near You',
+      'en': 'Near Your Place',
       'zh_Hant': '在你附近',
     },
     '7pgw16am': {
@@ -284,7 +264,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Favorites',
       'zh_Hant': '收藏夾',
     },
-    '53i6sru8': {
+    'slotspae': {
       'en': 'Home',
       'zh_Hant': '家',
     },
@@ -431,6 +411,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Get bonuses from the invitation',
       'zh_Hant': '邀請即可獲得獎勵',
     },
+    'hxlfhz0s': {
+      'en': 'Logout',
+      'zh_Hant': '登出',
+    },
+    '9t4qc53m': {
+      'en': 'Logout Your Account',
+      'zh_Hant': '登出您的帳號',
+    },
     '6rptqura': {
       'en': 'App version 1.01.0',
       'zh_Hant': '應用程式版本 1.01.0',
@@ -514,17 +502,37 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'OR',
       'zh_Hant': '或者',
     },
+    '2ah223rn': {
+      'en': 'Email',
+      'zh_Hant': '電子郵件',
+    },
     'csq74trp': {
       'en': 'Emter your email',
       'zh_Hant': '輸入您的電子郵件',
     },
     'ly9lhvi5': {
-      'en': 'example@domain.com',
+      'en': 'test@example.com',
+      'zh_Hant': 'example@domain.com',
+    },
+    'mtnho0ch': {
+      'en': 'Password',
+      'zh_Hant': '密碼',
+    },
+    'oak43m2q': {
+      'en': 'Enter your password',
+      'zh_Hant': '輸入您的密碼',
+    },
+    'j85a8rk4': {
+      'en': 'testpassword123',
       'zh_Hant': 'example@domain.com',
     },
     '855s2zdq': {
       'en': 'Continue',
       'zh_Hant': '繼續',
+    },
+    'ezwh63qq': {
+      'en': 'Don\'t have accoumt',
+      'zh_Hant': '還沒有帳號',
     },
     'hzsbpx5t': {
       'en': 'Home',
@@ -971,11 +979,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Email',
       'zh_Hant': '電子郵件',
     },
-    'bmyypwc3': {
+    'k0iqw9ie': {
       'en': 'Emter your email',
       'zh_Hant': '輸入您的電子郵件',
     },
-    '1x3tx32q': {
+    '4em5zk1y': {
       'en': 'example@domain.com',
       'zh_Hant': 'example@domain.com',
     },
@@ -1092,26 +1100,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Questions
   {
-    's3ql5hwe': {
-      'en': 'Where are you located?',
-      'zh_Hant': '您的所在地是哪裡？',
-    },
-    'l1pkylvv': {
-      'en': 'Set your location to find local events and meet people nearby.',
-      'zh_Hant': '設定您的位置以查找當地活動並結識附近的人。',
-    },
-    'xghna1le': {
-      'en': 'Search by city',
-      'zh_Hant': '按城市搜尋',
-    },
-    'e8qmlfu9': {
-      'en': 'New York',
-      'zh_Hant': '紐約',
-    },
-    'wj8mlb3y': {
-      'en': 'Use my current location',
-      'zh_Hant': '使用我的當前位置',
-    },
     'giv06l1c': {
       'en': 'Select Your Interests',
       'zh_Hant': '選擇您的興趣',
@@ -1122,7 +1110,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '1pw01zhs': {
       'en': 'What are you looking for?',
-      'zh_Hant': '你要買什麼？',
+      'zh_Hant': '您要尋找什麼？',
     },
     'urhdsgj4': {
       'en': 'Select the option(s) that reflect what you\'re looking for.',
@@ -1436,7 +1424,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Enter your review here ...',
       'zh_Hant': '在此輸入您的評論...',
     },
-    'rswa7nc8': {
+    '43y2jg0r': {
       'en': 'Submit',
       'zh_Hant': '提交',
     },
@@ -2270,7 +2258,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Phone number',
       'zh_Hant': '電話號碼',
     },
-    '9iphfedy': {
+    '8a7e3vxk': {
       'en': 'Emter your password',
       'zh_Hant': '輸入您的密碼',
     },
@@ -2325,15 +2313,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Ultra music Festival',
       'zh_Hant': '超音樂節',
     },
-    'w7pcahe5': {
+    '4orhc1fw': {
       'en': '220K Followers',
       'zh_Hant': '22萬粉絲',
     },
-    'ndhzr51v': {
+    'cn7w053m': {
       'en': 'Follow',
       'zh_Hant': '跟隨',
     },
-    'zljpplgi': {
+    'fe4k4jg0': {
       'en': 'About',
       'zh_Hant': '關於',
     },
@@ -2355,7 +2343,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Based on 245 reviews',
       'zh_Hant': '根據 245 條點評',
     },
-    'nmghcbca': {
+    '72s1c97b': {
       'en': 'Select your date and session',
       'zh_Hant': '選擇日期和場次',
     },
@@ -2371,7 +2359,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Gallery',
       'zh_Hant': '畫廊',
     },
-    '0kss7x1v': {
+    'xbjk9loj': {
       'en': 'Location',
       'zh_Hant': '地點',
     },
@@ -2420,6 +2408,93 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           '歡迎來到 Eventy 的合作夥伴頁面。 Eventy 是一個活動預訂平台，用戶可以輕鬆找到和購買音樂會、展覽、音樂節等活動的門票。我們為合作夥伴提供獨特的機會，擴大受眾群體並提升品牌知名度。\n\n為何選擇與 Eventy 合作？\nEventy 為合作夥伴提供龐大的文化娛樂活動用戶群。與我們合作，您可以：\n\n推廣您的活動：我們的平台提供簡單有效的活動發佈工具，協助提升活動曝光。\n觸達新受眾：我們吸引來自世界各地的用戶，幫助活動組織者擴大受眾。\n提升門票銷售：Eventy 的預訂和支付系統直覺易用，有助於提升銷售量。\n提升品牌知名度：合作行銷活動和贊助機會可提升您品牌的知名度和信任度。\n如何成為合作夥伴？\n成為 Eventy 的合作夥伴非常簡單：\n\n在我們的系統中註冊。\n提交您的活動或演出計畫。\n取得個人化的推廣和分析工具。\n開始吸引參與者，並最大限度地發揮合作效益。\n我們為各種類型的活動提供靈活的合作方案—從小型聚會到大型國際盛會。\n\n合作類型\n我們提供各種合作方案，包括：\n\n活動清單：註冊並列出您的活動，並可選擇使用我們的推廣工具。\n廣告合作：透過橫幅廣告、贊助計畫和其他廣告形式推廣您的品牌。\n獨家折扣：透過特別優惠和折扣吸引用戶。',
     },
     'hb3dti8i': {
+      'en': 'Home',
+      'zh_Hant': '家',
+    },
+  },
+  // MyTicketTest
+  {
+    'uqpau6fn': {
+      'en': 'Upcoming',
+      'zh_Hant': '即將推出',
+    },
+    'xo4098ph': {
+      'en': 'Past tickets',
+      'zh_Hant': '過去的票',
+    },
+    'nl3i70ip': {
+      'en': 'Search your tickets',
+      'zh_Hant': '搜尋您的票',
+    },
+    'ecffjdw2': {
+      'en': 'Bookings history',
+      'zh_Hant': '預訂歷史記錄',
+    },
+    'yp31c15e': {
+      'en': 'My tickets',
+      'zh_Hant': '我的票',
+    },
+    'l44zrn8f': {
+      'en': 'Home',
+      'zh_Hant': '家',
+    },
+  },
+  // Register
+  {
+    'dmwcz0y7': {
+      'en': 'Get Register',
+      'zh_Hant': '開始註冊',
+    },
+    'blgqy64i': {
+      'en':
+          'Register for events, subscribe to calendars and manage events you\'re going to.',
+      'zh_Hant': '註冊活動、訂閱日曆並管理您要參加的活動。',
+    },
+    '911nm66v': {
+      'en': 'Continue with Google',
+      'zh_Hant': '繼續使用 Google',
+    },
+    'ne2buif0': {
+      'en': 'Continue with Facebook',
+      'zh_Hant': '繼續使用 Facebook',
+    },
+    '3zjnd17h': {
+      'en': 'Continue with Apple',
+      'zh_Hant': '繼續使用 Apple',
+    },
+    '97q8bu3p': {
+      'en': 'OR',
+      'zh_Hant': '或者',
+    },
+    '2aieec86': {
+      'en': 'Email',
+      'zh_Hant': '電子郵件',
+    },
+    'qjqb5588': {
+      'en': 'Emter your email',
+      'zh_Hant': '輸入您的電子郵件',
+    },
+    '1uoqdyr1': {
+      'en': 'test@example.com',
+      'zh_Hant': 'example@domain.com',
+    },
+    'wp8n8gtj': {
+      'en': 'Password',
+      'zh_Hant': '密碼',
+    },
+    'rciaincf': {
+      'en': 'Enter your password',
+      'zh_Hant': '輸入您的密碼',
+    },
+    'nlzylbsl': {
+      'en': 'testpassword123',
+      'zh_Hant': 'example@domain.com',
+    },
+    'tkh5pjdx': {
+      'en': 'Continue',
+      'zh_Hant': '繼續',
+    },
+    'h9dk58sy': {
       'en': 'Home',
       'zh_Hant': '家',
     },
@@ -2536,7 +2611,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Help Center',
       'zh_Hant': '幫助中心',
     },
-    'orc0mqia': {
+    'vkxtjn5a': {
       'en': 'Cancel',
       'zh_Hant': '取消',
     },
@@ -2638,7 +2713,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // WidgetCreditCard
   {
-    'yn3u4vcg': {
+    'ptzsi8vl': {
       'en': '**** 3456',
       'zh_Hant': '**** 3456',
     },
@@ -2676,7 +2751,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'https://share.com/vt8t2',
       'zh_Hant': 'https://share.com/vt8t2',
     },
-    '3e1q39x5': {
+    'faer38bx': {
       'en': 'Cancel',
       'zh_Hant': '取消',
     },
@@ -2796,11 +2871,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // FilterSortFavorites
   {
-    'qi9123y1': {
+    'xwrrf0qn': {
       'en': 'Sort',
       'zh_Hant': '種類',
     },
-    'mhuoz6b6': {
+    'ai24cdrf': {
       'en': 'Apply',
       'zh_Hant': '申請',
     },
@@ -2845,7 +2920,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Share',
       'zh_Hant': '分享',
     },
-    'br81gjr1': {
+    'ki0uejyb': {
       'en': 'Report Event',
       'zh_Hant': '報告事件',
     },
@@ -2875,7 +2950,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // TicketCard2
   {
-    'pubr4wyn': {
+    'xktobvtd': {
       'en': '  incl. \$1.99 Fee',
       'zh_Hant': '含 1.99 美元費用',
     },
@@ -2909,7 +2984,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // WidgetCheckoutOptions2
   {
-    'l478wjix': {
+    'fltk3mfk': {
       'en': 'Share',
       'zh_Hant': '分享',
     },
@@ -2936,25 +3011,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Cancel',
       'zh_Hant': '取消',
     },
-    't3bcx5s2': {
+    'x783k4do': {
       'en': 'Confirm',
       'zh_Hant': '確認',
     },
   },
   // MyTicketsCard
   {
-    'zfqwkvie': {
-      'en': 'Paid',
-      'zh_Hant': '已付款',
-    },
-    'zx69qeyd': {
-      'en': '3 tickets',
-      'zh_Hant': '3張票',
-    },
-    '1zzd074n': {
-      'en': '12 days left',
-      'zh_Hant': '還剩 12 天',
-    },
     'ky6am6mf': {
       'en': 'Show QR code',
       'zh_Hant': '顯示二維碼',
@@ -3016,7 +3079,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Gate',
       'zh_Hant': '門',
     },
-    'j8f6xzrm': {
+    'qjn5no6q': {
       'en': '02',
       'zh_Hant': '02',
     },
@@ -3024,7 +3087,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Row',
       'zh_Hant': '排',
     },
-    'aemr1iri': {
+    'v87cbjbr': {
       'en': '01',
       'zh_Hant': '01',
     },
@@ -3032,7 +3095,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Seat',
       'zh_Hant': '座位',
     },
-    't0m2thnl': {
+    'sbrcb9bo': {
       'en': '15',
       'zh_Hant': '15',
     },
@@ -3071,7 +3134,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           'We’ve received your report and our team will contact you as soon as possible to assist with your lost item. Stay tuned!',
       'zh_Hant': '我們已收到您的報告，我們的團隊將盡快與您聯繫，協助您處理遺失的物品。敬請期待！',
     },
-    'le9xfzb4': {
+    '7eylqt7d': {
       'en': 'Close',
       'zh_Hant': '關閉',
     },
@@ -3108,7 +3171,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // HomeFilterAll
   {
-    'gj73j6pj': {
+    'nv2nkjgs': {
       'en': 'Date',
       'zh_Hant': '日期',
     },
@@ -3204,6 +3267,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Miscellaneous
   {
+    'd58xb75r': {
+      'en':
+          'To help you easily find and invite friends, or share content with them, please allow access to your contacts. We\'ll never contact anyone without your permission.',
+      'zh_Hant': '',
+    },
     'bpbpc6go': {
       'en':
           'This app needs Bluetooth access to connect with your accessories (e.g., headphones, smartwatches) for data syncing and control.',

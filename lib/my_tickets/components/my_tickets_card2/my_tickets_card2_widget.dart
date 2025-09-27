@@ -264,7 +264,7 @@ class _MyTicketsCard2WidgetState extends State<MyTicketsCard2Widget> {
                                         0.0, 5.0, 0.0, 0.0),
                                     child: Text(
                                       valueOrDefault<String>(
-                                        widget!.data?.date,
+                                        widget!.data?.date?.toString(),
                                         'Nov 25, 2025, 02:00 PM',
                                       ),
                                       style: FlutterFlowTheme.of(context)

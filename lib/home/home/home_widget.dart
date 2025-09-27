@@ -1,4 +1,5 @@
 import '/backend/schema/structs/index.dart';
+import '/backend/supabase/supabase.dart';
 import '/explore/components/widget_categories_card2/widget_categories_card2_widget.dart';
 import '/explore/components/widget_event_card/widget_event_card_widget.dart';
 import '/explore/components/widget_event_card2/widget_event_card2_widget.dart';
@@ -13,6 +14,7 @@ import '/home/components/widget_navbar/widget_navbar_widget.dart';
 import '/walkthroughs/home.dart';
 import 'dart:math';
 import 'dart:ui';
+import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'
     show TutorialCoachMark;
@@ -62,6 +64,77 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
         safeSetState(
             () => _model.homeController = createPageWalkthrough(context));
         _model.homeController?.show(context: context);
+      } else {
+        await Future.wait([
+          Future(() async {
+            _model.allLocalEvents = await VDtEventsTable().queryRows(
+              queryFn: (q) => q.like(
+                'location',
+                '%${FFAppState().selectedCity}%',
+              ),
+            );
+            FFAppState().events = functions
+                .convertVDtEventsToEvents(_model.allLocalEvents!.toList())
+                .toList()
+                .cast<EventsStruct>();
+            FFAppState().eventsFavorites = FFAppState()
+                .events
+                .where((e) => e.isFavorite == true)
+                .toList()
+                .toList()
+                .cast<EventsStruct>();
+          }),
+          Future(() async {
+            _model.categories = await VDtCategoriesTable().queryRows(
+              queryFn: (q) => q,
+            );
+            FFAppState().categories = functions
+                .convertVDtCategoriesToCategories(_model.categories!.toList())
+                .toList()
+                .cast<CategoriesStruct>();
+          }),
+          Future(() async {
+            _model.popularSearches = await VAppConstantsSmartTable().queryRows(
+              queryFn: (q) => q
+                  .eqOrNull(
+                    'constant_type',
+                    'popular_searches',
+                  )
+                  .eqOrNull(
+                    'language_code',
+                    FFLocalizations.of(context).languageCode,
+                  )
+                  .order('display_text', ascending: true),
+            );
+            FFAppState().popularSearches = functions
+                .convertVAppConstantsToPopularSearches(
+                    _model.popularSearches!.toList())
+                .toList()
+                .cast<String>();
+          }),
+          Future(() async {
+            _model.categoryTranslate =
+                await VAppConstantsSmartTable().queryRows(
+              queryFn: (q) => q
+                  .eqOrNull(
+                    'constant_type',
+                    'categories',
+                  )
+                  .eqOrNull(
+                    'language_code',
+                    FFLocalizations.of(context).languageCode,
+                  )
+                  .order('display_text', ascending: true),
+            );
+            FFAppState().categoriesMultiLang = functions
+                .convertVAppConstantsToCategories(
+                    _model.categoryTranslate!.toList())
+                .toList()
+                .cast<String>();
+            safeSetState(() {});
+          }),
+        ]);
+        safeSetState(() {});
       }
     });
 
@@ -188,6 +261,9 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   context.pushNamed(LocationWidget.routeName);
+
+                                  FFAppState().selectedCity = '巴黎';
+                                  safeSetState(() {});
                                 },
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -264,9 +340,9 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  '6md1hhw7' /* New York */,
+                                                valueOrDefault<String>(
+                                                  FFAppState().selectedCity,
+                                                  'New Youk',
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -527,7 +603,18 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
                                       context.pushNamed(
-                                          ExploreSearchWidget.routeName);
+                                        ExploreSearchWidget.routeName,
+                                        queryParameters: {
+                                          'filterType': serializeParam(
+                                            'thisWeek',
+                                            ParamType.String,
+                                          ),
+                                          'city': serializeParam(
+                                            FFAppState().selectedCity,
+                                            ParamType.String,
+                                          ),
+                                        }.withoutNulls,
+                                      );
                                     },
                                     child: Container(
                                       width: 130.0,
@@ -610,10 +697,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 2.0, 0.0, 0.0),
                                               child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'laty58ob' /* 28 events */,
-                                                ),
+                                                '${FFAppState().events.where((e) => e.date! <= functions.getSevenDaysFromNow()).toList().length.toString()} events',
                                                 style: FlutterFlowTheme.of(
                                                         context)
                                                     .labelMedium
@@ -740,10 +824,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 2.0, 0.0, 0.0),
                                               child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  's8zbufw9' /* 8 events */,
-                                                ),
+                                                '${FFAppState().events.where((e) => e.createdAt! <= functions.getSevenDaysFromNow()).toList().length.toString()} events',
                                                 style: FlutterFlowTheme.of(
                                                         context)
                                                     .labelMedium
@@ -872,10 +953,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 2.0, 0.0, 0.0),
                                               child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'f72jqz8x' /* 15 events */,
-                                                ),
+                                                '${FFAppState().events.where((e) => e.startHour > 22).toList().length.toString()} events',
                                                 style: FlutterFlowTheme.of(
                                                         context)
                                                     .labelMedium
@@ -923,7 +1001,14 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
                                       context.pushNamed(
-                                          ExploreSearchWidget.routeName);
+                                        ExploreSearchWidget.routeName,
+                                        queryParameters: {
+                                          'filterType': serializeParam(
+                                            '',
+                                            ParamType.String,
+                                          ),
+                                        }.withoutNulls,
+                                      );
                                     },
                                     child: Container(
                                       width: 130.0,
@@ -1004,10 +1089,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 2.0, 0.0, 0.0),
                                               child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'hogjeg0j' /* 36 events */,
-                                                ),
+                                                '${FFAppState().events.where((e) => e.rating > 4.7).toList().length.toString()} events',
                                                 style: FlutterFlowTheme.of(
                                                         context)
                                                     .labelMedium
@@ -1160,11 +1242,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                             ),
                             child: Builder(
                               builder: (context) {
-                                final categoriesList = FFAppState()
-                                    .categories
-                                    .toList()
-                                    .take(10)
-                                    .toList();
+                                final categoriesList =
+                                    FFAppState().categories.toList();
 
                                 return ListView.separated(
                                   padding: EdgeInsets.fromLTRB(
@@ -1188,7 +1267,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
-                                        FFAppState().SelectedCategory =
+                                        FFAppState().selectedCategory =
                                             categoriesListItem.title;
                                         safeSetState(() {});
 
@@ -1230,7 +1309,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                               children: [
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    'uenxs928' /* Near You */,
+                                    'uenxs928' /* Near Your Place */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .headlineSmall
@@ -1320,13 +1399,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                               alignment: AlignmentDirectional(0.0, -1.0),
                               child: Builder(
                                 builder: (context) {
-                                  final eventsList = FFAppState()
-                                      .EVENTS
-                                      .sortedList(
-                                          keyOf: (e) => e.date, desc: true)
-                                      .toList()
-                                      .take(6)
-                                      .toList();
+                                  final eventList =
+                                      FFAppState().events.toList();
 
                                   return ListView.separated(
                                     padding: EdgeInsets.fromLTRB(
@@ -1338,25 +1412,25 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                     primary: false,
                                     shrinkWrap: true,
                                     scrollDirection: Axis.horizontal,
-                                    itemCount: eventsList.length,
+                                    itemCount: eventList.length,
                                     separatorBuilder: (_, __) =>
                                         SizedBox(width: 15.0),
-                                    itemBuilder: (context, eventsListIndex) {
-                                      final eventsListItem =
-                                          eventsList[eventsListIndex];
+                                    itemBuilder: (context, eventListIndex) {
+                                      final eventListItem =
+                                          eventList[eventListIndex];
                                       return wrapWithModel(
                                         model: _model.widgetEventCard2Models
                                             .getModel(
-                                          eventsListIndex.toString(),
-                                          eventsListIndex,
+                                          eventListIndex.toString(),
+                                          eventListIndex,
                                         ),
                                         updateCallback: () =>
                                             safeSetState(() {}),
                                         child: WidgetEventCard2Widget(
                                           key: Key(
-                                            'Keyfnd_${eventsListIndex.toString()}',
+                                            'Keyfnd_${eventListIndex.toString()}',
                                           ),
-                                          data: eventsListItem,
+                                          data: eventListItem,
                                         ),
                                       );
                                     },
@@ -1513,13 +1587,14 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                         15.0, 0.0, 15.0, 15.0),
                                     child: Builder(
                                       builder: (context) {
-                                        final eventsList2 = FFAppState()
-                                            .EVENTS
-                                            .sortedList(
-                                                keyOf: (e) => e.rating,
-                                                desc: false)
+                                        final newShowsList = FFAppState()
+                                            .events
+                                            .map((e) => e)
                                             .toList()
-                                            .take(4)
+                                            .where((e) =>
+                                                e.date! >=
+                                                functions.getLastMonthDateTime(
+                                                    getCurrentTimestamp))
                                             .toList();
 
                                         return ListView.separated(
@@ -1527,27 +1602,27 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                           primary: false,
                                           shrinkWrap: true,
                                           scrollDirection: Axis.vertical,
-                                          itemCount: eventsList2.length,
+                                          itemCount: newShowsList.length,
                                           separatorBuilder: (_, __) =>
                                               SizedBox(height: 10.0),
                                           itemBuilder:
-                                              (context, eventsList2Index) {
-                                            final eventsList2Item =
-                                                eventsList2[eventsList2Index];
+                                              (context, newShowsListIndex) {
+                                            final newShowsListItem =
+                                                newShowsList[newShowsListIndex];
                                             return wrapWithModel(
                                               model: _model
                                                   .widgetEventCard3Models
                                                   .getModel(
-                                                eventsList2Index.toString(),
-                                                eventsList2Index,
+                                                newShowsListIndex.toString(),
+                                                newShowsListIndex,
                                               ),
                                               updateCallback: () =>
                                                   safeSetState(() {}),
                                               child: WidgetEventCard3Widget(
                                                 key: Key(
-                                                  'Keyh81_${eventsList2Index.toString()}',
+                                                  'Keyh81_${newShowsListIndex.toString()}',
                                                 ),
-                                                data: eventsList2Item,
+                                                data: newShowsListItem,
                                               ),
                                             );
                                           },
@@ -1650,34 +1725,39 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                           ),
                           Builder(
                             builder: (context) {
-                              final events =
-                                  FFAppState().EVENTS.toList().take(8).toList();
+                              final populaerList = FFAppState()
+                                  .events
+                                  .map((e) => e)
+                                  .toList()
+                                  .where((e) => e.rating >= 4.7)
+                                  .toList();
 
                               return ListView.separated(
                                 padding: EdgeInsets.zero,
                                 primary: false,
                                 shrinkWrap: true,
                                 scrollDirection: Axis.vertical,
-                                itemCount: events.length,
+                                itemCount: populaerList.length,
                                 separatorBuilder: (_, __) =>
                                     SizedBox(height: 25.0),
-                                itemBuilder: (context, eventsIndex) {
-                                  final eventsItem = events[eventsIndex];
+                                itemBuilder: (context, populaerListIndex) {
+                                  final populaerListItem =
+                                      populaerList[populaerListIndex];
                                   return Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         15.0, 0.0, 15.0, 0.0),
                                     child: wrapWithModel(
                                       model:
                                           _model.widgetEventCardModels.getModel(
-                                        eventsIndex.toString(),
-                                        eventsIndex,
+                                        populaerListIndex.toString(),
+                                        populaerListIndex,
                                       ),
                                       updateCallback: () => safeSetState(() {}),
                                       child: WidgetEventCardWidget(
                                         key: Key(
-                                          'Key1tl_${eventsIndex.toString()}',
+                                          'Key1tl_${populaerListIndex.toString()}',
                                         ),
-                                        data: eventsItem,
+                                        data: populaerListItem,
                                       ),
                                     ),
                                   );

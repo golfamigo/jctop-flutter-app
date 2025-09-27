@@ -178,7 +178,7 @@ class _InviteFriendsShareWidgetState extends State<InviteFriendsShareWidget> {
                           Navigator.pop(context);
                         },
                         text: FFLocalizations.of(context).getText(
-                          '3e1q39x5' /* Cancel */,
+                          'faer38bx' /* Cancel */,
                         ),
                         options: FFButtonOptions(
                           height: 40.0,

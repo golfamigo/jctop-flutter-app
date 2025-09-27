@@ -150,7 +150,7 @@ class _Reschedule2WidgetState extends State<Reschedule2Widget> {
                           inputDate: getCurrentTimestamp,
                           initialSelectedDate: getCurrentTimestamp,
                           onSelectDateAction: (selectedDate) async {
-                            FFAppState().SelectedDate = selectedDate;
+                            FFAppState().selectedDate = selectedDate;
                             safeSetState(() {});
                           },
                         ),
@@ -190,7 +190,7 @@ class _Reschedule2WidgetState extends State<Reschedule2Widget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    FFAppState().SelectedTimeline =
+                                    FFAppState().selectedTimeline =
                                         timelineItem;
                                     safeSetState(() {});
                                   },
@@ -201,7 +201,7 @@ class _Reschedule2WidgetState extends State<Reschedule2Widget> {
                                           .secondaryBackground,
                                       borderRadius: BorderRadius.circular(8.0),
                                       border: Border.all(
-                                        color: FFAppState().SelectedTimeline ==
+                                        color: FFAppState().selectedTimeline ==
                                                 timelineItem
                                             ? FlutterFlowTheme.of(context)
                                                 .primary
@@ -236,7 +236,7 @@ class _Reschedule2WidgetState extends State<Reschedule2Widget> {
                                                           .fontStyle,
                                                 ),
                                                 color: FFAppState()
-                                                            .SelectedTimeline ==
+                                                            .selectedTimeline ==
                                                         timelineItem
                                                     ? FlutterFlowTheme.of(
                                                             context)

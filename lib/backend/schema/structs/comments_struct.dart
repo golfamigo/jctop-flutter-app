@@ -8,7 +8,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 class CommentsStruct extends BaseStruct {
   CommentsStruct({
     String? name,
-    String? date,
+    DateTime? date,
     String? comment,
   })  : _name = name,
         _date = date,
@@ -22,9 +22,9 @@ class CommentsStruct extends BaseStruct {
   bool hasName() => _name != null;
 
   // "date" field.
-  String? _date;
-  String get date => _date ?? '';
-  set date(String? val) => _date = val;
+  DateTime? _date;
+  DateTime? get date => _date;
+  set date(DateTime? val) => _date = val;
 
   bool hasDate() => _date != null;
 
@@ -37,7 +37,7 @@ class CommentsStruct extends BaseStruct {
 
   static CommentsStruct fromMap(Map<String, dynamic> data) => CommentsStruct(
         name: data['name'] as String?,
-        date: data['date'] as String?,
+        date: data['date'] as DateTime?,
         comment: data['comment'] as String?,
       );
 
@@ -58,7 +58,7 @@ class CommentsStruct extends BaseStruct {
         ),
         'date': serializeParam(
           _date,
-          ParamType.String,
+          ParamType.DateTime,
         ),
         'comment': serializeParam(
           _comment,
@@ -75,7 +75,7 @@ class CommentsStruct extends BaseStruct {
         ),
         date: deserializeParam(
           data['date'],
-          ParamType.String,
+          ParamType.DateTime,
           false,
         ),
         comment: deserializeParam(
@@ -102,7 +102,7 @@ class CommentsStruct extends BaseStruct {
 
 CommentsStruct createCommentsStruct({
   String? name,
-  String? date,
+  DateTime? date,
   String? comment,
 }) =>
     CommentsStruct(

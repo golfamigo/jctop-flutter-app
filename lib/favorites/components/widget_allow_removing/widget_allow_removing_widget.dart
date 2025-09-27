@@ -151,7 +151,7 @@ class _WidgetAllowRemovingWidgetState extends State<WidgetAllowRemovingWidget> {
                       ),
                       FFButtonWidget(
                         onPressed: () async {
-                          FFAppState().EVENTSFAVORITES = [];
+                          FFAppState().eventsFavorites = [];
                           FFAppState().update(() {});
                           if (FFAppState().updater) {
                             FFAppState().updater = false;

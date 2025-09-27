@@ -1,4 +1,5 @@
 import '/backend/schema/structs/index.dart';
+import '/backend/supabase/supabase.dart';
 import '/explore/components/filter_by_category/filter_by_category_widget.dart';
 import '/explore/components/filter_by_date/filter_by_date_widget.dart';
 import '/explore/components/filter_sort/filter_sort_widget.dart';

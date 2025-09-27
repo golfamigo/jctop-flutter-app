@@ -251,7 +251,7 @@ class _CalendarComp2WidgetState extends State<CalendarComp2Widget> {
                               .pastDates(calendarItem.calendarDate!)) {
                             _model.selectedDate = calendarItem.calendarDate;
                             safeSetState(() {});
-                            FFAppState().SelectedFilterDate =
+                            FFAppState().selectedFilterDate =
                                 calendarItem.calendarDate;
                             _model.updatePage(() {});
                             await widget.onSelectDateAction?.call(

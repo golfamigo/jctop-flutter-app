@@ -257,7 +257,7 @@ class _MyTicketsOptionsWidgetState extends State<MyTicketsOptionsWidget> {
                     alignment: AlignmentDirectional(0.0, 0.0),
                     child: Text(
                       FFLocalizations.of(context).getText(
-                        'orc0mqia' /* Cancel */,
+                        'vkxtjn5a' /* Cancel */,
                       ),
                       style: FlutterFlowTheme.of(context).titleMedium.override(
                             font: GoogleFonts.rubik(

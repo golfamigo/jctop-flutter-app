@@ -77,3 +77,6 @@ export '/home/find_new_events/find_new_events_widget.dart'
     show FindNewEventsWidget;
 export '/profile/help_center_partner/help_center_partner_widget.dart'
     show HelpCenterPartnerWidget;
+export '/my_tickets/my_ticket_test/my_ticket_test_widget.dart'
+    show MyTicketTestWidget;
+export '/register/register/register_widget.dart' show RegisterWidget;

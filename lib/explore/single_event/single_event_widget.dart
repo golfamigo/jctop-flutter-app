@@ -168,20 +168,20 @@ class _SingleEventWidgetState extends State<SingleEventWidget> {
                                                   onPressed: () async {
                                                     safeSetState(
                                                       () => FFAppState()
-                                                              .EVENTSFAVORITES
+                                                              .eventsFavorites
                                                               .contains(
                                                                   widget!.data)
                                                           ? FFAppState()
-                                                              .removeFromEVENTSFAVORITES(
+                                                              .removeFromEventsFavorites(
                                                                   widget!.data!)
                                                           : FFAppState()
-                                                              .addToEVENTSFAVORITES(
+                                                              .addToEventsFavorites(
                                                                   widget!
                                                                       .data!),
                                                     );
                                                   },
                                                   value: FFAppState()
-                                                      .EVENTSFAVORITES
+                                                      .eventsFavorites
                                                       .contains(widget!.data),
                                                   onIcon: Icon(
                                                     Icons.favorite_rounded,
@@ -874,7 +874,7 @@ class _SingleEventWidgetState extends State<SingleEventWidget> {
                         ),
                         child: Builder(
                           builder: (context) {
-                            final comments = FFAppState().CommentsList.toList();
+                            final comments = FFAppState().commentsList.toList();
 
                             return ListView.separated(
                               padding: EdgeInsets.fromLTRB(
@@ -947,7 +947,7 @@ class _SingleEventWidgetState extends State<SingleEventWidget> {
                           inputDate: getCurrentTimestamp,
                           initialSelectedDate: getCurrentTimestamp,
                           onSelectDateAction: (selectedDate) async {
-                            FFAppState().SelectedDate = selectedDate;
+                            FFAppState().selectedDate = selectedDate;
                             safeSetState(() {});
                           },
                         ),
@@ -987,7 +987,7 @@ class _SingleEventWidgetState extends State<SingleEventWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    FFAppState().SelectedTimeline =
+                                    FFAppState().selectedTimeline =
                                         timelineItem;
                                     safeSetState(() {});
                                   },
@@ -998,7 +998,7 @@ class _SingleEventWidgetState extends State<SingleEventWidget> {
                                           .secondaryBackground,
                                       borderRadius: BorderRadius.circular(8.0),
                                       border: Border.all(
-                                        color: FFAppState().SelectedTimeline ==
+                                        color: FFAppState().selectedTimeline ==
                                                 timelineItem
                                             ? FlutterFlowTheme.of(context)
                                                 .primary
@@ -1033,7 +1033,7 @@ class _SingleEventWidgetState extends State<SingleEventWidget> {
                                                           .fontStyle,
                                                 ),
                                                 color: FFAppState()
-                                                            .SelectedTimeline ==
+                                                            .selectedTimeline ==
                                                         timelineItem
                                                     ? FlutterFlowTheme.of(
                                                             context)
@@ -1067,7 +1067,7 @@ class _SingleEventWidgetState extends State<SingleEventWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                       child: Builder(
                         builder: (context) {
-                          final tickets = FFAppState().Tickets.toList();
+                          final tickets = FFAppState().tickets.toList();
 
                           return ListView.separated(
                             padding: EdgeInsets.zero,
@@ -1648,8 +1648,8 @@ class _SingleEventWidgetState extends State<SingleEventWidget> {
                           child: Builder(
                             builder: (context) {
                               final eventsList = FFAppState()
-                                  .EVENTS
-                                  .sortedList(keyOf: (e) => e.date, desc: true)
+                                  .events
+                                  .sortedList(keyOf: (e) => e.date!, desc: true)
                                   .toList()
                                   .take(6)
                                   .toList();
@@ -1720,7 +1720,7 @@ class _SingleEventWidgetState extends State<SingleEventWidget> {
                         Expanded(
                           child: Text(
                             valueOrDefault<String>(
-                              widget!.data?.price,
+                              widget!.data?.minPrice?.toString(),
                               'From \$50',
                             ),
                             style: FlutterFlowTheme.of(context)

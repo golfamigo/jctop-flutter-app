@@ -242,7 +242,7 @@ class _ExploreWidgetState extends State<ExploreWidget>
                       child: Builder(
                         builder: (context) {
                           final popularSearches =
-                              FFAppConstants.PopularSearches.toList();
+                              FFAppState().popularSearches.toList();
 
                           return Wrap(
                             spacing: 10.0,
@@ -355,7 +355,7 @@ class _ExploreWidgetState extends State<ExploreWidget>
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  FFAppState().SelectedCategory =
+                                  FFAppState().selectedCategory =
                                       categoriesListItem.title;
                                   safeSetState(() {});
 

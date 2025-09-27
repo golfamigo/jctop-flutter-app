@@ -111,22 +111,37 @@ docs/
 ### Component Template
 
 #### FlutterFlow 視覺化組件模板
-```typescript
-// FlutterFlow 視覺化組件開發指南
-// 注意：這些組件在 FlutterFlow 介面中創建，不是直接程式碼
 
-組件名稱：EventCard
-參數：
-├── eventData (EventsStruct) - 事件資料
-├── showFavoriteButton (bool) - 是否顯示收藏按鈕  
-├── onTap (Action) - 點擊回調
-└── customHeight (double?) - 自定義高度
+**🎯 FlutterFlow 設計哲學：分離式參數**
 
-內部邏輯：
-├── 使用 Custom Function: formatEventDate(eventData.date)
-├── 使用 Custom Function: getEventTag(eventData.tag)  
-├── 條件顯示：收藏按鈕根據 showFavoriteButton 參數
-└── 動作觸發：點擊時執行 onTap 參數動作
+基於實際代碼分析，FlutterFlow 偏好**分離式參數設計**而非單一複合對象：
+
+```dart
+// ✅ FlutterFlow 偏好的組件設計模式
+組件名稱：MyTicketsCardWidget
+參數設計（分離式）：
+├── dataDate (EventsStruct?) - 專門處理日期相關顯示
+├── dataLocation (EventsStruct?) - 專門處理位置相關顯示
+├── dataTitle (EventsStruct?) - 專門處理標題相關顯示
+└── dataImg (EventsStruct?) - 專門處理圖片相關顯示
+
+視覺化編輯器優勢：
+├── 獨立數據綁定：每個參數可綁定不同數據源
+├── 條件邏輯控制：基於參數做條件顯示
+├── 類型安全提示：編輯器精確提示參數類型
+└── 組件重用性：適用於多種不同場景
+```
+
+**🔍 實際使用模式：**
+```dart
+// 在 ListView 中的使用方式
+MyTicketsCardWidget(
+  key: Key('Key1y1_${uniqueId}'),
+  dataDate: EventsStruct(date: listViewVMyEventsRow.startDate),
+  dataLocation: EventsStruct(location: listViewVMyEventsRow.city), 
+  dataTitle: EventsStruct(title: listViewVMyEventsRow.title),
+  dataImg: EventsStruct(img: listViewVMyEventsRow.imageUrl),
+)
 ```
 
 #### Custom Widget 程式碼模板（複雜組件）
@@ -1104,10 +1119,12 @@ String getLocalizedText(String key, String locale) {
 - **開發效率優化：** 視覺化開發配合 Custom Code 的混合模式
 
 **🔑 關鍵決策：**
-- 所有複雜邏輯透過 Custom Actions 處理
-- 資料轉換邏輯集中在 Custom Functions
-- 狀態管理統一由 FFAppState 管理
-- 測試和環境管理由 FlutterFlow 平台負責
+- **組件設計**：遵循 FlutterFlow 分離式參數設計哲學，最大化視覺化編輯器友好性
+- **數據查詢**：使用 `FutureBuilder + Table.queryRows()` 模式，避免直接 Supabase 客戶端
+- **混合開發**：新功能使用 Supabase，舊功能保留 FFAppState，支持漸進式遷移
+- **Model 管理**：使用唯一 ID（如 `eventId`）而非索引作為 Model Key
+- **狀態管理**：依賴 FlutterFlow 內建的異步 Widget，避免自定義狀態變數
+- **資料映射**：`VMyEventsRow → EventsStruct` 的分離參數模式
 
 **📋 實施重點：**
 1. 嚴格遵循 FlutterFlow 的檔案結構規範
@@ -1119,7 +1136,32 @@ String getLocalizedText(String key, String locale) {
 
 ---
 
-**文件版本：** 1.0  
+---
+
+## 📋 重要研究更新
+
+### 🎯 FlutterFlow 組件參數化模式研究 (2025-01-11)
+
+通過實際代碼分析 `MyTicketsCardWidget` 和 `my_ticket_test_widget.dart`，發現了 FlutterFlow 的核心設計哲學：
+
+**關鍵洞察：**
+- **分離式參數設計**：FlutterFlow 偏好將數據分解為多個專用參數，而不是單一複合對象
+- **視覺化友好**：每個參數都有清楚的註釋，便於在視覺化編輯器中理解和綁定
+- **類型安全**：使用 `EventsStruct?` 確保類型安全，同時允許空值
+- **預設值策略**：每個顯示都有合理的預設值，防止空數據造成 UI 破損
+
+**實踐驗證：**
+- ✅ **混合模式成功**：Supabase 查詢與 FFAppState 可以在同一頁面並存
+- ✅ **Model 管理穩定**：使用 `eventId` 作為唯一標識符替代索引
+- ✅ **編譯通過**：所有修改符合 FlutterFlow 編碼標準
+- ✅ **Push 可行**：經驗證可成功推送回 FlutterFlow 編輯器
+
+這些發現直接影響我們的架構設計決策，確保與 FlutterFlow 平台完美整合。
+
+---
+
+**文件版本：** 1.1  
 **建立日期：** 2025-01-09  
+**更新日期：** 2025-01-11  
 **建立者：** Winston (Architect)  
-**審核狀態：** 已完成，準備實施
+**審核狀態：** ✅ 已完成並經實際驗證

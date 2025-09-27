@@ -468,7 +468,7 @@ class _WalkthroughWidgetState extends State<WalkthroughWidget> {
                         EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 15.0),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        FFAppState().FromRegister = true;
+                        FFAppState().fromRegister = true;
                         safeSetState(() {});
                         if (_model.pageViewCurrentIndex >= 3) {
                           context.pushNamed(LoginWidget.routeName);

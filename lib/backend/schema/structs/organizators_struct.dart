@@ -10,9 +10,11 @@ class OrganizatorsStruct extends BaseStruct {
     String? title,
     String? followers,
     String? img,
+    String? id,
   })  : _title = title,
         _followers = followers,
-        _img = img;
+        _img = img,
+        _id = id;
 
   // "title" field.
   String? _title;
@@ -35,11 +37,19 @@ class OrganizatorsStruct extends BaseStruct {
 
   bool hasImg() => _img != null;
 
+  // "id" field.
+  String? _id;
+  String get id => _id ?? '';
+  set id(String? val) => _id = val;
+
+  bool hasId() => _id != null;
+
   static OrganizatorsStruct fromMap(Map<String, dynamic> data) =>
       OrganizatorsStruct(
         title: data['title'] as String?,
         followers: data['followers'] as String?,
         img: data['img'] as String?,
+        id: data['id'] as String?,
       );
 
   static OrganizatorsStruct? maybeFromMap(dynamic data) => data is Map
@@ -50,6 +60,7 @@ class OrganizatorsStruct extends BaseStruct {
         'title': _title,
         'followers': _followers,
         'img': _img,
+        'id': _id,
       }.withoutNulls;
 
   @override
@@ -64,6 +75,10 @@ class OrganizatorsStruct extends BaseStruct {
         ),
         'img': serializeParam(
           _img,
+          ParamType.String,
+        ),
+        'id': serializeParam(
+          _id,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -85,6 +100,11 @@ class OrganizatorsStruct extends BaseStruct {
           ParamType.String,
           false,
         ),
+        id: deserializeParam(
+          data['id'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -95,20 +115,23 @@ class OrganizatorsStruct extends BaseStruct {
     return other is OrganizatorsStruct &&
         title == other.title &&
         followers == other.followers &&
-        img == other.img;
+        img == other.img &&
+        id == other.id;
   }
 
   @override
-  int get hashCode => const ListEquality().hash([title, followers, img]);
+  int get hashCode => const ListEquality().hash([title, followers, img, id]);
 }
 
 OrganizatorsStruct createOrganizatorsStruct({
   String? title,
   String? followers,
   String? img,
+  String? id,
 }) =>
     OrganizatorsStruct(
       title: title,
       followers: followers,
       img: img,
+      id: id,
     );

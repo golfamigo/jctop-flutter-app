@@ -109,7 +109,7 @@ class _WidgetCheckoutOptions2WidgetState
                                     15.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    'l478wjix' /* Share */,
+                                    'fltk3mfk' /* Share */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .titleSmall

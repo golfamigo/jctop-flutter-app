@@ -160,7 +160,7 @@ class _CancelTicketReasonsWidgetState extends State<CancelTicketReasonsWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                FFAppState().SelectedReasonCancel =
+                                FFAppState().selectedReasonCancel =
                                     listReasonsItem;
                                 safeSetState(() {});
                               },
@@ -199,7 +199,7 @@ class _CancelTicketReasonsWidgetState extends State<CancelTicketReasonsWidget> {
                                           ),
                                     ),
                                   ),
-                                  if (FFAppState().SelectedReasonCancel !=
+                                  if (FFAppState().selectedReasonCancel !=
                                       listReasonsItem)
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
@@ -211,7 +211,7 @@ class _CancelTicketReasonsWidgetState extends State<CancelTicketReasonsWidget> {
                                         size: 28.0,
                                       ),
                                     ),
-                                  if (FFAppState().SelectedReasonCancel ==
+                                  if (FFAppState().selectedReasonCancel ==
                                       listReasonsItem)
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(

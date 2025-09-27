@@ -168,7 +168,7 @@ class _SingleEvent2WidgetState extends State<SingleEvent2Widget> {
                                                   onPressed: () async {
                                                     safeSetState(
                                                       () => FFAppState()
-                                                              .TrandingEventsFavorites
+                                                              .trandingEventsFavorites
                                                               .contains(
                                                                   widget!.data)
                                                           ? FFAppState()
@@ -181,7 +181,7 @@ class _SingleEvent2WidgetState extends State<SingleEvent2Widget> {
                                                     );
                                                   },
                                                   value: FFAppState()
-                                                      .TrandingEventsFavorites
+                                                      .trandingEventsFavorites
                                                       .contains(widget!.data),
                                                   onIcon: Icon(
                                                     Icons.favorite_rounded,
@@ -486,7 +486,7 @@ class _SingleEvent2WidgetState extends State<SingleEvent2Widget> {
                                                   0.0, 4.0, 0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
-                                              'w7pcahe5' /* 220K Followers */,
+                                              '4orhc1fw' /* 220K Followers */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .labelMedium
@@ -530,7 +530,7 @@ class _SingleEvent2WidgetState extends State<SingleEvent2Widget> {
                                       print('Button pressed ...');
                                     },
                                     text: FFLocalizations.of(context).getText(
-                                      'ndhzr51v' /* Follow */,
+                                      'cn7w053m' /* Follow */,
                                     ),
                                     options: FFButtonOptions(
                                       height: 40.0,
@@ -582,7 +582,7 @@ class _SingleEvent2WidgetState extends State<SingleEvent2Widget> {
                         children: [
                           Text(
                             FFLocalizations.of(context).getText(
-                              'zljpplgi' /* About */,
+                              'fe4k4jg0' /* About */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .titleLarge
@@ -871,7 +871,7 @@ class _SingleEvent2WidgetState extends State<SingleEvent2Widget> {
                         ),
                         child: Builder(
                           builder: (context) {
-                            final comments = FFAppState().CommentsList.toList();
+                            final comments = FFAppState().commentsList.toList();
 
                             return ListView.separated(
                               padding: EdgeInsets.fromLTRB(
@@ -913,7 +913,7 @@ class _SingleEvent2WidgetState extends State<SingleEvent2Widget> {
                           EdgeInsetsDirectional.fromSTEB(15.0, 25.0, 0.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
-                          'nmghcbca' /* Select your date and session */,
+                          '72s1c97b' /* Select your date and session */,
                         ),
                         style: FlutterFlowTheme.of(context).titleLarge.override(
                               font: GoogleFonts.rubik(
@@ -944,7 +944,7 @@ class _SingleEvent2WidgetState extends State<SingleEvent2Widget> {
                           inputDate: getCurrentTimestamp,
                           initialSelectedDate: getCurrentTimestamp,
                           onSelectDateAction: (selectedDate) async {
-                            FFAppState().SelectedDate = selectedDate;
+                            FFAppState().selectedDate = selectedDate;
                             safeSetState(() {});
                           },
                         ),
@@ -984,7 +984,7 @@ class _SingleEvent2WidgetState extends State<SingleEvent2Widget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    FFAppState().SelectedTimeline =
+                                    FFAppState().selectedTimeline =
                                         timelineItem;
                                     safeSetState(() {});
                                   },
@@ -995,7 +995,7 @@ class _SingleEvent2WidgetState extends State<SingleEvent2Widget> {
                                           .secondaryBackground,
                                       borderRadius: BorderRadius.circular(8.0),
                                       border: Border.all(
-                                        color: FFAppState().SelectedTimeline ==
+                                        color: FFAppState().selectedTimeline ==
                                                 timelineItem
                                             ? FlutterFlowTheme.of(context)
                                                 .primary
@@ -1030,7 +1030,7 @@ class _SingleEvent2WidgetState extends State<SingleEvent2Widget> {
                                                           .fontStyle,
                                                 ),
                                                 color: FFAppState()
-                                                            .SelectedTimeline ==
+                                                            .selectedTimeline ==
                                                         timelineItem
                                                     ? FlutterFlowTheme.of(
                                                             context)
@@ -1064,7 +1064,7 @@ class _SingleEvent2WidgetState extends State<SingleEvent2Widget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                       child: Builder(
                         builder: (context) {
-                          final tickets = FFAppState().Tickets.toList();
+                          final tickets = FFAppState().tickets.toList();
 
                           return ListView.separated(
                             padding: EdgeInsets.zero,
@@ -1525,7 +1525,7 @@ class _SingleEvent2WidgetState extends State<SingleEvent2Widget> {
                           EdgeInsetsDirectional.fromSTEB(15.0, 25.0, 0.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
-                          '0kss7x1v' /* Location */,
+                          'xbjk9loj' /* Location */,
                         ),
                         style: FlutterFlowTheme.of(context).titleLarge.override(
                               font: GoogleFonts.rubik(
@@ -1645,8 +1645,8 @@ class _SingleEvent2WidgetState extends State<SingleEvent2Widget> {
                           child: Builder(
                             builder: (context) {
                               final eventsList = FFAppState()
-                                  .EVENTS
-                                  .sortedList(keyOf: (e) => e.date, desc: true)
+                                  .events
+                                  .sortedList(keyOf: (e) => e.date!, desc: true)
                                   .toList()
                                   .take(6)
                                   .toList();
@@ -1717,7 +1717,7 @@ class _SingleEvent2WidgetState extends State<SingleEvent2Widget> {
                         Expanded(
                           child: Text(
                             valueOrDefault<String>(
-                              widget!.data?.price,
+                              widget!.data?.price?.toString(),
                               'From \$50',
                             ),
                             style: FlutterFlowTheme.of(context)

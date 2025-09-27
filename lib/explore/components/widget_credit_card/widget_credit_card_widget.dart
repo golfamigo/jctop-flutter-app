@@ -77,7 +77,7 @@ class _WidgetCreditCardWidgetState extends State<WidgetCreditCardWidget> {
                 ),
                 Text(
                   FFLocalizations.of(context).getText(
-                    'yn3u4vcg' /* **** 3456 */,
+                    'ptzsi8vl' /* **** 3456 */,
                   ),
                   style: FlutterFlowTheme.of(context).titleSmall.override(
                         font: GoogleFonts.rubik(

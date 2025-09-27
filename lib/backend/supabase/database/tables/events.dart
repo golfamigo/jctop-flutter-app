@@ -67,4 +67,7 @@ class EventsRow extends SupabaseDataRow {
 
   DateTime? get updatedAt => getField<DateTime>('updated_at');
   set updatedAt(DateTime? value) => setField<DateTime>('updated_at', value);
+
+  double? get averageRating => getField<double>('average_rating');
+  set averageRating(double? value) => setField<double>('average_rating', value);
 }

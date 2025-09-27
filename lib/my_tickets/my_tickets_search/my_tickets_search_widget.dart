@@ -219,8 +219,8 @@ class _MyTicketsSearchWidgetState extends State<MyTicketsSearchWidget> {
                       child: Builder(
                         builder: (context) {
                           final upcomingEvents = FFAppState()
-                              .EVENTS
-                              .sortedList(keyOf: (e) => e.date, desc: false)
+                              .events
+                              .sortedList(keyOf: (e) => e.date!, desc: false)
                               .toList();
 
                           return ListView.separated(

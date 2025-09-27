@@ -102,7 +102,7 @@ class _WidgetEventCardTrendingWidgetState
               children: [
                 Text(
                   valueOrDefault<String>(
-                    widget!.data?.price,
+                    widget!.data?.price?.toString(),
                     '\$150',
                   ),
                   style: FlutterFlowTheme.of(context).labelMedium.override(

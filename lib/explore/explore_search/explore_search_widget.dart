@@ -1,4 +1,5 @@
 import '/backend/schema/structs/index.dart';
+import '/backend/supabase/supabase.dart';
 import '/explore/components/filter_by_category/filter_by_category_widget.dart';
 import '/explore/components/filter_by_date/filter_by_date_widget.dart';
 import '/explore/components/filter_sort/filter_sort_widget.dart';
@@ -17,7 +18,18 @@ import 'explore_search_model.dart';
 export 'explore_search_model.dart';
 
 class ExploreSearchWidget extends StatefulWidget {
-  const ExploreSearchWidget({super.key});
+  const ExploreSearchWidget({
+    super.key,
+    this.filterType,
+    this.startHour,
+    this.minRating,
+    this.city,
+  });
+
+  final String? filterType;
+  final String? startHour;
+  final String? minRating;
+  final String? city;
 
   static String routeName = 'ExploreSearch';
   static String routePath = '/exploreSearch';
@@ -260,7 +272,7 @@ class _ExploreSearchWidgetState extends State<ExploreSearchWidget> {
                                 height: 40.0,
                                 decoration: BoxDecoration(
                                   color: valueOrDefault<Color>(
-                                    FFAppState().SelectedFilterDate != null
+                                    FFAppState().selectedFilterDate != null
                                         ? FlutterFlowTheme.of(context)
                                             .primaryText
                                         : FlutterFlowTheme.of(context).accent1,
@@ -280,7 +292,7 @@ class _ExploreSearchWidgetState extends State<ExploreSearchWidget> {
                                         child: Icon(
                                           FFIcons.kcalendarPlus01,
                                           color: valueOrDefault<Color>(
-                                            FFAppState().SelectedFilterDate !=
+                                            FFAppState().selectedFilterDate !=
                                                     null
                                                 ? FlutterFlowTheme.of(context)
                                                     .secondaryBackground
@@ -297,12 +309,12 @@ class _ExploreSearchWidgetState extends State<ExploreSearchWidget> {
                                             10.0, 7.0, 5.0, 7.0),
                                         child: Text(
                                           valueOrDefault<String>(
-                                            FFAppState().SelectedFilterDate !=
+                                            FFAppState().selectedFilterDate !=
                                                     null
                                                 ? dateTimeFormat(
                                                     "yMMMd",
                                                     FFAppState()
-                                                        .SelectedFilterDate,
+                                                        .selectedFilterDate,
                                                     locale: FFLocalizations.of(
                                                             context)
                                                         .languageCode,
@@ -326,7 +338,7 @@ class _ExploreSearchWidgetState extends State<ExploreSearchWidget> {
                                                           .fontStyle,
                                                 ),
                                                 color: valueOrDefault<Color>(
-                                                  FFAppState().SelectedFilterDate !=
+                                                  FFAppState().selectedFilterDate !=
                                                           null
                                                       ? FlutterFlowTheme.of(
                                                               context)
@@ -349,7 +361,7 @@ class _ExploreSearchWidgetState extends State<ExploreSearchWidget> {
                                               ),
                                         ),
                                       ),
-                                      if (FFAppState().SelectedFilterDate !=
+                                      if (FFAppState().selectedFilterDate !=
                                           null)
                                         Padding(
                                           padding:
@@ -361,14 +373,16 @@ class _ExploreSearchWidgetState extends State<ExploreSearchWidget> {
                                             hoverColor: Colors.transparent,
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
-                                              FFAppState().SelectedFilterDate =
-                                                  null;
+                                              FFAppState().selectedFilterDate =
+                                                  DateTime
+                                                      .fromMillisecondsSinceEpoch(
+                                                          1757745180000);
                                               FFAppState().update(() {});
                                             },
                                             child: Icon(
                                               FFIcons.kxClose,
                                               color: valueOrDefault<Color>(
-                                                FFAppState().SelectedFilterDate !=
+                                                FFAppState().selectedFilterDate !=
                                                         null
                                                     ? FlutterFlowTheme.of(
                                                             context)
@@ -420,8 +434,8 @@ class _ExploreSearchWidgetState extends State<ExploreSearchWidget> {
                                 height: 40.0,
                                 decoration: BoxDecoration(
                                   color: valueOrDefault<Color>(
-                                    FFAppState().SelectedCategory != null &&
-                                            FFAppState().SelectedCategory != ''
+                                    FFAppState().selectedCategory != null &&
+                                            FFAppState().selectedCategory != ''
                                         ? FlutterFlowTheme.of(context)
                                             .primaryText
                                         : FlutterFlowTheme.of(context).accent1,
@@ -441,10 +455,10 @@ class _ExploreSearchWidgetState extends State<ExploreSearchWidget> {
                                         child: Icon(
                                           FFIcons.klayoutGrid,
                                           color: valueOrDefault<Color>(
-                                            FFAppState().SelectedCategory !=
+                                            FFAppState().selectedCategory !=
                                                         null &&
                                                     FFAppState()
-                                                            .SelectedCategory !=
+                                                            .selectedCategory !=
                                                         ''
                                                 ? FlutterFlowTheme.of(context)
                                                     .secondaryBackground
@@ -461,12 +475,12 @@ class _ExploreSearchWidgetState extends State<ExploreSearchWidget> {
                                             10.0, 7.0, 5.0, 7.0),
                                         child: Text(
                                           valueOrDefault<String>(
-                                            FFAppState().SelectedCategory !=
+                                            FFAppState().selectedCategory !=
                                                         null &&
                                                     FFAppState()
-                                                            .SelectedCategory !=
+                                                            .selectedCategory !=
                                                         ''
-                                                ? FFAppState().SelectedCategory
+                                                ? FFAppState().selectedCategory
                                                 : 'Category',
                                             'Category',
                                           ),
@@ -486,10 +500,10 @@ class _ExploreSearchWidgetState extends State<ExploreSearchWidget> {
                                                           .fontStyle,
                                                 ),
                                                 color: valueOrDefault<Color>(
-                                                  FFAppState().SelectedCategory !=
+                                                  FFAppState().selectedCategory !=
                                                               null &&
                                                           FFAppState()
-                                                                  .SelectedCategory !=
+                                                                  .selectedCategory !=
                                                               ''
                                                       ? FlutterFlowTheme.of(
                                                               context)
@@ -512,9 +526,9 @@ class _ExploreSearchWidgetState extends State<ExploreSearchWidget> {
                                               ),
                                         ),
                                       ),
-                                      if (FFAppState().SelectedCategory !=
+                                      if (FFAppState().selectedCategory !=
                                               null &&
-                                          FFAppState().SelectedCategory != '')
+                                          FFAppState().selectedCategory != '')
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -525,17 +539,17 @@ class _ExploreSearchWidgetState extends State<ExploreSearchWidget> {
                                             hoverColor: Colors.transparent,
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
-                                              FFAppState().SelectedCategory =
+                                              FFAppState().selectedCategory =
                                                   '';
                                               safeSetState(() {});
                                             },
                                             child: Icon(
                                               FFIcons.kxClose,
                                               color: valueOrDefault<Color>(
-                                                FFAppState().SelectedCategory !=
+                                                FFAppState().selectedCategory !=
                                                             null &&
                                                         FFAppState()
-                                                                .SelectedCategory !=
+                                                                .selectedCategory !=
                                                             ''
                                                     ? FlutterFlowTheme.of(
                                                             context)
@@ -683,7 +697,7 @@ class _ExploreSearchWidgetState extends State<ExploreSearchWidget> {
                         child: Builder(
                           builder: (context) {
                             final trandingList = FFAppState()
-                                .TrandingEvents
+                                .trandingEvents
                                 .sortedList(keyOf: (e) => e.price, desc: true)
                                 .toList();
 
@@ -767,33 +781,70 @@ class _ExploreSearchWidgetState extends State<ExploreSearchWidget> {
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
-                      child: Builder(
-                        builder: (context) {
-                          final events = FFAppState().EVENTS.toList();
+                      child: FutureBuilder<List<VDtEventsRow>>(
+                        future: VDtEventsTable().queryRows(
+                          queryFn: (q) => q.like(
+                            'city',
+                            '%paris%',
+                          ),
+                        ),
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return Center(
+                              child: SizedBox(
+                                width: 25.0,
+                                height: 25.0,
+                                child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                    FlutterFlowTheme.of(context).primary,
+                                  ),
+                                ),
+                              ),
+                            );
+                          }
+                          List<VDtEventsRow> listViewVDtEventsRowList =
+                              snapshot.data!;
 
                           return ListView.separated(
                             padding: EdgeInsets.zero,
                             primary: false,
                             shrinkWrap: true,
                             scrollDirection: Axis.vertical,
-                            itemCount: events.length,
+                            itemCount: listViewVDtEventsRowList.length,
                             separatorBuilder: (_, __) => SizedBox(height: 25.0),
-                            itemBuilder: (context, eventsIndex) {
-                              final eventsItem = events[eventsIndex];
+                            itemBuilder: (context, listViewIndex) {
+                              final listViewVDtEventsRow =
+                                  listViewVDtEventsRowList[listViewIndex];
                               return Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     15.0, 0.0, 15.0, 0.0),
                                 child: wrapWithModel(
                                   model: _model.widgetEventCardModels.getModel(
-                                    eventsIndex.toString(),
-                                    eventsIndex,
+                                    listViewVDtEventsRow.id!,
+                                    listViewIndex,
                                   ),
                                   updateCallback: () => safeSetState(() {}),
                                   child: WidgetEventCardWidget(
                                     key: Key(
-                                      'Keycu3_${eventsIndex.toString()}',
+                                      'Keycu3_${listViewVDtEventsRow.id!}',
                                     ),
-                                    data: eventsItem,
+                                    data: EventsStruct(
+                                      location: listViewVDtEventsRow.location,
+                                      title: listViewVDtEventsRow.title,
+                                      date: listViewVDtEventsRow.date,
+                                      rating: listViewVDtEventsRow.rating,
+                                      tag: listViewVDtEventsRow.tag,
+                                      img: listViewVDtEventsRow.img,
+                                      descr: listViewVDtEventsRow.descr,
+                                      tickets: listViewVDtEventsRow.tickets,
+                                      dayleft: listViewVDtEventsRow.dayleft,
+                                      ticketStatus:
+                                          listViewVDtEventsRow.ticketStatus,
+                                      createdAt: listViewVDtEventsRow.date,
+                                      startHour: listViewVDtEventsRow.startHour,
+                                      minPrice: listViewVDtEventsRow.minPrice,
+                                    ),
                                   ),
                                 ),
                               );

@@ -1,14 +1,24 @@
 export '/backend/schema/util/schema_util.dart';
 
 export 'calendar_day_struct.dart';
+export 'cart_item_struct.dart';
 export 'collections_struct.dart';
+export 'event_ticketing_summary_struct.dart';
 export 'events_struct.dart';
 export 'events2_struct.dart';
+export 'registration_detail_struct.dart';
+export 'seat_availability_struct.dart';
+export 'seat_reservation_struct_struct.dart';
 export 'ticket_struct.dart';
+export 'ticket_detail_struct_struct.dart';
+export 'ticket_type_detail_struct.dart';
 export 'tranding_events_struct.dart';
 export 'articles_struct.dart';
 export 'categories_struct.dart';
 export 'comments_struct.dart';
 export 'faq_struct.dart';
 export 'languages_struct.dart';
+export 'metadata_struct.dart';
+export 'new_show_struct.dart';
 export 'organizators_struct.dart';
+export 'ticket_details_struct.dart';

@@ -99,7 +99,7 @@ class _WidgetCommentCardWidgetState extends State<WidgetCommentCardWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                       child: Text(
                         valueOrDefault<String>(
-                          widget!.data?.date,
+                          widget!.data?.date?.toString(),
                           'November 2024',
                         ),
                         style: FlutterFlowTheme.of(context).labelSmall.override(

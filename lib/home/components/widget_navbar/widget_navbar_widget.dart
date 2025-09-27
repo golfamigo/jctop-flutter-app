@@ -315,7 +315,7 @@ class _WidgetNavbarWidgetState extends State<WidgetNavbarWidget> {
                       highlightColor: Colors.transparent,
                       onTap: () async {
                         context.goNamed(
-                          MyTicketsWidget.routeName,
+                          MyTicketTestWidget.routeName,
                           extra: <String, dynamic>{
                             kTransitionInfoKey: TransitionInfo(
                               hasTransition: true,

@@ -8,7 +8,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 class TicketStruct extends BaseStruct {
   TicketStruct({
     String? title,
-    String? price,
+    double? price,
     String? description,
     int? quantity,
   })  : _title = title,
@@ -24,9 +24,11 @@ class TicketStruct extends BaseStruct {
   bool hasTitle() => _title != null;
 
   // "price" field.
-  String? _price;
-  String get price => _price ?? '';
-  set price(String? val) => _price = val;
+  double? _price;
+  double get price => _price ?? 0.0;
+  set price(double? val) => _price = val;
+
+  void incrementPrice(double amount) => price = price + amount;
 
   bool hasPrice() => _price != null;
 
@@ -48,7 +50,7 @@ class TicketStruct extends BaseStruct {
 
   static TicketStruct fromMap(Map<String, dynamic> data) => TicketStruct(
         title: data['title'] as String?,
-        price: data['price'] as String?,
+        price: castToType<double>(data['price']),
         description: data['description'] as String?,
         quantity: castToType<int>(data['quantity']),
       );
@@ -71,7 +73,7 @@ class TicketStruct extends BaseStruct {
         ),
         'price': serializeParam(
           _price,
-          ParamType.String,
+          ParamType.double,
         ),
         'description': serializeParam(
           _description,
@@ -92,7 +94,7 @@ class TicketStruct extends BaseStruct {
         ),
         price: deserializeParam(
           data['price'],
-          ParamType.String,
+          ParamType.double,
           false,
         ),
         description: deserializeParam(
@@ -126,7 +128,7 @@ class TicketStruct extends BaseStruct {
 
 TicketStruct createTicketStruct({
   String? title,
-  String? price,
+  double? price,
   String? description,
   int? quantity,
 }) =>

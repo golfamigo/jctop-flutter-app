@@ -113,7 +113,7 @@ class _MyTicketsSortWidgetState extends State<MyTicketsSortWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
-                          FFAppState().SelectedSortBy = listSortItem;
+                          FFAppState().selectedSortBy = listSortItem;
                           FFAppState().update(() {});
                           if (FFAppState().updater) {
                             FFAppState().updater = false;
@@ -153,7 +153,7 @@ class _MyTicketsSortWidgetState extends State<MyTicketsSortWidget> {
                                     ),
                               ),
                             ),
-                            if (listSortItem == FFAppState().SelectedSortBy)
+                            if (listSortItem == FFAppState().selectedSortBy)
                               Icon(
                                 FFIcons.kcircleCheckFilled,
                                 color: FlutterFlowTheme.of(context).primary,

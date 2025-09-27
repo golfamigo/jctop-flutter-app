@@ -1,18 +1,50 @@
 {
+  "get_current_location_reliably.dart": {
+    "old_identifier_name": "getCurrentLocationReliably",
+    "new_identifier_name": "getCurrentLocationReliably",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "ec59e2b76945f1e1179580aa44dba1a2ea19f128fd84e66cea466e2a0768a39f",
+    "original_checksum": "ec59e2b76945f1e1179580aa44dba1a2ea19f128fd84e66cea466e2a0768a39f"
+  },
+  "get_city_name_or_coords_debug.dart": {
+    "old_identifier_name": "getCityNameOrCoordsDebug",
+    "new_identifier_name": "getCityNameOrCoordsDebug",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "15b783badbc104639653a0b9ce3c93e35e3817e641b41b185b454d157c97b052",
+    "original_checksum": "15b783badbc104639653a0b9ce3c93e35e3817e641b41b185b454d157c97b052"
+  },
+  "test_location_only.dart": {
+    "old_identifier_name": "testLocationOnly",
+    "new_identifier_name": "testLocationOnly",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "8d73d24f1383ec5b0958bf8701ed3577b9c70233bebe6a6501976ff6aa17c65c",
+    "original_checksum": "8d73d24f1383ec5b0958bf8701ed3577b9c70233bebe6a6501976ff6aa17c65c"
+  },
+  "test_geocoding_only.dart": {
+    "old_identifier_name": "testGeocodingOnly",
+    "new_identifier_name": "testGeocodingOnly",
+    "type": "A",
+    "is_deleted": false,
+    "current_checksum": "061b19749c56a8756c94ce12d089c160d92bfd30b5cfffdc137b0648bf47749f",
+    "original_checksum": "061b19749c56a8756c94ce12d089c160d92bfd30b5cfffdc137b0648bf47749f"
+  },
   "custom_functions.dart": {
     "old_identifier_name": "CustomFunctions",
     "new_identifier_name": "CustomFunctions",
     "type": "F",
     "is_deleted": false,
-    "current_checksum": "a04866afbcc0ca39236927f85e129b9cf3d07d824539eb4a2588070f487e44ad",
-    "original_checksum": "a04866afbcc0ca39236927f85e129b9cf3d07d824539eb4a2588070f487e44ad"
+    "current_checksum": "a8274d145011736a70ce4a1b2c27953fe1a71e8d489ff6794386efd6d20f1ffe",
+    "original_checksum": "a8274d145011736a70ce4a1b2c27953fe1a71e8d489ff6794386efd6d20f1ffe"
   },
   "pubspec.yaml": {
     "old_identifier_name": "pubspec.yaml",
     "new_identifier_name": "pubspec.yaml",
     "type": "D",
     "is_deleted": false,
-    "current_checksum": "fba845296903d5d3b26f671de34468b124822ac6361b3a3210a3041d0b8fe6bf",
-    "original_checksum": "fba845296903d5d3b26f671de34468b124822ac6361b3a3210a3041d0b8fe6bf"
+    "current_checksum": "ee017c82fd628af6b49328deb87b2c16f9ab73820ec430bce273248a752ee8fd",
+    "original_checksum": "ee017c82fd628af6b49328deb87b2c16f9ab73820ec430bce273248a752ee8fd"
   }
 }

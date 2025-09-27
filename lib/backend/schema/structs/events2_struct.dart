@@ -7,21 +7,23 @@ import '/flutter_flow/flutter_flow_util.dart';
 
 class Events2Struct extends BaseStruct {
   Events2Struct({
-    String? price,
+    double? minPrice,
     String? category,
     String? title,
     String? img,
-  })  : _price = price,
+  })  : _minPrice = minPrice,
         _category = category,
         _title = title,
         _img = img;
 
-  // "price" field.
-  String? _price;
-  String get price => _price ?? '';
-  set price(String? val) => _price = val;
+  // "minPrice" field.
+  double? _minPrice;
+  double get minPrice => _minPrice ?? 0.0;
+  set minPrice(double? val) => _minPrice = val;
 
-  bool hasPrice() => _price != null;
+  void incrementMinPrice(double amount) => minPrice = minPrice + amount;
+
+  bool hasMinPrice() => _minPrice != null;
 
   // "category" field.
   String? _category;
@@ -45,7 +47,7 @@ class Events2Struct extends BaseStruct {
   bool hasImg() => _img != null;
 
   static Events2Struct fromMap(Map<String, dynamic> data) => Events2Struct(
-        price: data['price'] as String?,
+        minPrice: castToType<double>(data['minPrice']),
         category: data['category'] as String?,
         title: data['title'] as String?,
         img: data['img'] as String?,
@@ -55,7 +57,7 @@ class Events2Struct extends BaseStruct {
       data is Map ? Events2Struct.fromMap(data.cast<String, dynamic>()) : null;
 
   Map<String, dynamic> toMap() => {
-        'price': _price,
+        'minPrice': _minPrice,
         'category': _category,
         'title': _title,
         'img': _img,
@@ -63,9 +65,9 @@ class Events2Struct extends BaseStruct {
 
   @override
   Map<String, dynamic> toSerializableMap() => {
-        'price': serializeParam(
-          _price,
-          ParamType.String,
+        'minPrice': serializeParam(
+          _minPrice,
+          ParamType.double,
         ),
         'category': serializeParam(
           _category,
@@ -83,9 +85,9 @@ class Events2Struct extends BaseStruct {
 
   static Events2Struct fromSerializableMap(Map<String, dynamic> data) =>
       Events2Struct(
-        price: deserializeParam(
-          data['price'],
-          ParamType.String,
+        minPrice: deserializeParam(
+          data['minPrice'],
+          ParamType.double,
           false,
         ),
         category: deserializeParam(
@@ -111,24 +113,25 @@ class Events2Struct extends BaseStruct {
   @override
   bool operator ==(Object other) {
     return other is Events2Struct &&
-        price == other.price &&
+        minPrice == other.minPrice &&
         category == other.category &&
         title == other.title &&
         img == other.img;
   }
 
   @override
-  int get hashCode => const ListEquality().hash([price, category, title, img]);
+  int get hashCode =>
+      const ListEquality().hash([minPrice, category, title, img]);
 }
 
 Events2Struct createEvents2Struct({
-  String? price,
+  double? minPrice,
   String? category,
   String? title,
   String? img,
 }) =>
     Events2Struct(
-      price: price,
+      minPrice: minPrice,
       category: category,
       title: title,
       img: img,

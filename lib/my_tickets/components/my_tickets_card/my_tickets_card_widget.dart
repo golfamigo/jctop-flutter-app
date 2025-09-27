@@ -16,10 +16,34 @@ export 'my_tickets_card_model.dart';
 class MyTicketsCardWidget extends StatefulWidget {
   const MyTicketsCardWidget({
     super.key,
-    this.data,
+    this.dataDate,
+    this.dataLocation,
+    this.dataTitle,
+    this.dataImg,
+    this.dataTickets,
+    this.dataDayLeft,
+    this.dataTicketsStatus,
   });
 
-  final EventsStruct? data;
+  /// Event Date
+  final EventsStruct? dataDate;
+
+  /// Event Location
+  final EventsStruct? dataLocation;
+
+  /// eventTitle
+  final EventsStruct? dataTitle;
+
+  /// Event Img
+  final EventsStruct? dataImg;
+
+  /// Tickets
+  final EventsStruct? dataTickets;
+
+  /// Day Left
+  final EventsStruct? dataDayLeft;
+
+  final EventsStruct? dataTicketsStatus;
 
   @override
   State<MyTicketsCardWidget> createState() => _MyTicketsCardWidgetState();
@@ -65,7 +89,7 @@ class _MyTicketsCardWidgetState extends State<MyTicketsCardWidget> {
               ParamType.bool,
             ),
             'data': serializeParam(
-              widget!.data,
+              widget!.dataDate,
               ParamType.DataStruct,
             ),
           }.withoutNulls,
@@ -101,7 +125,7 @@ class _MyTicketsCardWidgetState extends State<MyTicketsCardWidget> {
                               image: DecorationImage(
                                 fit: BoxFit.cover,
                                 image: Image.network(
-                                  widget!.data!.img,
+                                  widget!.dataDate!.img,
                                 ).image,
                               ),
                               borderRadius: BorderRadius.circular(10.0),
@@ -136,8 +160,8 @@ class _MyTicketsCardWidgetState extends State<MyTicketsCardWidget> {
                                                     6.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               valueOrDefault<String>(
-                                                widget!.data?.location,
-                                                'Miami, FL',
+                                                widget!.dataLocation?.location,
+                                                'Default Location',
                                               ).maybeHandleOverflow(
                                                 maxChars: 20,
                                                 replacement: '…',
@@ -190,8 +214,10 @@ class _MyTicketsCardWidgetState extends State<MyTicketsCardWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   12.0, 3.0, 12.0, 3.0),
                                           child: Text(
-                                            FFLocalizations.of(context).getText(
-                                              'zfqwkvie' /* Paid */,
+                                            valueOrDefault<String>(
+                                              widget!.dataTicketsStatus
+                                                  ?.ticketStatus,
+                                              'Paid',
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .labelMedium
@@ -233,8 +259,8 @@ class _MyTicketsCardWidgetState extends State<MyTicketsCardWidget> {
                                         0.0, 8.0, 0.0, 0.0),
                                     child: Text(
                                       valueOrDefault<String>(
-                                        widget!.data?.title,
-                                        'Sunrise Trek and Cultural Tour',
+                                        widget!.dataTitle?.title,
+                                        'Default Title',
                                       ),
                                       textAlign: TextAlign.start,
                                       style: FlutterFlowTheme.of(context)
@@ -267,7 +293,12 @@ class _MyTicketsCardWidgetState extends State<MyTicketsCardWidget> {
                                         0.0, 5.0, 0.0, 0.0),
                                     child: Text(
                                       valueOrDefault<String>(
-                                        widget!.data?.date,
+                                        dateTimeFormat(
+                                          "MMM d, y,  h:mm a",
+                                          widget!.dataDate?.date,
+                                          locale: FFLocalizations.of(context)
+                                              .languageCode,
+                                        ),
                                         'Nov 25, 2025, 02:00 PM',
                                       ),
                                       style: FlutterFlowTheme.of(context)
@@ -322,9 +353,7 @@ class _MyTicketsCardWidgetState extends State<MyTicketsCardWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 7.0, 16.0, 7.0),
                                 child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    'zx69qeyd' /* 3 tickets */,
-                                  ),
+                                  '${widget!.dataTickets?.tickets?.toString()} Tickets',
                                   style: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
@@ -365,9 +394,7 @@ class _MyTicketsCardWidgetState extends State<MyTicketsCardWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     15.0, 7.0, 15.0, 7.0),
                                 child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    '1zzd074n' /* 12 days left */,
-                                  ),
+                                  '${widget!.dataDayLeft?.dayleft?.toString()} days left',
                                   style: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(

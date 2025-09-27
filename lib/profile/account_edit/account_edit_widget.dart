@@ -533,7 +533,7 @@ class _AccountEditWidgetState extends State<AccountEditWidget> {
                                   children: [
                                     Text(
                                       valueOrDefault<String>(
-                                        FFAppState().SelectedGender,
+                                        FFAppState().selectedGender,
                                         'Choose your gender',
                                       ),
                                       style: FlutterFlowTheme.of(context)

@@ -1,12 +1,13 @@
 import '/backend/schema/structs/index.dart';
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/profile/components/allow_location/allow_location_widget.dart';
 import 'dart:ui';
 import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'questions_model.dart';
@@ -32,14 +33,67 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
     super.initState();
     _model = createModel(context, () => QuestionsModel());
 
-    _model.textController ??= TextEditingController();
-    _model.textFieldFocusNode ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {
-          _model.textController?.text = FFLocalizations.of(context).getText(
-            'e8qmlfu9' /* New York */,
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await Future.wait([
+        Future(() async {
+          _model.interestsQuery =
+              await VAppConstantsWithTranslationsTable().queryRows(
+            queryFn: (q) => q
+                .eqOrNull(
+                  'language_code',
+                  FFLocalizations.of(context).languageCode,
+                )
+                .eqOrNull(
+                  'constant_type',
+                  'interests',
+                )
+                .order('display_order', ascending: true),
           );
-        }));
+        }),
+        Future(() async {
+          _model.lookingForQuery =
+              await VAppConstantsWithTranslationsTable().queryRows(
+            queryFn: (q) => q
+                .eqOrNull(
+                  'language_code',
+                  FFLocalizations.of(context).languageCode,
+                )
+                .eqOrNull(
+                  'constant_type',
+                  'looking_for',
+                )
+                .order('display_order', ascending: true),
+          );
+        }),
+        Future(() async {
+          _model.organizersQuery = await UsersTable().queryRows(
+            queryFn: (q) => q
+                .eqOrNull(
+                  'is_organizer',
+                  true,
+                )
+                .gteOrNull(
+                  'follower_count',
+                  0,
+                )
+                .order('follower_count'),
+          );
+        }),
+      ]);
+      _model.interestsList = _model.interestsQuery!
+          .toList()
+          .cast<VAppConstantsWithTranslationsRow>();
+      _model.lookingForList = _model.lookingForQuery!
+          .toList()
+          .cast<VAppConstantsWithTranslationsRow>();
+      _model.organizersList = _model.organizersQuery!.toList().cast<UsersRow>();
+      safeSetState(() {});
+      _model.isDataLoaded = true;
+      safeSetState(() {});
+    });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -160,18 +214,6 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
                                   ),
                                 ),
                               ),
-                              Expanded(
-                                child: Container(
-                                  width: 100.0,
-                                  height: 6.0,
-                                  decoration: BoxDecoration(
-                                    color: _model.pageViewCurrentIndex == 3
-                                        ? FlutterFlowTheme.of(context).primary
-                                        : FlutterFlowTheme.of(context).accent2,
-                                    borderRadius: BorderRadius.circular(6.0),
-                                  ),
-                                ),
-                              ),
                             ].divide(SizedBox(width: 8.0)),
                           ),
                         ),
@@ -209,411 +251,6 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
                               },
                               scrollDirection: Axis.horizontal,
                               children: [
-                                SingleChildScrollView(
-                                  primary: false,
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 15.0, 20.0, 0.0),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                's3ql5hwe' /* Where are you located? */,
-                                              ),
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .headlineLarge
-                                                  .override(
-                                                    font:
-                                                        GoogleFonts.interTight(
-                                                      fontWeight:
-                                                          FontWeight.w800,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .headlineLarge
-                                                              .fontStyle,
-                                                    ),
-                                                    fontSize: 30.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w800,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .headlineLarge
-                                                            .fontStyle,
-                                                  ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 10.0, 0.0, 0.0),
-                                              child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'l1pkylvv' /* Set your location to find loca... */,
-                                                ),
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .titleSmall
-                                                    .override(
-                                                      font: GoogleFonts.rubik(
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .fontStyle,
-                                                      ),
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryText,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .fontWeight,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .fontStyle,
-                                                    ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 25.0, 0.0, 0.0),
-                                        child: SingleChildScrollView(
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        15.0, 0.0, 15.0, 0.0),
-                                                child: Container(
-                                                  width: double.infinity,
-                                                  child: TextFormField(
-                                                    controller:
-                                                        _model.textController,
-                                                    focusNode: _model
-                                                        .textFieldFocusNode,
-                                                    autofocus: false,
-                                                    obscureText: false,
-                                                    decoration: InputDecoration(
-                                                      isDense: true,
-                                                      hintText:
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                        'xghna1le' /* Search by city */,
-                                                      ),
-                                                      hintStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .override(
-                                                                font:
-                                                                    GoogleFonts
-                                                                        .rubik(
-                                                                  fontWeight: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmall
-                                                                      .fontWeight,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmall
-                                                                      .fontStyle,
-                                                                ),
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleSmall
-                                                                    .fontWeight,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleSmall
-                                                                    .fontStyle,
-                                                              ),
-                                                      enabledBorder:
-                                                          OutlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color:
-                                                              Color(0x00000000),
-                                                          width: 1.0,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(12.0),
-                                                      ),
-                                                      focusedBorder:
-                                                          OutlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color:
-                                                              Color(0x00000000),
-                                                          width: 1.0,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(12.0),
-                                                      ),
-                                                      errorBorder:
-                                                          OutlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .error,
-                                                          width: 1.0,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(12.0),
-                                                      ),
-                                                      focusedErrorBorder:
-                                                          OutlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .error,
-                                                          width: 1.0,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(12.0),
-                                                      ),
-                                                      filled: true,
-                                                      fillColor:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .accent1,
-                                                      contentPadding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  16.0,
-                                                                  16.0,
-                                                                  16.0,
-                                                                  16.0),
-                                                      prefixIcon: Icon(
-                                                        Icons.search_rounded,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondaryText,
-                                                        size: 20.0,
-                                                      ),
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleSmall
-                                                        .override(
-                                                          font:
-                                                              GoogleFonts.rubik(
-                                                            fontWeight:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleSmall
-                                                                    .fontWeight,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleSmall
-                                                                    .fontStyle,
-                                                          ),
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleSmall
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleSmall
-                                                                  .fontStyle,
-                                                        ),
-                                                    cursorColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .primaryText,
-                                                    validator: _model
-                                                        .textControllerValidator
-                                                        .asValidator(context),
-                                                  ),
-                                                ),
-                                              ),
-                                              Builder(
-                                                builder: (context) => Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 8.0, 0.0, 0.0),
-                                                  child: InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      await showDialog(
-                                                        barrierColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .barier,
-                                                        context: context,
-                                                        builder:
-                                                            (dialogContext) {
-                                                          return Dialog(
-                                                            elevation: 0,
-                                                            insetPadding:
-                                                                EdgeInsets.zero,
-                                                            backgroundColor:
-                                                                Colors
-                                                                    .transparent,
-                                                            alignment: AlignmentDirectional(
-                                                                    0.0, 0.0)
-                                                                .resolve(
-                                                                    Directionality.of(
-                                                                        context)),
-                                                            child:
-                                                                GestureDetector(
-                                                              onTap: () {
-                                                                FocusScope.of(
-                                                                        dialogContext)
-                                                                    .unfocus();
-                                                                FocusManager
-                                                                    .instance
-                                                                    .primaryFocus
-                                                                    ?.unfocus();
-                                                              },
-                                                              child:
-                                                                  AllowLocationWidget(),
-                                                            ),
-                                                          );
-                                                        },
-                                                      );
-                                                    },
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      15.0,
-                                                                      12.0,
-                                                                      15.0,
-                                                                      12.0),
-                                                          child: Container(
-                                                            width: 40.0,
-                                                            height: 40.0,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .accent1,
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          8.0),
-                                                            ),
-                                                            child: Align(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      0.0, 0.0),
-                                                              child: Icon(
-                                                                FFIcons.kmapPin,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
-                                                                size: 20.0,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      12.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'wj8mlb3y' /* Use my current location */,
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .titleSmall
-                                                                .override(
-                                                                  font:
-                                                                      GoogleFonts
-                                                                          .rubik(
-                                                                    fontWeight: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleSmall
-                                                                        .fontWeight,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleSmall
-                                                                        .fontStyle,
-                                                                  ),
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmall
-                                                                      .fontWeight,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmall
-                                                                      .fontStyle,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ].addToEnd(SizedBox(height: 15.0)),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
                                 SingleChildScrollView(
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -704,8 +341,8 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
                                                       0.0, 25.0, 0.0, 0.0),
                                               child: Builder(
                                                 builder: (context) {
-                                                  final interestsList =
-                                                      FFAppConstants.interests
+                                                  final interestsListview =
+                                                      _model.interestsList
                                                           .toList();
 
                                                   return Wrap(
@@ -723,11 +360,12 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
                                                         VerticalDirection.down,
                                                     clipBehavior: Clip.none,
                                                     children: List.generate(
-                                                        interestsList.length,
-                                                        (interestsListIndex) {
-                                                      final interestsListItem =
-                                                          interestsList[
-                                                              interestsListIndex];
+                                                        interestsListview
+                                                            .length,
+                                                        (interestsListviewIndex) {
+                                                      final interestsListviewItem =
+                                                          interestsListview[
+                                                              interestsListviewIndex];
                                                       return InkWell(
                                                         splashColor:
                                                             Colors.transparent,
@@ -739,17 +377,18 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
                                                             Colors.transparent,
                                                         onTap: () async {
                                                           if (FFAppState()
-                                                              .SelectedInterests
+                                                              .selectedInterests
                                                               .contains(
-                                                                  interestsListItem)) {
-                                                            FFAppState()
-                                                                .removeFromSelectedInterests(
-                                                                    interestsListItem);
+                                                                  interestsListviewItem
+                                                                      .displayText)) {
+                                                            FFAppState().removeFromSelectedInterests(
+                                                                interestsListviewItem
+                                                                    .displayText!);
                                                             safeSetState(() {});
                                                           } else {
-                                                            FFAppState()
-                                                                .addToSelectedInterests(
-                                                                    interestsListItem);
+                                                            FFAppState().addToSelectedInterests(
+                                                                interestsListviewItem
+                                                                    .displayText!);
                                                             safeSetState(() {});
                                                           }
                                                         },
@@ -760,9 +399,10 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
                                                                 valueOrDefault<
                                                                     Color>(
                                                               FFAppState()
-                                                                      .SelectedInterests
+                                                                      .selectedInterests
                                                                       .contains(
-                                                                          interestsListItem)
+                                                                          interestsListviewItem
+                                                                              .displayText)
                                                                   ? FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryText
@@ -789,7 +429,8 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
                                                             child: Text(
                                                               valueOrDefault<
                                                                   String>(
-                                                                interestsListItem,
+                                                                interestsListviewItem
+                                                                    .displayText,
                                                                 '💻 Technology',
                                                               ),
                                                               style: FlutterFlowTheme
@@ -808,8 +449,8 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
                                                                     ),
                                                                     color: valueOrDefault<
                                                                         Color>(
-                                                                      FFAppState().SelectedInterests.contains(
-                                                                              interestsListItem)
+                                                                      FFAppState().selectedInterests.contains(interestsListviewItem
+                                                                              .displayText)
                                                                           ? FlutterFlowTheme.of(context)
                                                                               .secondaryBackground
                                                                           : FlutterFlowTheme.of(context)
@@ -843,14 +484,13 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
                                     ],
                                   ),
                                 ),
-                                Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          20.0, 15.0, 20.0, 0.0),
-                                      child: SingleChildScrollView(
-                                        primary: false,
+                                SingleChildScrollView(
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            20.0, 15.0, 20.0, 0.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           crossAxisAlignment:
@@ -934,12 +574,13 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
                                                       0.0, 25.0, 0.0, 0.0),
                                               child: Builder(
                                                 builder: (context) {
-                                                  final lookingfor =
-                                                      FFAppConstants.lookingFor
-                                                          .toList();
+                                                  final lookingfor = _model
+                                                      .lookingForList
+                                                      .toList();
 
                                                   return ListView.separated(
                                                     padding: EdgeInsets.zero,
+                                                    primary: false,
                                                     shrinkWrap: true,
                                                     scrollDirection:
                                                         Axis.vertical,
@@ -963,17 +604,20 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
                                                             Colors.transparent,
                                                         onTap: () async {
                                                           if (FFAppState()
-                                                              .SelectedLookingFor
+                                                              .selectedLookingFor
                                                               .contains(
-                                                                  lookingforItem)) {
+                                                                  lookingforItem
+                                                                      .displayText)) {
                                                             FFAppState()
                                                                 .removeFromSelectedLookingFor(
-                                                                    lookingforItem);
+                                                                    lookingforItem
+                                                                        .displayText!);
                                                             safeSetState(() {});
                                                           } else {
                                                             FFAppState()
                                                                 .addToSelectedLookingFor(
-                                                                    lookingforItem);
+                                                                    lookingforItem
+                                                                        .displayText!);
                                                             safeSetState(() {});
                                                           }
                                                         },
@@ -994,9 +638,9 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
                                                                   valueOrDefault<
                                                                       Color>(
                                                                 FFAppState()
-                                                                        .SelectedLookingFor
-                                                                        .contains(
-                                                                            lookingforItem)
+                                                                        .selectedLookingFor
+                                                                        .contains(lookingforItem
+                                                                            .displayText)
                                                                     ? FlutterFlowTheme.of(
                                                                             context)
                                                                         .primary
@@ -1027,7 +671,12 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
                                                                             0.0,
                                                                             0.0),
                                                                 child: Text(
-                                                                  lookingforItem,
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                    lookingforItem
+                                                                        .displayText,
+                                                                    'looking for...',
+                                                                  ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .titleSmall
@@ -1051,9 +700,10 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
                                                                 ),
                                                               ),
                                                               if (!FFAppState()
-                                                                  .SelectedLookingFor
+                                                                  .selectedLookingFor
                                                                   .contains(
-                                                                      lookingforItem))
+                                                                      lookingforItem
+                                                                          .displayText))
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
@@ -1071,9 +721,10 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
                                                                   ),
                                                                 ),
                                                               if (FFAppState()
-                                                                  .SelectedLookingFor
+                                                                  .selectedLookingFor
                                                                   .contains(
-                                                                      lookingforItem))
+                                                                      lookingforItem
+                                                                          .displayText))
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
@@ -1102,16 +753,16 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
                                           ],
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
-                                Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          20.0, 15.0, 20.0, 0.0),
-                                      child: SingleChildScrollView(
+                                SingleChildScrollView(
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            20.0, 15.0, 20.0, 0.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           crossAxisAlignment:
@@ -1197,10 +848,9 @@ organizers */
                                                       0.0, 25.0, 0.0, 0.0),
                                               child: Builder(
                                                 builder: (context) {
-                                                  final organizators =
-                                                      FFAppState()
-                                                          .Organizators
-                                                          .toList();
+                                                  final organizators = _model
+                                                      .organizersList
+                                                      .toList();
 
                                                   return ListView.separated(
                                                     padding: EdgeInsets.zero,
@@ -1219,6 +869,7 @@ organizers */
                                                               organizatorsIndex];
                                                       return Container(
                                                         width: double.infinity,
+                                                        height: 80.0,
                                                         decoration:
                                                             BoxDecoration(
                                                           color: FlutterFlowTheme
@@ -1263,20 +914,24 @@ organizers */
                                                                           BoxDecoration(
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .secondaryBackground,
-                                                                        image:
-                                                                            DecorationImage(
-                                                                          fit: BoxFit
-                                                                              .cover,
-                                                                          alignment: AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
-                                                                          image:
-                                                                              Image.network(
-                                                                            organizatorsItem.img,
-                                                                          ).image,
-                                                                        ),
                                                                         shape: BoxShape
                                                                             .circle,
+                                                                      ),
+                                                                      child:
+                                                                          ClipRRect(
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(8.0),
+                                                                        child: Image
+                                                                            .network(
+                                                                          organizatorsItem
+                                                                              .avatarUrl!,
+                                                                          width:
+                                                                              200.0,
+                                                                          height:
+                                                                              200.0,
+                                                                          fit: BoxFit
+                                                                              .cover,
+                                                                        ),
                                                                       ),
                                                                     ),
                                                                   ),
@@ -1295,7 +950,7 @@ organizers */
                                                                         valueOrDefault<
                                                                             String>(
                                                                           organizatorsItem
-                                                                              .title,
+                                                                              .name,
                                                                           'Ultra music Festival',
                                                                         ).maybeHandleOverflow(
                                                                           maxChars:
@@ -1324,11 +979,10 @@ organizers */
                                                                             0.0),
                                                                         child:
                                                                             Text(
-                                                                          valueOrDefault<
-                                                                              String>(
-                                                                            organizatorsItem.followers,
-                                                                            '220K Followers',
-                                                                          ),
+                                                                          '${valueOrDefault<String>(
+                                                                            organizatorsItem.followerCount?.toString(),
+                                                                            '0',
+                                                                          )} Followers',
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .labelMedium
                                                                               .override(
@@ -1354,18 +1008,41 @@ organizers */
                                                                   onPressed:
                                                                       () async {
                                                                     if (FFAppState()
-                                                                        .SelectedOrganizators
-                                                                        .contains(
-                                                                            organizatorsItem)) {
+                                                                        .selectedOrganizators
+                                                                        .where((e) =>
+                                                                            e.id ==
+                                                                            organizatorsItem.id)
+                                                                        .toList()
+                                                                        .isNotEmpty) {
                                                                       FFAppState()
                                                                           .removeFromSelectedOrganizators(
-                                                                              organizatorsItem);
+                                                                              OrganizatorsStruct(
+                                                                        title: organizatorsItem
+                                                                            .displayName,
+                                                                        followers: organizatorsItem
+                                                                            .followerCount
+                                                                            ?.toString(),
+                                                                        img: organizatorsItem
+                                                                            .avatarUrl,
+                                                                        id: organizatorsItem
+                                                                            .id,
+                                                                      ));
                                                                       safeSetState(
                                                                           () {});
                                                                     } else {
                                                                       FFAppState()
                                                                           .addToSelectedOrganizators(
-                                                                              organizatorsItem);
+                                                                              OrganizatorsStruct(
+                                                                        title: organizatorsItem
+                                                                            .displayName,
+                                                                        followers: organizatorsItem
+                                                                            .followerCount
+                                                                            ?.toString(),
+                                                                        img: organizatorsItem
+                                                                            .avatarUrl,
+                                                                        id: organizatorsItem
+                                                                            .id,
+                                                                      ));
                                                                       safeSetState(
                                                                           () {});
                                                                     }
@@ -1373,8 +1050,12 @@ organizers */
                                                                   text: valueOrDefault<
                                                                       String>(
                                                                     FFAppState()
-                                                                            .SelectedOrganizators
-                                                                            .contains(organizatorsItem)
+                                                                            .selectedOrganizators
+                                                                            .where((e) =>
+                                                                                e.id ==
+                                                                                organizatorsItem.id)
+                                                                            .toList()
+                                                                            .isNotEmpty
                                                                         ? 'Following'
                                                                         : 'Follow',
                                                                     'Follow',
@@ -1397,12 +1078,13 @@ organizers */
                                                                             0.0),
                                                                     color: valueOrDefault<
                                                                         Color>(
-                                                                      FFAppState().SelectedOrganizators.contains(
-                                                                              organizatorsItem)
-                                                                          ? FlutterFlowTheme.of(context)
-                                                                              .secondary
-                                                                          : FlutterFlowTheme.of(context)
-                                                                              .primary,
+                                                                      FFAppState()
+                                                                              .selectedOrganizators
+                                                                              .where((e) => e.id == organizatorsItem.id)
+                                                                              .toList()
+                                                                              .isNotEmpty
+                                                                          ? FlutterFlowTheme.of(context).secondary
+                                                                          : FlutterFlowTheme.of(context).primary,
                                                                       FlutterFlowTheme.of(
                                                                               context)
                                                                           .primary,
@@ -1452,8 +1134,8 @@ organizers */
                                           ],
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ],
                             ),
@@ -1467,8 +1149,18 @@ organizers */
                         EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        if (_model.pageViewCurrentIndex >= 3) {
+                        if (_model.pageViewCurrentIndex >= 2) {
                           context.pushNamed(AllowNotificationsWidget.routeName);
+
+                          context.pushNamed(
+                            HomeWidget.routeName,
+                            queryParameters: {
+                              'fromRegister': serializeParam(
+                                true,
+                                ParamType.bool,
+                              ),
+                            }.withoutNulls,
+                          );
                         } else {
                           await _model.pageViewController?.nextPage(
                             duration: Duration(milliseconds: 300),

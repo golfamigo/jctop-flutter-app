@@ -2855,7 +2855,7 @@ Bayfront Park */
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    'Amount (x${FFAppState().SelectedTickets.length.toString()})',
+                                    'Amount (x${FFAppState().selectedTickets.length.toString()})',
                                     style: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(

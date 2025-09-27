@@ -1,4 +1,6 @@
+import '/auth/supabase_auth/auth_util.dart';
 import '/backend/schema/structs/index.dart';
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_toggle_icon.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -109,16 +111,44 @@ class _WidgetEventCardWidgetState extends State<WidgetEventCardWidget> {
                           onPressed: () async {
                             safeSetState(
                               () => FFAppState()
-                                      .EVENTSFAVORITES
+                                      .eventsFavorites
                                       .contains(widget!.data)
                                   ? FFAppState()
-                                      .removeFromEVENTSFAVORITES(widget!.data!)
+                                      .removeFromEventsFavorites(widget!.data!)
                                   : FFAppState()
-                                      .addToEVENTSFAVORITES(widget!.data!),
+                                      .addToEventsFavorites(widget!.data!),
                             );
+                            if (FFAppState()
+                                    .eventsFavorites
+                                    .contains(widget!.data) ==
+                                true) {
+                              _model.addFavorite =
+                                  await UserFavoritesTable().insert({
+                                'user_id': currentUserUid,
+                                'event_id': widget!.data?.id,
+                                'created_at': supaSerialize<DateTime>(
+                                    getCurrentTimestamp),
+                              });
+                            } else {
+                              await UserFavoritesTable().delete(
+                                matchingRows: (rows) => rows
+                                    .eqOrNull(
+                                      'user_id',
+                                      currentUserUid,
+                                    )
+                                    .eqOrNull(
+                                      'event_id',
+                                      widget!.data?.id,
+                                    ),
+                              );
+                            }
+
+                            _model.updatePage(() {});
+
+                            safeSetState(() {});
                           },
                           value: FFAppState()
-                              .EVENTSFAVORITES
+                              .eventsFavorites
                               .contains(widget!.data),
                           onIcon: Icon(
                             Icons.favorite_rounded,
@@ -221,7 +251,7 @@ class _WidgetEventCardWidgetState extends State<WidgetEventCardWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                     child: Text(
                       valueOrDefault<String>(
-                        widget!.data?.date,
+                        widget!.data?.date?.toString(),
                         'Jan 10, 2025, 05:00 AM',
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -254,7 +284,7 @@ class _WidgetEventCardWidgetState extends State<WidgetEventCardWidget> {
                       children: [
                         Text(
                           valueOrDefault<String>(
-                            widget!.data?.price,
+                            widget!.data?.minPrice?.toString(),
                             'From \$75',
                           ),
                           style:
@@ -291,7 +321,7 @@ class _WidgetEventCardWidgetState extends State<WidgetEventCardWidget> {
                                   1.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 valueOrDefault<String>(
-                                  widget!.data?.rating,
+                                  widget!.data?.rating?.toString(),
                                   '4.9',
                                 ),
                                 style: FlutterFlowTheme.of(context)

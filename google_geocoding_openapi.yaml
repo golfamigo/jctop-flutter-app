@@ -1,0 +1,95 @@
+openapi: 3.0.0
+info:
+  title: Google Geocoding API
+  description: Google Maps Geocoding API for reverse geocoding
+  version: 1.0.0
+servers:
+  - url: https://maps.googleapis.com
+    description: Google Maps API Server
+paths:
+  /maps/api/geocode/json:
+    get:
+      summary: Reverse Geocode
+      description: Convert coordinates to address
+      operationId: reverseGeocode
+      parameters:
+        - name: latlng
+          in: query
+          required: true
+          description: Latitude and longitude in format lat,lng
+          schema:
+            type: string
+            example: "25.0330,121.5654"
+        - name: key
+          in: query
+          required: true
+          description: Your Google Maps API key
+          schema:
+            type: string
+        - name: language
+          in: query
+          required: false
+          description: Language for results
+          schema:
+            type: string
+            default: "zh-TW"
+            example: "zh-TW"
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        address_components:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              long_name:
+                                type: string
+                              short_name:
+                                type: string
+                              types:
+                                type: array
+                                items:
+                                  type: string
+                        formatted_address:
+                          type: string
+                        place_id:
+                          type: string
+                        geometry:
+                          type: object
+                          properties:
+                            location:
+                              type: object
+                              properties:
+                                lat:
+                                  type: number
+                                lng:
+                                  type: number
+                            location_type:
+                              type: string
+                  status:
+                    type: string
+              example:
+                results:
+                  - address_components:
+                      - long_name: "信義區"
+                        short_name: "信義區"
+                        types: ["locality", "political"]
+                      - long_name: "台北市"
+                        short_name: "台北市"
+                        types: ["administrative_area_level_1", "political"]
+                      - long_name: "台灣"
+                        short_name: "TW"
+                        types: ["country", "political"]
+                    formatted_address: "110台灣台北市信義區"
+                    place_id: "ChIJH56c2rarQjQRphD9gvC8BhI"
+                status: "OK"

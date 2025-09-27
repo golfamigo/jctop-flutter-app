@@ -192,7 +192,7 @@ class _ReportEventWidgetState extends State<ReportEventWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    FFAppState().SelectedEventReport =
+                                    FFAppState().selectedEventReport =
                                         reportItem;
                                     safeSetState(() {});
                                   },
@@ -236,7 +236,7 @@ class _ReportEventWidgetState extends State<ReportEventWidget> {
                                               ),
                                         ),
                                       ),
-                                      if (FFAppState().SelectedEventReport !=
+                                      if (FFAppState().selectedEventReport !=
                                           reportItem)
                                         Padding(
                                           padding:
@@ -249,7 +249,7 @@ class _ReportEventWidgetState extends State<ReportEventWidget> {
                                             size: 28.0,
                                           ),
                                         ),
-                                      if (FFAppState().SelectedEventReport ==
+                                      if (FFAppState().selectedEventReport ==
                                           reportItem)
                                         Padding(
                                           padding:

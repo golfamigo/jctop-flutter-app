@@ -1,4 +1,6 @@
+import '/auth/supabase_auth/auth_util.dart';
 import '/backend/schema/structs/index.dart';
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_swipeable_stack.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -166,7 +168,7 @@ YOU’LL LOVE */
                     decoration: BoxDecoration(),
                     child: Builder(
                       builder: (context) {
-                        final events = FFAppState().EVENTS.toList();
+                        final events = FFAppState().events.toList();
 
                         return FlutterFlowSwipeableStack(
                           onSwipeFn: (index) {},
@@ -286,7 +288,7 @@ YOU’LL LOVE */
                                                   .fromSTEB(
                                                       15.0, 8.0, 15.0, 0.0),
                                               child: Text(
-                                                eventsItem.date,
+                                                eventsItem.date!.toString(),
                                                 style: FlutterFlowTheme.of(
                                                         context)
                                                     .headlineMedium
@@ -431,18 +433,53 @@ YOU’LL LOVE */
                                                           onPressed: () async {
                                                             safeSetState(
                                                               () => FFAppState()
-                                                                      .EVENTSFAVORITES
+                                                                      .eventsFavorites
                                                                       .contains(
                                                                           eventsItem)
                                                                   ? FFAppState()
-                                                                      .removeFromEVENTSFAVORITES(
+                                                                      .removeFromEventsFavorites(
                                                                           eventsItem)
                                                                   : FFAppState()
-                                                                      .addToEVENTSFAVORITES(
+                                                                      .addToEventsFavorites(
                                                                           eventsItem),
                                                             );
                                                             if (FFAppState()
-                                                                .EVENTSFAVORITES
+                                                                    .eventsFavorites
+                                                                    .contains(
+                                                                        eventsItem) ==
+                                                                true) {
+                                                              _model.addFavorite =
+                                                                  await UserFavoritesTable()
+                                                                      .insert({
+                                                                'user_id':
+                                                                    currentUserUid,
+                                                                'event_id':
+                                                                    eventsItem
+                                                                        .id,
+                                                                'created_at':
+                                                                    supaSerialize<
+                                                                            DateTime>(
+                                                                        getCurrentTimestamp),
+                                                              });
+                                                            } else {
+                                                              await UserFavoritesTable()
+                                                                  .delete(
+                                                                matchingRows:
+                                                                    (rows) => rows
+                                                                        .eqOrNull(
+                                                                          'user_id',
+                                                                          currentUserUid,
+                                                                        )
+                                                                        .eqOrNull(
+                                                                          'event_id',
+                                                                          eventsItem
+                                                                              .id,
+                                                                        ),
+                                                              );
+                                                            }
+
+                                                            if (FFAppState()
+                                                                .eventsFavorites
                                                                 .contains(
                                                                     eventsItem)) {
                                                               FFAppState()
@@ -457,9 +494,11 @@ YOU’LL LOVE */
                                                               safeSetState(
                                                                   () {});
                                                             }
+
+                                                            safeSetState(() {});
                                                           },
                                                           value: FFAppState()
-                                                              .EVENTSFAVORITES
+                                                              .eventsFavorites
                                                               .contains(
                                                                   eventsItem),
                                                           onIcon: Icon(

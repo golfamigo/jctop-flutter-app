@@ -1,4 +1,6 @@
+import '/auth/supabase_auth/auth_util.dart';
 import '/backend/schema/structs/index.dart';
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_swipeable_stack.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -18,6 +20,10 @@ class FindNewEventsModel extends FlutterFlowModel<FindNewEventsWidget> {
 
   // State field(s) for SwipeableStack widget.
   late CardSwiperController swipeableStackController;
+  // Stores action output result for [Backend Call - Insert Row] action in ToggleIcon widget.
+  UserFavoritesRow? addFavorite;
+  // Stores action output result for [Backend Call - Delete Row(s)] action in ToggleIcon widget.
+  List<UserFavoritesRow>? delFavorite;
 
   @override
   void initState(BuildContext context) {

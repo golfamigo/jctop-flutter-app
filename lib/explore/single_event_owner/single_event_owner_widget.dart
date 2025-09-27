@@ -483,7 +483,7 @@ class _SingleEventOwnerWidgetState extends State<SingleEventOwnerWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              FFAppState().OrganizatorTAB = 0;
+                              FFAppState().organizatorTAB = 0;
                               safeSetState(() {});
                             },
                             child: Container(
@@ -491,7 +491,7 @@ class _SingleEventOwnerWidgetState extends State<SingleEventOwnerWidget> {
                               height: 100.0,
                               decoration: BoxDecoration(
                                 color: valueOrDefault<Color>(
-                                  FFAppState().OrganizatorTAB == 0
+                                  FFAppState().organizatorTAB == 0
                                       ? FlutterFlowTheme.of(context).accent1
                                       : FlutterFlowTheme.of(context).accent4,
                                   FlutterFlowTheme.of(context).accent1,
@@ -517,7 +517,7 @@ class _SingleEventOwnerWidgetState extends State<SingleEventOwnerWidget> {
                                                   .titleSmall
                                                   .fontStyle,
                                         ),
-                                        color: FFAppState().OrganizatorTAB == 0
+                                        color: FFAppState().organizatorTAB == 0
                                             ? FlutterFlowTheme.of(context)
                                                 .primaryText
                                             : FlutterFlowTheme.of(context)
@@ -542,14 +542,14 @@ class _SingleEventOwnerWidgetState extends State<SingleEventOwnerWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              FFAppState().OrganizatorTAB = 1;
+                              FFAppState().organizatorTAB = 1;
                               safeSetState(() {});
                             },
                             child: Container(
                               width: 100.0,
                               height: 100.0,
                               decoration: BoxDecoration(
-                                color: FFAppState().OrganizatorTAB == 1
+                                color: FFAppState().organizatorTAB == 1
                                     ? FlutterFlowTheme.of(context).accent1
                                     : FlutterFlowTheme.of(context).accent4,
                                 borderRadius: BorderRadius.circular(8.0),
@@ -573,7 +573,7 @@ class _SingleEventOwnerWidgetState extends State<SingleEventOwnerWidget> {
                                                   .titleSmall
                                                   .fontStyle,
                                         ),
-                                        color: FFAppState().OrganizatorTAB == 1
+                                        color: FFAppState().organizatorTAB == 1
                                             ? FlutterFlowTheme.of(context)
                                                 .primaryText
                                             : FlutterFlowTheme.of(context)
@@ -598,14 +598,14 @@ class _SingleEventOwnerWidgetState extends State<SingleEventOwnerWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              FFAppState().OrganizatorTAB = 2;
+                              FFAppState().organizatorTAB = 2;
                               safeSetState(() {});
                             },
                             child: Container(
                               width: 100.0,
                               height: 100.0,
                               decoration: BoxDecoration(
-                                color: FFAppState().OrganizatorTAB == 2
+                                color: FFAppState().organizatorTAB == 2
                                     ? FlutterFlowTheme.of(context).accent1
                                     : FlutterFlowTheme.of(context).accent4,
                                 borderRadius: BorderRadius.circular(8.0),
@@ -629,7 +629,7 @@ class _SingleEventOwnerWidgetState extends State<SingleEventOwnerWidget> {
                                                   .titleSmall
                                                   .fontStyle,
                                         ),
-                                        color: FFAppState().OrganizatorTAB == 2
+                                        color: FFAppState().organizatorTAB == 2
                                             ? FlutterFlowTheme.of(context)
                                                 .primaryText
                                             : FlutterFlowTheme.of(context)
@@ -652,7 +652,7 @@ class _SingleEventOwnerWidgetState extends State<SingleEventOwnerWidget> {
                   ),
                 ),
               ),
-              if (FFAppState().OrganizatorTAB == 0)
+              if (FFAppState().organizatorTAB == 0)
                 SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
@@ -691,7 +691,7 @@ class _SingleEventOwnerWidgetState extends State<SingleEventOwnerWidget> {
                         child: Builder(
                           builder: (context) {
                             final events =
-                                FFAppState().EVENTS.toList().take(5).toList();
+                                FFAppState().events.toList().take(5).toList();
 
                             return ListView.separated(
                               padding: EdgeInsets.zero,
@@ -729,7 +729,7 @@ class _SingleEventOwnerWidgetState extends State<SingleEventOwnerWidget> {
                     ].addToEnd(SizedBox(height: 15.0)),
                   ),
                 ),
-              if (FFAppState().OrganizatorTAB == 1)
+              if (FFAppState().organizatorTAB == 1)
                 SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
@@ -739,7 +739,7 @@ class _SingleEventOwnerWidgetState extends State<SingleEventOwnerWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                         child: Builder(
                           builder: (context) {
-                            final list = FFAppState().CollectionsList.toList();
+                            final list = FFAppState().collectionsList.toList();
 
                             return ListView.separated(
                               padding: EdgeInsets.zero,
@@ -872,7 +872,7 @@ class _SingleEventOwnerWidgetState extends State<SingleEventOwnerWidget> {
                     ].addToEnd(SizedBox(height: 15.0)),
                   ),
                 ),
-              if (FFAppState().OrganizatorTAB == 2)
+              if (FFAppState().organizatorTAB == 2)
                 SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,

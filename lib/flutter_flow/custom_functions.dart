@@ -10,6 +10,7 @@ import 'place.dart';
 import 'uploaded_file.dart';
 import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
+import '/auth/supabase_auth/auth_util.dart';
 
 List<CalendarDayStruct> getCalendarForMonth(DateTime inputDate) {
   // NOTE: Since recording the episode it was spotted that the AI code which was
@@ -108,4 +109,184 @@ List<DateTime> getDatesRange(
   }
 
   return datesList;
+}
+
+/// 實驗：計算活動剩餘天數 - 返回 int 供 EventsStruct.dayLeft 使用
+int experimentCalculateDaysLeft(DateTime? eventDate) {
+  if (eventDate == null) return 0;
+  final now = DateTime.now();
+  final difference = eventDate.difference(now).inDays;
+  return difference > 0 ? difference : 0;
+}
+
+int experimentCalculateTicketCount(dynamic ticketsData) {
+  if (ticketsData is List) {
+    int totalQuantity = 0;
+    for (final item in ticketsData) {
+      if (item is Map && item['quantity'] != null) {
+        final quantity = item['quantity'];
+        if (quantity is num) {
+          totalQuantity += quantity.toInt();
+        }
+      }
+    }
+    if (totalQuantity > 0) {
+      return totalQuantity;
+    } else {
+      return 1;
+    }
+  }
+
+  if (ticketsData is Map && ticketsData['quantity'] != null) {
+    final quantity = ticketsData['quantity'];
+    if (quantity is num) {
+      return quantity.toInt();
+    }
+    return 1;
+  }
+
+  if (ticketsData is num) {
+    return ticketsData.toInt();
+  }
+
+  return 1;
+}
+
+String experimentFormatPaymentStatus(
+  String? paymentStatus,
+  double? paymentAmount,
+) {
+  if (paymentStatus == null) return 'Free';
+
+  switch (paymentStatus.toLowerCase()) {
+    case 'completed':
+    case 'success':
+    case 'paid':
+      return paymentAmount == null || paymentAmount <= 0 ? 'Free' : 'Paid';
+    case 'pending':
+    case 'processing':
+      return 'Pending';
+    case 'failed':
+    case 'cancelled':
+    case 'refunded':
+      return 'Cancelled';
+    case 'free':
+    case 'complimentary':
+      return 'Free';
+    default:
+      return paymentAmount == null || paymentAmount <= 0 ? 'Free' : 'Paid';
+  }
+}
+
+List<EventsStruct> convertVDtEventsToEvents(List<VDtEventsRow> vdtEvents) {
+  return vdtEvents
+      .map((row) => EventsStruct(
+            id: row.id,
+            location: row.location,
+            title: row.title,
+            date: row.date,
+            minPrice: row.minPrice,
+            maxPrice: row.maxPrice,
+            avgPrice: row.avgPrice,
+            rating: row.rating,
+            tag: row.tag,
+            img: row.img,
+            descr: row.descr,
+            tickets: row.tickets,
+            dayleft: row.dayleft,
+            ticketStatus: row.ticketStatus,
+            createdAt: row.createdAt,
+            startHour: row.startHour,
+            isFavorite: row.isFavorite,
+          ))
+      .toList();
+}
+
+List<CategoriesStruct> convertVDtCategoriesToCategories(
+    List<VDtCategoriesRow> vdtCategories) {
+  return vdtCategories
+      .map((row) => CategoriesStruct(
+            title: row.title,
+            img: row.img,
+            descr: row.descr,
+            icon: row.icon,
+          ))
+      .toList();
+}
+
+DateTime getSevenDaysFromNow() {
+  // Get current date and add 7 days to it
+  DateTime currentDate = DateTime.now();
+  DateTime sevenDaysLater = currentDate.add(Duration(days: 7));
+  return sevenDaysLater;
+}
+
+DateTime addDaysToDate(
+  DateTime inputDate,
+  int daysToAdd,
+) {
+  // Add specified number of days to the input date
+  return inputDate.add(Duration(days: daysToAdd));
+}
+
+List<TrandingEventsStruct> convertVDtTrendingEventsToTrending(
+    List<VDtTrendingEventsRow> vdtTrending) {
+  return vdtTrending
+      .map((row) => TrandingEventsStruct(
+            title: row.title,
+            category: row.category,
+            price: row.price,
+            img: row.img,
+          ))
+      .toList();
+}
+
+List<OrganizatorsStruct> convertVDtOrganizatorsToOrganizators(
+    List<VDtOrganizatorsRow> vdtOrganizators) {
+  return vdtOrganizators
+      .map((row) => OrganizatorsStruct(
+            id: row.id,
+            title: row.title,
+            followers: row.followers,
+            img: row.img,
+          ))
+      .toList();
+}
+
+List<CommentsStruct> convertVDtCommentsToComments(
+    List<VDtCommentsRow> vdtComments) {
+  return vdtComments
+      .map((row) => CommentsStruct(
+            name: row.name,
+            date: row.date,
+            comment: row.comment,
+          ))
+      .toList();
+}
+
+List<TicketStruct> convertVDtTicketsToTickets(List<VDtTicketsRow> vdtTickets) {
+  return vdtTickets
+      .map((row) => TicketStruct(
+            title: row.title,
+            price: row.price,
+            description: row.description,
+            quantity: row.quantity,
+          ))
+      .toList();
+}
+
+List<String> convertVAppConstantsToPopularSearches(
+    List<VAppConstantsSmartRow> vAppConstants) {
+  return vAppConstants
+      .map((row) => row.displayText ?? '')
+      .where((text) => text.isNotEmpty)
+      .toList();
+}
+
+List<String> convertVAppConstantsToCategories(
+    List<VAppConstantsSmartRow> vAppConstants) {
+  return vAppConstants
+      .map((row) => row.displayText ?? '')
+      .where((text) => text.isNotEmpty)
+      .toList();
 }

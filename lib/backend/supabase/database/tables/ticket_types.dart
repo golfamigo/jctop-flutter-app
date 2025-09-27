@@ -55,4 +55,12 @@ class TicketTypesRow extends SupabaseDataRow {
 
   int? get maxPerUser => getField<int>('max_per_user');
   set maxPerUser(int? value) => setField<int>('max_per_user', value);
+
+  String? get seatingZoneId => getField<String>('seating_zone_id');
+  set seatingZoneId(String? value) =>
+      setField<String>('seating_zone_id', value);
+
+  bool? get requiresSeatSelection => getField<bool>('requires_seat_selection');
+  set requiresSeatSelection(bool? value) =>
+      setField<bool>('requires_seat_selection', value);
 }

@@ -242,7 +242,7 @@ class _CalendarCompWidgetState extends State<CalendarCompWidget> {
                       onTap: () async {
                         _model.selectedDate = calendarItem.calendarDate;
                         safeSetState(() {});
-                        FFAppState().SelectedFilterDate =
+                        FFAppState().selectedFilterDate =
                             calendarItem.calendarDate;
                         _model.updatePage(() {});
                         await widget.onSelectDateAction?.call(

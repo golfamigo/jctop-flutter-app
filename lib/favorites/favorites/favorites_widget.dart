@@ -194,7 +194,7 @@ class _FavoritesWidgetState extends State<FavoritesWidget>
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    FFAppState().FavoritesTAB = 0;
+                                    FFAppState().favoritesTAB = 0;
                                     safeSetState(() {});
                                   },
                                   child: Container(
@@ -202,7 +202,7 @@ class _FavoritesWidgetState extends State<FavoritesWidget>
                                     height: 100.0,
                                     decoration: BoxDecoration(
                                       color: valueOrDefault<Color>(
-                                        FFAppState().FavoritesTAB == 0
+                                        FFAppState().favoritesTAB == 0
                                             ? FlutterFlowTheme.of(context)
                                                 .accent1
                                             : FlutterFlowTheme.of(context)
@@ -231,7 +231,7 @@ class _FavoritesWidgetState extends State<FavoritesWidget>
                                                         .fontStyle,
                                               ),
                                               color: FFAppState()
-                                                          .FavoritesTAB ==
+                                                          .favoritesTAB ==
                                                       0
                                                   ? FlutterFlowTheme.of(context)
                                                       .primaryText
@@ -259,14 +259,14 @@ class _FavoritesWidgetState extends State<FavoritesWidget>
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    FFAppState().FavoritesTAB = 1;
+                                    FFAppState().favoritesTAB = 1;
                                     safeSetState(() {});
                                   },
                                   child: Container(
                                     width: 100.0,
                                     height: 100.0,
                                     decoration: BoxDecoration(
-                                      color: FFAppState().FavoritesTAB == 1
+                                      color: FFAppState().favoritesTAB == 1
                                           ? FlutterFlowTheme.of(context).accent1
                                           : FlutterFlowTheme.of(context)
                                               .accent4,
@@ -292,7 +292,7 @@ class _FavoritesWidgetState extends State<FavoritesWidget>
                                                         .fontStyle,
                                               ),
                                               color: FFAppState()
-                                                          .FavoritesTAB ==
+                                                          .favoritesTAB ==
                                                       1
                                                   ? FlutterFlowTheme.of(context)
                                                       .primaryText
@@ -320,14 +320,14 @@ class _FavoritesWidgetState extends State<FavoritesWidget>
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    FFAppState().FavoritesTAB = 2;
+                                    FFAppState().favoritesTAB = 2;
                                     safeSetState(() {});
                                   },
                                   child: Container(
                                     width: 100.0,
                                     height: 100.0,
                                     decoration: BoxDecoration(
-                                      color: FFAppState().FavoritesTAB == 2
+                                      color: FFAppState().favoritesTAB == 2
                                           ? FlutterFlowTheme.of(context).accent1
                                           : FlutterFlowTheme.of(context)
                                               .accent4,
@@ -353,7 +353,7 @@ class _FavoritesWidgetState extends State<FavoritesWidget>
                                                         .fontStyle,
                                               ),
                                               color: FFAppState()
-                                                          .FavoritesTAB ==
+                                                          .favoritesTAB ==
                                                       2
                                                   ? FlutterFlowTheme.of(context)
                                                       .primaryText
@@ -385,7 +385,7 @@ class _FavoritesWidgetState extends State<FavoritesWidget>
                       child: Builder(
                         builder: (context) {
                           final favoritesCard =
-                              FFAppState().EVENTSFAVORITES.toList();
+                              FFAppState().eventsFavorites.toList();
                           if (favoritesCard.isEmpty) {
                             return Center(
                               child: Container(

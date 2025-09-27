@@ -35,7 +35,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {
           _model.textController?.text = FFLocalizations.of(context).getText(
-            '1x3tx32q' /* example@domain.com */,
+            '4em5zk1y' /* example@domain.com */,
           );
         }));
   }
@@ -198,7 +198,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                               decoration: InputDecoration(
                                 isDense: true,
                                 hintText: FFLocalizations.of(context).getText(
-                                  'bmyypwc3' /* Emter your email */,
+                                  'k0iqw9ie' /* Emter your email */,
                                 ),
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .titleSmall

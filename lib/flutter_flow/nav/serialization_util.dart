@@ -218,20 +218,60 @@ dynamic deserializeParam<T>(
       case ParamType.SupabaseRow:
         final data = json.decode(param) as Map<String, dynamic>;
         switch (T) {
+          case CategoryTranslationsRow:
+            return CategoryTranslationsRow(data);
           case PaymentsRow:
             return PaymentsRow(data);
+          case VEventsFullRow:
+            return VEventsFullRow(data);
+          case VEventsSimpleRow:
+            return VEventsSimpleRow(data);
+          case UserFollowsRow:
+            return UserFollowsRow(data);
+          case CollectionsRow:
+            return CollectionsRow(data);
+          case VDtCollectionsRow:
+            return VDtCollectionsRow(data);
+          case CollectionEventsRow:
+            return CollectionEventsRow(data);
+          case FaqsRow:
+            return FaqsRow(data);
           case DiscountCodesRow:
             return DiscountCodesRow(data);
+          case VCategoriesWithTranslationsRow:
+            return VCategoriesWithTranslationsRow(data);
+          case VDtEventsRow:
+            return VDtEventsRow(data);
           case UserActivitiesRow:
             return UserActivitiesRow(data);
+          case VDtOrganizatorsRow:
+            return VDtOrganizatorsRow(data);
+          case VTrendingEventsRow:
+            return VTrendingEventsRow(data);
+          case VOrganizatorsRow:
+            return VOrganizatorsRow(data);
           case TicketTypesRow:
             return TicketTypesRow(data);
+          case VAppConstantsWithTranslationsRow:
+            return VAppConstantsWithTranslationsRow(data);
           case VUserRolesRow:
             return VUserRolesRow(data);
+          case VArticlesRow:
+            return VArticlesRow(data);
+          case UserLookingForRow:
+            return UserLookingForRow(data);
+          case VEventTicketingSummaryRow:
+            return VEventTicketingSummaryRow(data);
           case VMyEventsRow:
             return VMyEventsRow(data);
+          case SeatReservationsRow:
+            return SeatReservationsRow(data);
           case VUserStatisticsRow:
             return VUserStatisticsRow(data);
+          case SeatsRow:
+            return SeatsRow(data);
+          case VSeatAvailabilityRow:
+            return VSeatAvailabilityRow(data);
           case SeatingZonesRow:
             return SeatingZonesRow(data);
           case VEventsListRow:
@@ -240,18 +280,44 @@ dynamic deserializeParam<T>(
             return PaymentProvidersRow(data);
           case CustomRegistrationFieldsRow:
             return CustomRegistrationFieldsRow(data);
+          case AppConstantTranslationsRow:
+            return AppConstantTranslationsRow(data);
           case VEventStatsRow:
             return VEventStatsRow(data);
+          case VDtTrendingEventsRow:
+            return VDtTrendingEventsRow(data);
+          case RegistrationTicketsRow:
+            return RegistrationTicketsRow(data);
+          case ArticlesRow:
+            return ArticlesRow(data);
+          case VRegistrationDetailsRow:
+            return VRegistrationDetailsRow(data);
           case EventsRow:
             return EventsRow(data);
+          case CommentsRow:
+            return CommentsRow(data);
+          case UserInterestsRow:
+            return UserInterestsRow(data);
           case UsersRow:
             return UsersRow(data);
+          case ApiKeysRow:
+            return ApiKeysRow(data);
+          case AppConstantsRow:
+            return AppConstantsRow(data);
           case UserFavoritesRow:
             return UserFavoritesRow(data);
           case RegistrationsRow:
             return RegistrationsRow(data);
+          case VDtCommentsRow:
+            return VDtCommentsRow(data);
+          case VAppConstantsSmartRow:
+            return VAppConstantsSmartRow(data);
+          case VDtCategoriesRow:
+            return VDtCategoriesRow(data);
           case CategoriesRow:
             return CategoriesRow(data);
+          case VTicketTypesDetailRow:
+            return VTicketTypesDetailRow(data);
           case VNotificationsRow:
             return VNotificationsRow(data);
           case VenuesRow:
@@ -260,6 +326,10 @@ dynamic deserializeParam<T>(
             return NotificationsRow(data);
           case InvoiceSettingsRow:
             return InvoiceSettingsRow(data);
+          case VEventsCompleteRow:
+            return VEventsCompleteRow(data);
+          case VDtTicketsRow:
+            return VDtTicketsRow(data);
           default:
             return null;
         }

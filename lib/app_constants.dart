@@ -106,4 +106,6 @@ abstract class FFAppConstants {
     'Build your professional network',
     'Socialize with others'
   ];
+  static const String googleMapApiKei =
+      'AIzaSyAVTQJgn_N6SkbRzpBUlHrln0h6_A6e-Eo';
 }

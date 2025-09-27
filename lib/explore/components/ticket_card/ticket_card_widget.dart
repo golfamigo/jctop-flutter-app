@@ -134,7 +134,7 @@ class _TicketCardWidgetState extends State<TicketCardWidget> {
                               children: [
                                 TextSpan(
                                   text: valueOrDefault<String>(
-                                    widget!.data?.price,
+                                    widget!.data?.price?.toString(),
                                     '\$1,200',
                                   ),
                                   style: FlutterFlowTheme.of(context)
@@ -249,7 +249,7 @@ class _TicketCardWidgetState extends State<TicketCardWidget> {
                                 onTap: () async {
                                   if (_model.quantity < 1) {
                                     if (FFAppState()
-                                        .SelectedTickets
+                                        .selectedTickets
                                         .contains(widget!.data)) {
                                       FFAppState().removeFromSelectedTickets(
                                           widget!.data!);
@@ -259,7 +259,7 @@ class _TicketCardWidgetState extends State<TicketCardWidget> {
                                     _model.quantity = _model.quantity + -1;
                                     safeSetState(() {});
                                     if (FFAppState()
-                                        .SelectedTickets
+                                        .selectedTickets
                                         .contains(widget!.data)) {
                                       FFAppState().updateSelectedTicketsAtIndex(
                                         widget!.index!,
@@ -326,7 +326,7 @@ class _TicketCardWidgetState extends State<TicketCardWidget> {
                                   _model.quantity = _model.quantity + 1;
                                   safeSetState(() {});
                                   if (FFAppState()
-                                      .SelectedTickets
+                                      .selectedTickets
                                       .contains(widget!.data)) {
                                     FFAppState().updateSelectedTicketsAtIndex(
                                       widget!.index!,

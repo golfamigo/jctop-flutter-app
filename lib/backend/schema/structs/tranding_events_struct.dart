@@ -7,7 +7,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 
 class TrandingEventsStruct extends BaseStruct {
   TrandingEventsStruct({
-    String? price,
+    double? price,
     String? category,
     String? title,
     String? img,
@@ -16,21 +16,23 @@ class TrandingEventsStruct extends BaseStruct {
         _title = title,
         _img = img;
 
-  // "Price" field.
-  String? _price;
-  String get price => _price ?? '';
-  set price(String? val) => _price = val;
+  // "price" field.
+  double? _price;
+  double get price => _price ?? 0.0;
+  set price(double? val) => _price = val;
+
+  void incrementPrice(double amount) => price = price + amount;
 
   bool hasPrice() => _price != null;
 
-  // "Category" field.
+  // "category" field.
   String? _category;
   String get category => _category ?? '';
   set category(String? val) => _category = val;
 
   bool hasCategory() => _category != null;
 
-  // "Title" field.
+  // "title" field.
   String? _title;
   String get title => _title ?? '';
   set title(String? val) => _title = val;
@@ -46,9 +48,9 @@ class TrandingEventsStruct extends BaseStruct {
 
   static TrandingEventsStruct fromMap(Map<String, dynamic> data) =>
       TrandingEventsStruct(
-        price: data['Price'] as String?,
-        category: data['Category'] as String?,
-        title: data['Title'] as String?,
+        price: castToType<double>(data['price']),
+        category: data['category'] as String?,
+        title: data['title'] as String?,
         img: data['img'] as String?,
       );
 
@@ -57,23 +59,23 @@ class TrandingEventsStruct extends BaseStruct {
       : null;
 
   Map<String, dynamic> toMap() => {
-        'Price': _price,
-        'Category': _category,
-        'Title': _title,
+        'price': _price,
+        'category': _category,
+        'title': _title,
         'img': _img,
       }.withoutNulls;
 
   @override
   Map<String, dynamic> toSerializableMap() => {
-        'Price': serializeParam(
+        'price': serializeParam(
           _price,
-          ParamType.String,
+          ParamType.double,
         ),
-        'Category': serializeParam(
+        'category': serializeParam(
           _category,
           ParamType.String,
         ),
-        'Title': serializeParam(
+        'title': serializeParam(
           _title,
           ParamType.String,
         ),
@@ -86,17 +88,17 @@ class TrandingEventsStruct extends BaseStruct {
   static TrandingEventsStruct fromSerializableMap(Map<String, dynamic> data) =>
       TrandingEventsStruct(
         price: deserializeParam(
-          data['Price'],
-          ParamType.String,
+          data['price'],
+          ParamType.double,
           false,
         ),
         category: deserializeParam(
-          data['Category'],
+          data['category'],
           ParamType.String,
           false,
         ),
         title: deserializeParam(
-          data['Title'],
+          data['title'],
           ParamType.String,
           false,
         ),
@@ -124,7 +126,7 @@ class TrandingEventsStruct extends BaseStruct {
 }
 
 TrandingEventsStruct createTrandingEventsStruct({
-  String? price,
+  double? price,
   String? category,
   String? title,
   String? img,

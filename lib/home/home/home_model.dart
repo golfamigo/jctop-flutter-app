@@ -1,4 +1,5 @@
 import '/backend/schema/structs/index.dart';
+import '/backend/supabase/supabase.dart';
 import '/explore/components/widget_categories_card2/widget_categories_card2_widget.dart';
 import '/explore/components/widget_event_card/widget_event_card_widget.dart';
 import '/explore/components/widget_event_card2/widget_event_card2_widget.dart';
@@ -13,6 +14,7 @@ import '/home/components/widget_navbar/widget_navbar_widget.dart';
 import '/walkthroughs/home.dart';
 import 'dart:math';
 import 'dart:ui';
+import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'home_widget.dart' show HomeWidget;
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'
@@ -27,6 +29,14 @@ class HomeModel extends FlutterFlowModel<HomeWidget> {
   ///  State fields for stateful widgets in this page.
 
   TutorialCoachMark? homeController;
+  // Stores action output result for [Backend Call - Query Rows] action in Home widget.
+  List<VDtEventsRow>? allLocalEvents;
+  // Stores action output result for [Backend Call - Query Rows] action in Home widget.
+  List<VDtCategoriesRow>? categories;
+  // Stores action output result for [Backend Call - Query Rows] action in Home widget.
+  List<VAppConstantsSmartRow>? popularSearches;
+  // Stores action output result for [Backend Call - Query Rows] action in Home widget.
+  List<VAppConstantsSmartRow>? categoryTranslate;
   // Models for WidgetCategoriesCard2 dynamic component.
   late FlutterFlowDynamicModels<WidgetCategoriesCard2Model>
       widgetCategoriesCard2Models;

@@ -28,7 +28,7 @@ class CalendarDayStruct extends BaseStruct {
 
   bool hasIsNextMonth() => _isNextMonth != null;
 
-  // "CalendarDate" field.
+  // "calendarDate" field.
   DateTime? _calendarDate;
   DateTime? get calendarDate => _calendarDate;
   set calendarDate(DateTime? val) => _calendarDate = val;
@@ -39,7 +39,7 @@ class CalendarDayStruct extends BaseStruct {
       CalendarDayStruct(
         isPreviousMonth: data['isPreviousMonth'] as bool?,
         isNextMonth: data['isNextMonth'] as bool?,
-        calendarDate: data['CalendarDate'] as DateTime?,
+        calendarDate: data['calendarDate'] as DateTime?,
       );
 
   static CalendarDayStruct? maybeFromMap(dynamic data) => data is Map
@@ -49,7 +49,7 @@ class CalendarDayStruct extends BaseStruct {
   Map<String, dynamic> toMap() => {
         'isPreviousMonth': _isPreviousMonth,
         'isNextMonth': _isNextMonth,
-        'CalendarDate': _calendarDate,
+        'calendarDate': _calendarDate,
       }.withoutNulls;
 
   @override
@@ -62,7 +62,7 @@ class CalendarDayStruct extends BaseStruct {
           _isNextMonth,
           ParamType.bool,
         ),
-        'CalendarDate': serializeParam(
+        'calendarDate': serializeParam(
           _calendarDate,
           ParamType.DateTime,
         ),
@@ -81,7 +81,7 @@ class CalendarDayStruct extends BaseStruct {
           false,
         ),
         calendarDate: deserializeParam(
-          data['CalendarDate'],
+          data['calendarDate'],
           ParamType.DateTime,
           false,
         ),
